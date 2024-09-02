@@ -13,7 +13,7 @@ function Login() {
           <label htmlFor="emailInput">EMAIL</label>
           <input type="email" name="emialInput" className="emailInput" />
         </div>
-        <div className="passwordInput">
+        <div className="passwordInputDiv">
           <label htmlFor="passwordInput">PASSWORD</label>
           <input
             type="password"

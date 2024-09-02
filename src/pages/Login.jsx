@@ -6,12 +6,30 @@ function Login() {
   const [passwordInput, setPasswordInput] = useState("");
   const [errorStatus, setErrorStatus] = useState("hide");
 
+  // input handlers
+  const handleEmailInput = (e) => {
+    setEmailInput(e.target.value);
+  };
+
+  const handlePasswordInput = (e) => {
+    setPasswordInput(e.target.value);
+  };
+
+  const handleLoginClick = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <>
       <div className="loginBox">
         <div className="inputName">
           <label htmlFor="emailInput">EMAIL</label>
-          <input type="email" name="emialInput" className="emailInput" />
+          <input
+            type="email"
+            name="emialInput"
+            className="emailInput"
+            onChange={(e) => handleEmailInput(e)}
+          />
         </div>
         <div className="passwordInputDiv">
           <label htmlFor="passwordInput">PASSWORD</label>
@@ -19,10 +37,13 @@ function Login() {
             type="password"
             name="passwordInput"
             className="passwordInput"
+            onChange={(e) => handlePasswordInput(e)}
           />
         </div>
         <div className="buttonBox">
-          <button className="loginBtn">LOGIN</button>
+          <button className="loginBtn" onClick={(e) => handleLoginClick(e)}>
+            LOGIN
+          </button>
         </div>
         <div className="buttonBox">
           <button className="guestBtn">GUEST LOGIN</button>

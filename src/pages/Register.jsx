@@ -1,4 +1,5 @@
 import "../styles/register.css";
+import { useState } from "react";
 
 function Register() {
   const [usernameInput, setUsernameInput] = useState("");
@@ -7,16 +8,47 @@ function Register() {
   const [confirmPasswordInput, setConfirmPasswordInput] = useState("");
   const [errorStatus, setErrorStatus] = useState("hide");
 
+  // input handlers
+  const hanldeUsernameInput = (e) => {
+    setUsernameInput(e.target.value);
+  };
+
+  const handleEmailInput = (e) => {
+    setEmailInput(e.target.value);
+  };
+
+  const handlePasswordInput = (e) => {
+    setPasswordInput(e.target.value);
+  };
+
+  const handleConfirmPasswordInput = (e) => {
+    setConfirmPasswordInput(e.target.value);
+  };
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <>
       <div className="loginBox">
         <div className="usernameDiv">
           <label htmlFor="usernameInput">USERNAME</label>
-          <input type="text" name="usernameInput" className="usernameInput" />
+          <input
+            type="text"
+            name="usernameInput"
+            className="usernameInput"
+            onChange={(e) => hanldeUsernameInput(e)}
+          />
         </div>
         <div className="inputName">
           <label htmlFor="emailInput">EMAIL</label>
-          <input type="email" name="emailInput" className="emailInput" />
+          <input
+            type="email"
+            name="emailInput"
+            className="emailInput"
+            onChange={(e) => handleEmailInput(e)}
+          />
         </div>
         <div className="passwordInput">
           <label htmlFor="passwordInput">PASSWORD</label>
@@ -24,6 +56,7 @@ function Register() {
             type="password"
             name="passwordInput"
             className="passwordInput"
+            onChange={(e) => handlePasswordInput(e)}
           />
         </div>
         <div className="confirmPasswordInputDiv">
@@ -32,10 +65,13 @@ function Register() {
             type="password"
             name="confirmPasswordInput"
             className="confirmPasswordInput"
+            onChange={(e) => handleConfirmPasswordInput(e)}
           />
         </div>
         <div className="buttonBox">
-          <button className="loginBtn">LOGIN</button>
+          <button className="loginBtn" onChange={(e) => handleRegister(e)}>
+            Register
+          </button>
         </div>
         <div className={"errorBox " + errorStatus}></div>
         <hr />

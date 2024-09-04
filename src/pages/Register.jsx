@@ -28,7 +28,14 @@ function Register() {
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    const xd = await postUser();
+    const response = await postUser(
+      usernameInput,
+      passwordInput,
+      confirmPasswordInput,
+      emailInput
+    );
+
+    console.log(response);
   };
 
   return (

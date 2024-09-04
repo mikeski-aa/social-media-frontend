@@ -1,24 +1,31 @@
 import { LOCAL_URL } from "../utils/url.const";
 
-async function postUser(props) {
-  const header = { "Content-Type": "application/json" };
+async function postUser(username, password, confirmPassword, email) {
+  const headerinfo = {
+    Accept: "application/json",
+    "Content-Type": "application/json",
+  };
   const url = LOCAL_URL + "user";
   const body = {
-    username: props.username,
-    password: props.password,
-    confirmPassword: props.confirmPassword,
-    email: props.email,
+    username: username,
+    password: password,
+    confirmPassword: confirmPassword,
+    email: email,
   };
-  console.log(LOCAL_URL);
+
+  console.log(body);
+  console.log(url);
   try {
     const response = await fetch(url, {
       method: "POST",
-      headers: header,
+      headers: headerinfo,
       body: JSON.stringify(body),
     });
 
     if (!response.ok) {
-      throw new Error(`Error: ${response.status}`);
+      console.log(response);
+      const test = await response.json();
+      throw new Error(`${test.status}, ${test.message}`);
     }
 
     const json = await response.json();

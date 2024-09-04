@@ -1,5 +1,6 @@
 import "../styles/register.css";
 import { useState } from "react";
+import postUser from "../services/postUser";
 
 function Register() {
   const [usernameInput, setUsernameInput] = useState("");
@@ -25,8 +26,9 @@ function Register() {
     setConfirmPasswordInput(e.target.value);
   };
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
+    const xd = await postUser();
   };
 
   return (
@@ -69,7 +71,7 @@ function Register() {
           />
         </div>
         <div className="buttonBox">
-          <button className="loginBtn" onChange={(e) => handleRegister(e)}>
+          <button className="loginBtn" onClick={(e) => handleRegister(e)}>
             Register
           </button>
         </div>

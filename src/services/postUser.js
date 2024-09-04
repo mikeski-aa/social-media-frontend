@@ -22,11 +22,11 @@ async function postUser(username, password, confirmPassword, email) {
       body: JSON.stringify(body),
     });
 
-    if (!response.ok) {
-      console.log(response);
-      const test = await response.json();
-      throw new Error(`${test.status}, ${test.message}`);
-    }
+    // if (!response.ok) {
+    //   console.log(response);
+    //   const test = await response.json();
+    //   throw new Error(test.message);
+    // }
 
     const json = await response.json();
     console.log(json);

@@ -8,6 +8,7 @@ function Register() {
   const [passwordInput, setPasswordInput] = useState("");
   const [confirmPasswordInput, setConfirmPasswordInput] = useState("");
   const [errorStatus, setErrorStatus] = useState("hide");
+  const [errorMessage, setErrorMessage] = useState("");
 
   // input handlers
   const hanldeUsernameInput = (e) => {
@@ -35,7 +36,15 @@ function Register() {
       emailInput
     );
 
-    console.log(response);
+    if (response.message === "Password mismatch") {
+      console.log("Mismatch");
+      setErrorStatus("show");
+      setErrorMessage("Password mismatch");
+    } else if (response.message === "Input validation failed") {
+      console.log("Validation failed");
+      setErrorStatus("show");
+      setErrorMessage("Validation failed");
+    }
   };
 
   return (
@@ -82,7 +91,7 @@ function Register() {
             Register
           </button>
         </div>
-        <div className={"errorBox " + errorStatus}></div>
+        <div className={"errorBox " + errorStatus}>{errorMessage}</div>
         <hr />
         <div className="registerLink">
           <div className="textRegister">

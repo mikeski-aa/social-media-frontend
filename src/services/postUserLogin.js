@@ -1,20 +1,16 @@
 import { LOCAL_URL } from "../utils/url.const";
 
-async function postUser(username, password, confirmPassword, email) {
+async function postUserLogin(email, password) {
+  const url = LOCAL_URL + "/login";
   const headerinfo = {
     Accept: "application/json",
     "Content-Type": "application/json",
   };
-  const url = LOCAL_URL + "user";
   const body = {
-    username: username,
-    password: password,
-    confirmPassword: confirmPassword,
     email: email,
+    password: password,
   };
 
-  console.log(body);
-  console.log(url);
   try {
     const response = await fetch(url, {
       method: "POST",
@@ -23,6 +19,9 @@ async function postUser(username, password, confirmPassword, email) {
     });
 
     const json = await response.json();
+
+    // save token in localstorage here
+    localStorage.setItem("token", json.token);
     console.log(json);
     return json;
   } catch (error) {
@@ -31,4 +30,4 @@ async function postUser(username, password, confirmPassword, email) {
   }
 }
 
-export default postUser;
+export default postUserLogin;

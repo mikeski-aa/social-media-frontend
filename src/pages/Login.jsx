@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../styles/login.css";
+import postUserLogin from "../services/postUserLogin";
 
 function Login() {
   const [emailInput, setEmailInput] = useState("");
@@ -15,8 +16,12 @@ function Login() {
     setPasswordInput(e.target.value);
   };
 
-  const handleLoginClick = (e) => {
+  const handleLoginClick = async (e) => {
     e.preventDefault();
+    const response = await postUserLogin(emailInput, passwordInput);
+    localStorage.setItem("token", response.token);
+    console.log(localStorage.getItem("token"));
+    console.log(response);
   };
 
   return (

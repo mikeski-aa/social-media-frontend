@@ -36,6 +36,7 @@ function Register() {
       emailInput
     );
 
+    // password mismatch message or general validation error
     if (response.message === "Password mismatch") {
       console.log("Mismatch");
       setErrorStatus("show");
@@ -44,6 +45,16 @@ function Register() {
       console.log("Validation failed");
       setErrorStatus("show");
       setErrorMessage("Validation failed");
+    }
+
+    // error from prisma -> usually means that username or password exists already
+    if (typeof response.error != "undefined") {
+      if (response.error.code === "P2002") {
+        setErrorStatus("show");
+        setErrorMessage(
+          "Error creating user, make sure credentials are unique and valid"
+        );
+      }
     }
   };
 

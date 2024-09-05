@@ -1,11 +1,14 @@
 import { useState } from "react";
 import "../styles/login.css";
 import postUserLogin from "../services/postUserLogin";
+import { useNavigate } from "react-router";
 
 function Login() {
   const [emailInput, setEmailInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
   const [errorStatus, setErrorStatus] = useState("hide");
+  const [errorText, setErrorText] = useState("");
+  const navigate = useNavigate();
 
   // input handlers
   const handleEmailInput = (e) => {
@@ -22,6 +25,16 @@ function Login() {
 
     console.log(localStorage.getItem("token"));
     console.log(response);
+    // if error message display error box
+    // otherwise, redirect to homepage after logging in!
+    if (response.message) {
+      setErrorStatus("show");
+      setErrorText("Please make sure your email and password is correct");
+    } else {
+      setErrorStatus("hide");
+      setErrorText("");
+      return navigate("/");
+    }
   };
 
   return (
@@ -53,7 +66,7 @@ function Login() {
         <div className="buttonBox">
           <button className="guestBtn">GUEST LOGIN</button>
         </div>
-        <div className={"errorBox " + errorStatus}></div>
+        <div className={"errorBox " + errorStatus}>{errorText}</div>
         <hr />
         <div className="registerLink">
           <div className="textRegister">

@@ -11,7 +11,13 @@ function Home() {
   return (
     <>
       <div className="mainCont">
-        <h1>Homepage</h1>
+        <div className="newPost">
+          What's on your mind? <button>Post btn</button>
+        </div>
+        <div className="mainFeed">
+          <h3>Your feed</h3>
+          <div className="feedBox">feed will go here</div>
+        </div>
       </div>
     </>
   );

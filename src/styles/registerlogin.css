@@ -16,7 +16,6 @@
   background-color: rgba(137, 43, 226, 0.493);
   padding: 5px;
   border-radius: 5px;
-  max-width: fit-content;
   align-items: center;
 }
 
@@ -24,6 +23,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  min-width: 98%;
 }
 
 hr {
@@ -49,18 +49,24 @@ hr {
 .passwordInput,
 .confirmPasswordInput,
 .usernameInput {
-  width: 70vw;
 }
 
 .errorBox.show {
+  margin-top: 0.5rem;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
-  max-width: 50vw;
   text-align: center;
+  outline: 2px solid red;
+  background-color: white;
+  border-radius: 5px;
+  border: 0;
+  max-width: inherit;
+  text-wrap: wrap;
+  width: 250px;
 }
 
 .textRegister {
-  max-width: 70vw;
+  max-width: inherit;
   text-align: center;
 }

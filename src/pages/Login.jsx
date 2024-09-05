@@ -1,14 +1,16 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "../styles/registerlogin.css";
 import postUserLogin from "../services/postUserLogin";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../App";
 
 function Login() {
   const [emailInput, setEmailInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
   const [errorStatus, setErrorStatus] = useState("hide");
   const [errorText, setErrorText] = useState("");
+  const authContext = useContext(AuthContext);
   const navigate = useNavigate();
 
   // input handlers
@@ -30,12 +32,16 @@ function Login() {
     // otherwise, redirect to homepage after logging in!
     if (response.message) {
       setErrorStatus("show");
-      setErrorText("Please make sure your email and password is correct");
+      return setErrorText(
+        `Please make sure your email and password is correct`
+      );
     } else {
       setErrorStatus("hide");
       setErrorText("");
-      return navigate("/");
     }
+    console.log("successfuly logged in, navigating away");
+    authContext.setErr(false);
+    return navigate("/");
   };
 
   return (
@@ -70,8 +76,9 @@ function Login() {
             <div className="buttonBox">
               <button className="guestBtn">GUEST LOGIN</button>
             </div>
+            <div className={"errorBox " + errorStatus}>{errorText}</div>
           </form>
-          <div className={"errorBox " + errorStatus}>{errorText}</div>
+
           <hr />
           <div className="registerLink">
             <div className="textRegister">

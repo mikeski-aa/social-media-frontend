@@ -15,12 +15,14 @@ function App() {
   const [user, setUser] = useState();
   const [test, setTest] = useState("xd");
   const [err, setErr] = useState("false");
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const validateLogin = async () => {
       const response = await checkLoginStatus();
       console.log(response);
 
+      setIsLoading(false);
       // if user is no longer logged in or token is invalid, redirect back to login page!
       if (typeof response.validated === "undefined") {
         console.log("no user logged in found, redirect");
@@ -62,7 +64,7 @@ function App() {
 
   return (
     <>
-      <AuthContext.Provider value={{ user, setUser, err, setErr }}>
+      <AuthContext.Provider value={{ user, setUser, err, setErr, isLoading }}>
         <RouterProvider router={router}></RouterProvider>
       </AuthContext.Provider>
     </>

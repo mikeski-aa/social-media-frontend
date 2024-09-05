@@ -4,8 +4,8 @@ import { AuthContext } from "../App";
 
 function Profile() {
   const authContext = useContext(AuthContext);
-
   useRedirectValidFail(authContext.err);
+
   return (
     <>
       <div className="profileCont">

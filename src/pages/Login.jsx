@@ -40,41 +40,43 @@ function Login() {
 
   return (
     <>
-      <div className="formBox">
-        <form>
-          <div className="inputName">
-            <label htmlFor="emailInput">EMAIL</label>
-            <input
-              type="email"
-              name="emialInput"
-              className="emailInput"
-              onChange={(e) => handleEmailInput(e)}
-            />
-          </div>
-          <div className="passwordInputDiv">
-            <label htmlFor="passwordInput">PASSWORD</label>
-            <input
-              type="password"
-              name="passwordInput"
-              className="passwordInput"
-              onChange={(e) => handlePasswordInput(e)}
-            />
-          </div>
-          <div className="buttonBox">
-            <button className="loginBtn" onClick={(e) => handleLoginClick(e)}>
-              LOGIN
-            </button>
-          </div>
-          <div className="buttonBox">
-            <button className="guestBtn">GUEST LOGIN</button>
-          </div>
-        </form>
-        <div className={"errorBox " + errorStatus}>{errorText}</div>
-        <hr />
-        <div className="registerLink">
-          <div className="textRegister">
-            Don't have an account? <Link to="/register">CLICK HERE </Link>
-            to regsiter!
+      <div className="formBoxContainer">
+        <div className="formBox">
+          <form>
+            <div className="inputName">
+              <label htmlFor="emailInput">EMAIL</label>
+              <input
+                type="email"
+                name="emialInput"
+                className="emailInput"
+                onChange={(e) => handleEmailInput(e)}
+              />
+            </div>
+            <div className="passwordInput">
+              <label htmlFor="passwordInput">PASSWORD</label>
+              <input
+                type="password"
+                name="passwordInput"
+                className="passwordInput"
+                onChange={(e) => handlePasswordInput(e)}
+              />
+            </div>
+            <div className="buttonBox">
+              <button className="loginBtn" onClick={(e) => handleLoginClick(e)}>
+                LOGIN
+              </button>
+            </div>
+            <div className="buttonBox">
+              <button className="guestBtn">GUEST LOGIN</button>
+            </div>
+          </form>
+          <div className={"errorBox " + errorStatus}>{errorText}</div>
+          <hr />
+          <div className="registerLink">
+            <div className="textRegister">
+              Don't have an account? <Link to="/register">CLICK HERE </Link>
+              to regsiter!
+            </div>
           </div>
         </div>
       </div>

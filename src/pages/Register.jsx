@@ -66,56 +66,58 @@ function Register() {
 
   return (
     <>
-      <div className="formBox">
-        <form>
-          <div className="usernameDiv">
-            <label htmlFor="usernameInput">USERNAME</label>
-            <input
-              type="text"
-              name="usernameInput"
-              className="usernameInput"
-              onChange={(e) => hanldeUsernameInput(e)}
-            />
-          </div>
-          <div className="inputName">
-            <label htmlFor="emailInput">EMAIL</label>
-            <input
-              type="email"
-              name="emailInput"
-              className="emailInput"
-              onChange={(e) => handleEmailInput(e)}
-            />
-          </div>
-          <div className="passwordInput">
-            <label htmlFor="passwordInput">PASSWORD</label>
-            <input
-              type="password"
-              name="passwordInput"
-              className="passwordInput"
-              onChange={(e) => handlePasswordInput(e)}
-            />
-          </div>
-          <div className="confirmPasswordInputDiv">
-            <label htmlFor="confirmPasswordInput">PASSWORD</label>
-            <input
-              type="password"
-              name="confirmPasswordInput"
-              className="confirmPasswordInput"
-              onChange={(e) => handleConfirmPasswordInput(e)}
-            />
-          </div>
-          <div className="buttonBox">
-            <button className="loginBtn" onClick={(e) => handleRegister(e)}>
-              Register
-            </button>
-          </div>
-          <div className={"errorBox " + errorStatus}>{errorText}</div>
-        </form>
-        <hr />
-        <div className="registerLink">
-          <div className="textRegister">
-            Already have an account? <Link to="/login">CLICK HERE </Link> to
-            login!
+      <div className="formBoxContainer">
+        <div className="formBox">
+          <form>
+            <div className="usernameDiv">
+              <label htmlFor="usernameInput">USERNAME</label>
+              <input
+                type="text"
+                name="usernameInput"
+                className="usernameInput"
+                onChange={(e) => hanldeUsernameInput(e)}
+              />
+            </div>
+            <div className="inputName">
+              <label htmlFor="emailInput">EMAIL</label>
+              <input
+                type="email"
+                name="emailInput"
+                className="emailInput"
+                onChange={(e) => handleEmailInput(e)}
+              />
+            </div>
+            <div className="passwordInput">
+              <label htmlFor="passwordInput">PASSWORD</label>
+              <input
+                type="password"
+                name="passwordInput"
+                className="passwordInput"
+                onChange={(e) => handlePasswordInput(e)}
+              />
+            </div>
+            <div className="confirmPasswordInputDiv">
+              <label htmlFor="confirmPasswordInput">PASSWORD</label>
+              <input
+                type="password"
+                name="confirmPasswordInput"
+                className="confirmPasswordInput"
+                onChange={(e) => handleConfirmPasswordInput(e)}
+              />
+            </div>
+            <div className="buttonBox">
+              <button className="loginBtn" onClick={(e) => handleRegister(e)}>
+                Register
+              </button>
+            </div>
+            <div className={"errorBox " + errorStatus}>{errorText}</div>
+          </form>
+          <hr />
+          <div className="registerLink">
+            <div className="textRegister">
+              Already have an account? <Link to="/login">CLICK HERE </Link> to
+              login!
+            </div>
           </div>
         </div>
       </div>

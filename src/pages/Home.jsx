@@ -8,14 +8,6 @@ function Home() {
   console.log(authContext);
   useRedirectValidFail(authContext.err);
 
-  if (authContext.isLoading) {
-    return (
-      <>
-        <h1>LOADING...</h1>
-      </>
-    );
-  }
-
   return (
     <>
       <div className="mainCont">

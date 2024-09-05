@@ -1,7 +1,8 @@
 import { useState } from "react";
-import "../styles/login.css";
+import "../styles/registerlogin.css";
 import postUserLogin from "../services/postUserLogin";
 import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 
 function Login() {
   const [emailInput, setEmailInput] = useState("");
@@ -39,39 +40,41 @@ function Login() {
 
   return (
     <>
-      <div className="loginBox">
-        <div className="inputName">
-          <label htmlFor="emailInput">EMAIL</label>
-          <input
-            type="email"
-            name="emialInput"
-            className="emailInput"
-            onChange={(e) => handleEmailInput(e)}
-          />
-        </div>
-        <div className="passwordInputDiv">
-          <label htmlFor="passwordInput">PASSWORD</label>
-          <input
-            type="password"
-            name="passwordInput"
-            className="passwordInput"
-            onChange={(e) => handlePasswordInput(e)}
-          />
-        </div>
-        <div className="buttonBox">
-          <button className="loginBtn" onClick={(e) => handleLoginClick(e)}>
-            LOGIN
-          </button>
-        </div>
-        <div className="buttonBox">
-          <button className="guestBtn">GUEST LOGIN</button>
-        </div>
+      <div className="formBox">
+        <form>
+          <div className="inputName">
+            <label htmlFor="emailInput">EMAIL</label>
+            <input
+              type="email"
+              name="emialInput"
+              className="emailInput"
+              onChange={(e) => handleEmailInput(e)}
+            />
+          </div>
+          <div className="passwordInputDiv">
+            <label htmlFor="passwordInput">PASSWORD</label>
+            <input
+              type="password"
+              name="passwordInput"
+              className="passwordInput"
+              onChange={(e) => handlePasswordInput(e)}
+            />
+          </div>
+          <div className="buttonBox">
+            <button className="loginBtn" onClick={(e) => handleLoginClick(e)}>
+              LOGIN
+            </button>
+          </div>
+          <div className="buttonBox">
+            <button className="guestBtn">GUEST LOGIN</button>
+          </div>
+        </form>
         <div className={"errorBox " + errorStatus}>{errorText}</div>
         <hr />
         <div className="registerLink">
           <div className="textRegister">
-            Don't have an account? <a href="/register">CLICK HERE</a> to
-            regsiter!
+            Don't have an account? <Link to="/register">CLICK HERE </Link>
+            to regsiter!
           </div>
         </div>
       </div>

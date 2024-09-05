@@ -13,9 +13,16 @@
 .formBox {
   display: flex;
   flex-direction: column;
-  background-color: blueviolet;
+  background-color: rgba(137, 43, 226, 0.493);
   padding: 5px;
   border-radius: 5px;
+  max-width: fit-content;
+  align-items: center;
+}
+
+.inputForm {
+  display: flex;
+  flex-direction: column;
   gap: 0.5rem;
 }
 
@@ -30,4 +37,30 @@ hr {
 .buttonBox {
   display: flex;
   flex-direction: column;
+}
+
+.buttonBox {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.emailInput,
+.passwordInput,
+.confirmPasswordInput,
+.usernameInput {
+  width: 70vw;
+}
+
+.errorBox.show {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 50vw;
+  text-align: center;
+}
+
+.textRegister {
+  max-width: 70vw;
+  text-align: center;
 }

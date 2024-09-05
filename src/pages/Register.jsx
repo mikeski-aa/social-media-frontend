@@ -68,13 +68,16 @@ function Register() {
     <>
       <div className="formBoxContainer">
         <div className="formBox">
-          <form>
+          <div className="boxHeader">OdinBook</div>
+          <form className="inputForm">
             <div className="usernameDiv">
               <label htmlFor="usernameInput">USERNAME</label>
               <input
                 type="text"
                 name="usernameInput"
                 className="usernameInput"
+                maxLength={15}
+                minLength={1}
                 onChange={(e) => hanldeUsernameInput(e)}
               />
             </div>

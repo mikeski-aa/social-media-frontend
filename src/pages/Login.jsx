@@ -42,7 +42,8 @@ function Login() {
     <>
       <div className="formBoxContainer">
         <div className="formBox">
-          <form>
+          <div className="boxHeader">OdinBook</div>
+          <form className="inputForm">
             <div className="inputName">
               <label htmlFor="emailInput">EMAIL</label>
               <input

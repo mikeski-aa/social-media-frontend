@@ -22,6 +22,7 @@ async function postUserLogin(email, password) {
 
     // save token in localstorage here
     localStorage.setItem("token", json.token);
+    
     console.log(json);
     return json;
   } catch (error) {

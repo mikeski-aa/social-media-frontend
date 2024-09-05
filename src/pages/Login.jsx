@@ -19,7 +19,7 @@ function Login() {
   const handleLoginClick = async (e) => {
     e.preventDefault();
     const response = await postUserLogin(emailInput, passwordInput);
-    localStorage.setItem("token", response.token);
+
     console.log(localStorage.getItem("token"));
     console.log(response);
   };

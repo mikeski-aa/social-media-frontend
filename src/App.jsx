@@ -7,12 +7,14 @@ import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import checkLoginStatus from "./services/checkLoginStatus";
+import { redirect } from "react-router-dom";
 
 export const AuthContext = createContext();
 
 function App() {
   const [user, setUser] = useState();
   const [test, setTest] = useState("xd");
+  const [err, setErr] = useState("false");
 
   useEffect(() => {
     const validateLogin = async () => {
@@ -22,6 +24,9 @@ function App() {
       // if user is no longer logged in or token is invalid, redirect back to login page!
       if (typeof response.validated === "undefined") {
         console.log("no user logged in found, redirect");
+        console.log(response);
+        setErr(true);
+        return;
       } else {
         setUser(response);
       }
@@ -57,7 +62,7 @@ function App() {
 
   return (
     <>
-      <AuthContext.Provider value={{ test, setTest }}>
+      <AuthContext.Provider value={{ user, setUser, err, setErr }}>
         <RouterProvider router={router}></RouterProvider>
       </AuthContext.Provider>
     </>

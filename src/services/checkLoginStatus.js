@@ -10,6 +10,10 @@ async function checkLoginStatus() {
   try {
     const response = await fetch(url, { method: "GET", headers: headerinfo });
 
+    if (!response.ok) {
+      throw new Error("Error validating token");
+    }
+
     const json = await response.json();
 
     console.log("json log");

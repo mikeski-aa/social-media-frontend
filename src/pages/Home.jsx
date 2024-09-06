@@ -3,15 +3,25 @@ import { AuthContext } from "../App";
 import useRedirectValidFail from "../hooks/useRedirectValidFail";
 import NewPost from "../components/NewPost";
 import Post from "../components/Post";
+import getStatus from "../services/getStatus";
+import "../styles/home.css";
 
 function Home() {
   const [postModal, setPostModal] = useState("hide");
+  const [status, setStatus] = useState([]);
   const authContext = useContext(AuthContext);
 
   useRedirectValidFail(authContext.err);
 
+  // this useeffect will load when
   useEffect(() => {
-    console.log("I loaded when the page was refreshed again!");
+    const fetchStatus = async () => {
+      console.log("I loaded when the page was refreshed again!");
+      const response = await getStatus();
+      setStatus(response);
+    };
+
+    fetchStatus();
   }, []);
 
   const handleNewPostBtn = () => {
@@ -28,6 +38,14 @@ function Home() {
         <div className="mainFeed">
           <h3>Your feed</h3>
           <div className="feedBox">feed will go here</div>
+          {status.map((item) => (
+            <Post
+              text={item.text}
+              imageUrl={item.imageUrl}
+              key={item.id}
+              userName={item.user.username}
+            ></Post>
+          ))}
         </div>
       </div>
     </>

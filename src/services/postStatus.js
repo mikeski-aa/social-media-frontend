@@ -1,6 +1,6 @@
 import { LOCAL_URL } from "../utils/url.const";
 
-async function postNewPost(text, image) {
+async function postStatus(text, imageurl) {
   const url = LOCAL_URL + "status";
   const headerinfo = {
     Authorization: "bearer " + localStorage.getItem("token"),
@@ -9,7 +9,7 @@ async function postNewPost(text, image) {
   };
   const body = {
     text: text,
-    image: image,
+    imageUrl: imageurl,
   };
 
   try {
@@ -19,8 +19,12 @@ async function postNewPost(text, image) {
       body: JSON.stringify(body),
     });
 
+    if (!response.ok) {
+      throw new Error(`Error: ${response.status}`);
+    }
+
     const json = await response.json();
-    console.log(json);
+
     return json;
   } catch (error) {
     console.log(error);
@@ -28,4 +32,4 @@ async function postNewPost(text, image) {
   }
 }
 
-export default postNewPost;
+export default postStatus;

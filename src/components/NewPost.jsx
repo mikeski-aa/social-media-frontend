@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "../styles/newpost.css";
+import postImage from "../services/postImage";
+import postStatus from "../services/postStatus";
 
 function NewPost(props) {
   const [textInput, setTextInput] = useState("");
@@ -32,7 +34,26 @@ function NewPost(props) {
     }
     setErrorBox("hide");
     setErrorText("");
+
+    // need to identify what to upload
+    // if no picture, we skip image upload
+    // if no text, we skip text upload
+    // at the end of the upload, the value of input image needs to be reset
+    // also, after an image is uploaded, we should fetch all statuses again and force the posts to reload
+    // that way our new post will show up
+    if (picInput != "") {
+      const imageUpload = await postImage(picInput);
+      const response = await postStatus(textInput, imageUpload.result.url);
+      props.setPostModal("hide");
+      return console.log(response);
+    } else {
+      console.log("no upload pic");
+      const response = await postStatus(textInput, null);
+      props.setPostModal("hide");
+      return console.log(response);
+    }
   };
+
   return (
     <>
       <div className={"modal " + props.showhide}>

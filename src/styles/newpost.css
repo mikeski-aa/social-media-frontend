@@ -1,0 +1,35 @@
+.modal {
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: rgba(2, 2, 160, 0.432);
+  transition-duration: 1s;
+}
+
+.modal.hide {
+  visibility: none;
+  opacity: 0;
+  z-index: -1000;
+}
+
+.newPostModalContainer {
+  position: relative;
+  left: 50vw;
+  top: 10vw;
+  background-color: rgba(0, 0, 255, 0.459);
+  z-index: 100;
+  transform: translateX(-50%);
+  width: fit-content;
+  transition-duration: 2s;
+}
+
+.newPostModalContainer.hide {
+  transform: translateY(-500px);
+  opacity: 0;
+}
+
+.newPostModalContainer.show {
+  opacity: 1;
+}

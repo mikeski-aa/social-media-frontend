@@ -16,8 +16,8 @@ function Home() {
 
   return (
     <>
+      <NewPost showhide={postModal} setPostModal={setPostModal} />
       <div className="mainCont">
-        <NewPost showhide={postModal} />
         <div className="newPost">
           <button onClick={handleNewPostBtn}>What's on your mind? </button>
         </div>

@@ -8,6 +8,9 @@ function NewPost(props) {
   const [picInput, setPicInput] = useState("");
   const [errorBox, setErrorBox] = useState("hide");
   const [errorText, setErrorText] = useState("");
+  // by adding a key to file input, react can be forced to re-render the component when key changes
+  // easy way of clearing the value post upload
+  const [resetVal, setResetVal] = useState(0);
 
   // click / input handlers
   const closeHandler = () => {
@@ -41,15 +44,26 @@ function NewPost(props) {
     // at the end of the upload, the value of input image needs to be reset
     // also, after an image is uploaded, we should fetch all statuses again and force the posts to reload
     // that way our new post will show up
+    // TODO: ADD LOADING WHEN CLICKED
     if (picInput != "") {
       const imageUpload = await postImage(picInput);
       const response = await postStatus(textInput, imageUpload.result.url);
       props.setPostModal("hide");
+
+      // reset modal values
+      setResetVal(resetVal + 1);
+      setPicInput("");
+      setTextInput("");
       return console.log(response);
     } else {
       console.log("no upload pic");
-      const response = await postStatus(textInput, null);
+      const response = await postStatus(textInput, "null");
       props.setPostModal("hide");
+
+      // reset modal values
+      setResetVal(resetVal + 1);
+      setPicInput("");
+      setTextInput("");
       return console.log(response);
     }
   };
@@ -67,12 +81,17 @@ function NewPost(props) {
               <textarea
                 className="textbox"
                 placeholder="Your post goes here"
+                value={textInput}
                 onChange={(e) => handleTextInput(e)}
               ></textarea>
             </div>
             <div className="picInputDiv">
               <label>Picture</label>
-              <input type="file" onChange={(e) => handlePicInput(e)}></input>
+              <input
+                type="file"
+                onChange={(e) => handlePicInput(e)}
+                key={resetVal}
+              ></input>
             </div>
             <div className={"errorBox " + errorBox}>{errorText}</div>
             <button className="postNewPost" onClick={(e) => handlePostPost(e)}>

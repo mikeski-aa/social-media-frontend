@@ -1,14 +1,18 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../App";
 import useRedirectValidFail from "../hooks/useRedirectValidFail";
 import NewPost from "../components/NewPost";
+import Post from "../components/Post";
 
 function Home() {
   const [postModal, setPostModal] = useState("hide");
   const authContext = useContext(AuthContext);
 
-  console.log(authContext);
   useRedirectValidFail(authContext.err);
+
+  useEffect(() => {
+    console.log("I loaded when the page was refreshed again!");
+  }, []);
 
   const handleNewPostBtn = () => {
     setPostModal("show");

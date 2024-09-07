@@ -3,5 +3,36 @@
 }
 
 .postContainer {
-  width: 50%;
+  border: 2px solid rgb(182, 182, 182);
+  max-width: 75vw;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  padding: 10px;
+  gap: 0.5rem;
+  box-shadow: 2px 2px 10px grey;
+}
+
+.likeCommentContainer {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.buttonImgPost {
+  width: 15px;
+  height: 15px;
+}
+
+.commentButton {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  border-radius: 5px;
+  padding: 2px;
+  border: 1px solid grey;
+}
+
+.commentButton:hover {
+  cursor: pointer;
 }

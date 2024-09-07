@@ -40,18 +40,19 @@ function Home() {
         </div>
         <div className="mainFeed">
           <h3>Your feed</h3>
-          <div className="feedBox">feed will go here</div>
-          {status.map((item) => (
-            <Post
-              text={item.text}
-              imageUrl={item.imageUrl}
-              key={item.id}
-              userName={item.user.username}
-              userid={item.user.id}
-              profilePic={item.user.profilePic}
-              postDate={item.postDate}
-            ></Post>
-          ))}
+          <div className="allPostContainer">
+            {status.map((item) => (
+              <Post
+                text={item.text}
+                imageUrl={item.imageUrl}
+                key={item.id}
+                userName={item.user.username}
+                userid={item.user.id}
+                profilePic={item.user.profilePic}
+                postDate={item.postDate}
+              ></Post>
+            ))}
+          </div>
         </div>
       </div>
     </>

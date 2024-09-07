@@ -1,0 +1,11 @@
+.profPicImg {
+  width: 25px;
+  height: 25px;
+  border-radius: 25px;
+}
+
+.profileDiv {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}

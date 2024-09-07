@@ -1,5 +1,8 @@
 import { useState } from "react";
 import "../styles/post.css";
+import PostUserProfile from "./PostUserProfile";
+import like from "../assets/like.svg";
+import comment from "../assets/comment.svg";
 
 function Post(props) {
   const [commentShow, setCommentShow] = useState("hide");
@@ -12,15 +15,24 @@ function Post(props) {
       <>
         <div className="postContainer">
           <div className="userInfoContainer">
-            <div className="postOwner">{props.userName}</div>
+            <PostUserProfile
+              profilePic={props.profilePic}
+              userName={props.userName}
+            />
             <div className="postDate">{props.postDate}</div>
           </div>
           <div className="textImageContainer">
             <img src={props.imageUrl} alt="user image"></img>
           </div>
           <div className="likeCommentContainer">
-            <button>Like</button>
-            <button>Comment</button>
+            <button className="commentButton">
+              <img className="buttonImgPost" src={like} />
+              <div className="buttonText">Like</div>
+            </button>
+            <button className="commentButton">
+              <img className="buttonImgPost" src={comment} />
+              <div className="buttonText">Comment</div>
+            </button>
           </div>
           <div className={"commentContainer " + commentShow}>
             Comments go here
@@ -33,15 +45,25 @@ function Post(props) {
       <>
         <div className="postContainer">
           <div className="userInfoContainer">
-            <div className="postOwner">{props.userName}</div>
+            <PostUserProfile
+              profilePic={props.profilePic}
+              userName={props.userName}
+            />
+
             <div className="postDate">{props.postDate}</div>
           </div>
           <div className="textImageContainer">
             <div className="text">{props.text}</div>
           </div>
           <div className="likeCommentContainer">
-            <button>Like</button>
-            <button>Comment</button>
+            <button className="commentButton">
+              <img className="buttonImgPost" src={like} />
+              <div className="buttonText">Like</div>
+            </button>
+            <button className="commentButton">
+              <img className="buttonImgPost" src={comment} />
+              <div className="buttonText">Comment</div>
+            </button>
           </div>
           <div className={"commentContainer " + commentShow}>
             Comments go here
@@ -55,7 +77,10 @@ function Post(props) {
     <>
       <div className="postContainer">
         <div className="userInfoContainer">
-          <div className="postOwner">{props.userName}</div>
+          <PostUserProfile
+            profilePic={props.profilePic}
+            userName={props.userName}
+          />
           <div className="postDate">{props.postDate}</div>
         </div>
         <div className="textImageContainer">
@@ -63,8 +88,14 @@ function Post(props) {
           <img src={props.imageUrl} alt="user image"></img>
         </div>
         <div className="likeCommentContainer">
-          <button>Like</button>
-          <button>Comment</button>
+          <button className="commentButton">
+            <img className="buttonImgPost" src={like} />
+            <div className="buttonText">Like</div>
+          </button>
+          <button className="commentButton">
+            <img className="buttonImgPost" src={comment} />
+            <div className="buttonText">Comment</div>
+          </button>
         </div>
         <div className={"commentContainer " + commentShow}>
           Comments go here

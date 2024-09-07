@@ -23,7 +23,11 @@ function Post(props) {
             <div className="postDate">{props.postDate}</div>
           </div>
           <div className="textImageContainer">
-            <img src={props.imageUrl} alt="user image"></img>
+            <img
+              src={props.imageUrl}
+              alt="user image"
+              className="userImage"
+            ></img>
           </div>
           <hr></hr>
           <LikeCommentContainer like={like} comment={comment} />
@@ -70,7 +74,11 @@ function Post(props) {
         </div>
         <div className="textImageContainer">
           <div className="text">{props.text}</div>
-          <img src={props.imageUrl} alt="user image"></img>
+          <img
+            src={props.imageUrl}
+            alt="user image"
+            className="userImage"
+          ></img>
         </div>
         <hr></hr>
         <LikeCommentContainer like={like} comment={comment} />

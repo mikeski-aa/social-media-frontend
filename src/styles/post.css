@@ -4,7 +4,7 @@
 
 .postContainer {
   border: 2px solid rgb(182, 182, 182);
-  max-width: 75vw;
+  width: 50vw;
   display: flex;
   flex-direction: column;
   border-radius: 5px;
@@ -35,4 +35,21 @@
 
 .commentButton:hover {
   cursor: pointer;
+}
+
+.userImage {
+  max-width: 500px;
+  border-radius: 5px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 500px) {
+  .userImage {
+    max-width: 250px;
+  }
+  .postContainer {
+    width: 50vw;
+  }
 }

@@ -5,6 +5,13 @@ body {
   padding: 0px;
 }
 
+header {
+  height: 0;
+  width: 0;
+  padding: 0;
+  margin: 0;
+}
+
 input {
   border-radius: 5px;
   border: 0px;
@@ -13,4 +20,10 @@ input {
 
 input:focus {
   outline: 2px solid rgb(56, 158, 253);
+}
+
+#root {
+  height: 95vh;
+  width: 100vw;
+  background-color: rgba(252, 206, 121, 0.555);
 }

@@ -3,6 +3,7 @@ import "../styles/post.css";
 import PostUserProfile from "./PostUserProfile";
 import like from "../assets/like.svg";
 import comment from "../assets/comment.svg";
+import LikeCommentContainer from "./LikeCommentContainer";
 
 function Post(props) {
   const [commentShow, setCommentShow] = useState("hide");
@@ -24,16 +25,8 @@ function Post(props) {
           <div className="textImageContainer">
             <img src={props.imageUrl} alt="user image"></img>
           </div>
-          <div className="likeCommentContainer">
-            <button className="commentButton">
-              <img className="buttonImgPost" src={like} />
-              <div className="buttonText">Like</div>
-            </button>
-            <button className="commentButton">
-              <img className="buttonImgPost" src={comment} />
-              <div className="buttonText">Comment</div>
-            </button>
-          </div>
+          <hr></hr>
+          <LikeCommentContainer like={like} comment={comment} />
           <div className={"commentContainer " + commentShow}>
             Comments go here
           </div>
@@ -55,16 +48,8 @@ function Post(props) {
           <div className="textImageContainer">
             <div className="text">{props.text}</div>
           </div>
-          <div className="likeCommentContainer">
-            <button className="commentButton">
-              <img className="buttonImgPost" src={like} />
-              <div className="buttonText">Like</div>
-            </button>
-            <button className="commentButton">
-              <img className="buttonImgPost" src={comment} />
-              <div className="buttonText">Comment</div>
-            </button>
-          </div>
+          <hr></hr>
+          <LikeCommentContainer like={like} comment={comment} />
           <div className={"commentContainer " + commentShow}>
             Comments go here
           </div>
@@ -87,16 +72,8 @@ function Post(props) {
           <div className="text">{props.text}</div>
           <img src={props.imageUrl} alt="user image"></img>
         </div>
-        <div className="likeCommentContainer">
-          <button className="commentButton">
-            <img className="buttonImgPost" src={like} />
-            <div className="buttonText">Like</div>
-          </button>
-          <button className="commentButton">
-            <img className="buttonImgPost" src={comment} />
-            <div className="buttonText">Comment</div>
-          </button>
-        </div>
+        <hr></hr>
+        <LikeCommentContainer like={like} comment={comment} />
         <div className={"commentContainer " + commentShow}>
           Comments go here
         </div>

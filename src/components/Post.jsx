@@ -13,6 +13,7 @@ function Post(props) {
         <div className="postContainer">
           <div className="userInfoContainer">
             <div className="postOwner">{props.userName}</div>
+            <div className="postDate">{props.postDate}</div>
           </div>
           <div className="textImageContainer">
             <img src={props.imageUrl} alt="user image"></img>
@@ -33,6 +34,7 @@ function Post(props) {
         <div className="postContainer">
           <div className="userInfoContainer">
             <div className="postOwner">{props.userName}</div>
+            <div className="postDate">{props.postDate}</div>
           </div>
           <div className="textImageContainer">
             <div className="text">{props.text}</div>
@@ -54,6 +56,7 @@ function Post(props) {
       <div className="postContainer">
         <div className="userInfoContainer">
           <div className="postOwner">{props.userName}</div>
+          <div className="postDate">{props.postDate}</div>
         </div>
         <div className="textImageContainer">
           <div className="text">{props.text}</div>

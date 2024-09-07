@@ -1,3 +1,7 @@
 .commentContainer.hide {
   display: none;
 }
+
+.postContainer {
+  width: 50%;
+}

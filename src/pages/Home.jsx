@@ -9,6 +9,7 @@ import "../styles/home.css";
 function Home() {
   const [postModal, setPostModal] = useState("hide");
   const [status, setStatus] = useState([]);
+  const [fetchCount, setFetchCount] = useState(1);
   const authContext = useContext(AuthContext);
 
   useRedirectValidFail(authContext.err);
@@ -17,7 +18,9 @@ function Home() {
   useEffect(() => {
     const fetchStatus = async () => {
       console.log("I loaded when the page was refreshed again!");
-      const response = await getStatus();
+      // need to first get an array of posts
+      // afterwards we want to fetch maximum of 10 posts ordered
+      const response = await getStatus(fetchCount);
       setStatus(response);
     };
 
@@ -44,6 +47,9 @@ function Home() {
               imageUrl={item.imageUrl}
               key={item.id}
               userName={item.user.username}
+              userid={item.user.id}
+              profilePic={item.user.profilePic}
+              postDate={item.postDate}
             ></Post>
           ))}
         </div>

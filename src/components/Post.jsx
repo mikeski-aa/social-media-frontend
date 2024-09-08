@@ -5,6 +5,7 @@ import like from "../assets/like.svg";
 import comment from "../assets/comment.svg";
 import LikeCommentContainer from "./LikeCommentContainer";
 import dateConversion from "../utils/dateConversion";
+import CommentContainer from "./CommentContainer";
 
 function Post(props) {
   const [commentShow, setCommentShow] = useState("hide");
@@ -13,6 +14,14 @@ function Post(props) {
 
   // probably need to add conditional rednering depending on whether post has image, text or both
   // I am unsure of this implementation of conditional redering, not really DRY
+
+  const handleCommentClick = () => {
+    if (commentShow === "hide") {
+      setCommentShow("show");
+    } else {
+      setCommentShow("hide");
+    }
+  };
 
   if (props.text === "") {
     return (
@@ -33,10 +42,12 @@ function Post(props) {
             ></img>
           </div>
           <hr></hr>
-          <LikeCommentContainer like={like} comment={comment} />
-          <div className={"commentContainer " + commentShow}>
-            Comments go here
-          </div>
+          <LikeCommentContainer
+            like={like}
+            comment={comment}
+            handleCommentClick={handleCommentClick}
+          />
+          <CommentContainer status={commentShow} />
         </div>
       </>
     );
@@ -56,10 +67,12 @@ function Post(props) {
             <div className="text">{props.text}</div>
           </div>
           <hr></hr>
-          <LikeCommentContainer like={like} comment={comment} />
-          <div className={"commentContainer " + commentShow}>
-            Comments go here
-          </div>
+          <LikeCommentContainer
+            like={like}
+            comment={comment}
+            handleCommentClick={handleCommentClick}
+          />
+          <CommentContainer status={commentShow} />
         </div>
       </>
     );
@@ -84,10 +97,12 @@ function Post(props) {
           ></img>
         </div>
         <hr></hr>
-        <LikeCommentContainer like={like} comment={comment} />
-        <div className={"commentContainer " + commentShow}>
-          Comments go here
-        </div>
+        <LikeCommentContainer
+          like={like}
+          comment={comment}
+          handleCommentClick={handleCommentClick}
+        />
+        <CommentContainer status={commentShow} />
       </div>
     </>
   );

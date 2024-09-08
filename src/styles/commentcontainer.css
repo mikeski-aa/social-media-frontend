@@ -1,0 +1,12 @@
+.commentContainer.hide {
+  max-height: 0;
+  display: none;
+}
+
+.commentContainer.show {
+  max-height: fit-content;
+}
+
+.commentContainer {
+  transition-duration: 0.2s;
+}

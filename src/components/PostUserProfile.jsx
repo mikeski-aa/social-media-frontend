@@ -11,10 +11,10 @@ function PostUserProfile(props) {
   }
 
   return (
-    <div className="profileDiv">
+    <button className="profileDiv">
       <img className="profPicImg" src={img}></img>
       <div className="profName">{props.userName}</div>
-    </div>
+    </button>
   );
 }
 

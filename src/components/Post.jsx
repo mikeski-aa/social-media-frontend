@@ -4,9 +4,12 @@ import PostUserProfile from "./PostUserProfile";
 import like from "../assets/like.svg";
 import comment from "../assets/comment.svg";
 import LikeCommentContainer from "./LikeCommentContainer";
+import dateConversion from "../utils/dateConversion";
 
 function Post(props) {
   const [commentShow, setCommentShow] = useState("hide");
+
+  const date = dateConversion(props.postDate);
 
   // probably need to add conditional rednering depending on whether post has image, text or both
   // I am unsure of this implementation of conditional redering, not really DRY
@@ -20,7 +23,7 @@ function Post(props) {
               profilePic={props.profilePic}
               userName={props.userName}
             />
-            <div className="postDate">{props.postDate}</div>
+            <div className="postDate">{date}</div>
           </div>
           <div className="textImageContainer">
             <img
@@ -47,7 +50,7 @@ function Post(props) {
               userName={props.userName}
             />
 
-            <div className="postDate">{props.postDate}</div>
+            <div className="postDate">{date}</div>
           </div>
           <div className="textImageContainer">
             <div className="text">{props.text}</div>
@@ -70,7 +73,7 @@ function Post(props) {
             profilePic={props.profilePic}
             userName={props.userName}
           />
-          <div className="postDate">{props.postDate}</div>
+          <div className="postDate">{date}</div>
         </div>
         <div className="textImageContainer">
           <div className="text">{props.text}</div>

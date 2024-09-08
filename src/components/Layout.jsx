@@ -19,7 +19,6 @@ function Layout() {
 
   return (
     <div className="layoutDiv">
-      <h3>Layout div</h3>
       <Nav />
       <Outlet />
     </div>

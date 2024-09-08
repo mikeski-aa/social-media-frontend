@@ -9,7 +9,7 @@ import "../styles/home.css";
 function Home() {
   const [postModal, setPostModal] = useState("hide");
   const [status, setStatus] = useState([]);
-  const [fetchCount, setFetchCount] = useState(1);
+  const [fetchCount, setFetchCount] = useState(10);
   const authContext = useContext(AuthContext);
 
   useRedirectValidFail(authContext.err);

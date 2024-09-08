@@ -6,8 +6,13 @@ function dateConversion(inputDate) {
   const test = new Date(inputDate);
   const now = new Date();
   const hours = Math.round(((Math.abs(test - now) / 36e5) * 100) / 100);
+  const minutes = Math.round(((Math.abs(test - now) / 6e4) * 100) / 100);
 
-  if (hours < 24) {
+  if (minutes < 1) {
+    return `Less than 1 minute ago`;
+  } else if (hours < 1) {
+    return `${minutes} minutes ago`;
+  } else if (hours < 24 && hours > 1) {
     return `${hours} hours ago`;
   } else if (hours > 24 && hours < 48) {
     return `Yesterday`;

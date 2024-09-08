@@ -2,6 +2,7 @@ import { useState } from "react";
 import "../styles/newpost.css";
 import postImage from "../services/postImage";
 import postStatus from "../services/postStatus";
+import getStatus from "../services/getStatus";
 
 function NewPost(props) {
   const [textInput, setTextInput] = useState("");
@@ -64,6 +65,9 @@ function NewPost(props) {
       setResetVal(resetVal + 1);
       setPicInput("");
       setTextInput("");
+      // fetch updated db
+      const status = await getStatus(10);
+      props.setStatus(status);
       return console.log(response);
     }
   };

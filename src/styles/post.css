@@ -1,7 +1,3 @@
-.commentContainer.hide {
-  opacity: 0.5;
-}
-
 .postContainer {
   border: 2px solid rgb(182, 182, 182);
   width: 50vw;

@@ -9,6 +9,7 @@ import CommentContainer from "./CommentContainer";
 
 function Post(props) {
   const [commentShow, setCommentShow] = useState("hide");
+  const [loadComments, setLoadComments] = useState(0);
 
   const date = dateConversion(props.postDate);
 
@@ -18,6 +19,7 @@ function Post(props) {
   const handleCommentClick = () => {
     if (commentShow === "hide") {
       setCommentShow("show");
+      setLoadComments(loadComments + 1);
     } else {
       setCommentShow("hide");
     }
@@ -47,7 +49,11 @@ function Post(props) {
             comment={comment}
             handleCommentClick={handleCommentClick}
           />
-          <CommentContainer status={commentShow} />
+          <CommentContainer
+            status={commentShow}
+            loadComments={loadComments}
+            postid={props.postid}
+          />
         </div>
       </>
     );
@@ -72,7 +78,11 @@ function Post(props) {
             comment={comment}
             handleCommentClick={handleCommentClick}
           />
-          <CommentContainer status={commentShow} />
+          <CommentContainer
+            status={commentShow}
+            loadComments={loadComments}
+            postid={props.postid}
+          />
         </div>
       </>
     );
@@ -102,7 +112,11 @@ function Post(props) {
           comment={comment}
           handleCommentClick={handleCommentClick}
         />
-        <CommentContainer status={commentShow} />
+        <CommentContainer
+          status={commentShow}
+          loadComments={loadComments}
+          postid={props.postid}
+        />
       </div>
     </>
   );

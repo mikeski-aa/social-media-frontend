@@ -10,3 +10,8 @@
 .commentContainer {
   transition-duration: 0.2s;
 }
+
+h6 {
+  margin: 0;
+  padding: 0;
+}

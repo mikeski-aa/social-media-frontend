@@ -65,7 +65,7 @@ function Post(props) {
           </div>
           <div className="commentLikeCount">
             <div className="likeCount">{props.likeCount} likes</div>
-            <div className="commentCount">{comments.length} comments</div>
+            <div className="commentCount">{props.commentCount} comments</div>
           </div>
           <hr></hr>
           <LikeCommentContainer
@@ -107,7 +107,7 @@ function Post(props) {
           </div>
           <div className="commentLikeCount">
             <div className="likeCount">{props.likeCount} likes</div>
-            <div className="commentCount">{comments.length} comments</div>
+            <div className="commentCount">{props.commentCount} comments</div>
           </div>
           <hr></hr>
           <LikeCommentContainer
@@ -154,7 +154,7 @@ function Post(props) {
         </div>
         <div className="commentLikeCount">
           <div className="likeCount">{props.likeCount} likes</div>
-          <div className="commentCount">{comments.length} comments</div>
+          <div className="commentCount">{props.commentCount} comments</div>
         </div>
         <hr></hr>
         <LikeCommentContainer

@@ -61,6 +61,7 @@ function Home() {
                 postDate={item.postDate}
                 postid={item.id}
                 likeCount={item.likes}
+                commentCount={item._count.comments}
               ></Post>
             ))}
           </div>

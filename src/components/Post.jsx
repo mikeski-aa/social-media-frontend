@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import "../styles/post.css";
 import PostUserProfile from "./PostUserProfile";
 import like from "../assets/like.svg";
@@ -7,14 +7,20 @@ import LikeCommentContainer from "./LikeCommentContainer";
 import dateConversion from "../utils/dateConversion";
 import CommentContainer from "./CommentContainer";
 
+export const PostId = createContext();
+
 function Post(props) {
   const [commentShow, setCommentShow] = useState("hide");
   const [loadComments, setLoadComments] = useState(0);
-
+  const [currentPostId, setCurrentPostId] = useState(0);
   const date = dateConversion(props.postDate);
 
   // probably need to add conditional rednering depending on whether post has image, text or both
   // I am unsure of this implementation of conditional redering, not really DRY
+
+  useEffect(() => {
+    setCurrentPostId(props.postid);
+  }, [props.postid]);
 
   const handleCommentClick = () => {
     if (commentShow === "hide") {
@@ -49,11 +55,14 @@ function Post(props) {
             comment={comment}
             handleCommentClick={handleCommentClick}
           />
-          <CommentContainer
-            status={commentShow}
-            loadComments={loadComments}
-            postid={props.postid}
-          />
+          <PostId.Provider
+            value={{ currentPostId, setLoadComments, loadComments }}
+          >
+            <CommentContainer
+              status={commentShow}
+              loadComments={loadComments}
+            />
+          </PostId.Provider>
         </div>
       </>
     );
@@ -78,11 +87,14 @@ function Post(props) {
             comment={comment}
             handleCommentClick={handleCommentClick}
           />
-          <CommentContainer
-            status={commentShow}
-            loadComments={loadComments}
-            postid={props.postid}
-          />
+          <PostId.Provider
+            value={{ currentPostId, setLoadComments, loadComments }}
+          >
+            <CommentContainer
+              status={commentShow}
+              loadComments={loadComments}
+            />
+          </PostId.Provider>
         </div>
       </>
     );
@@ -112,11 +124,15 @@ function Post(props) {
           comment={comment}
           handleCommentClick={handleCommentClick}
         />
-        <CommentContainer
-          status={commentShow}
-          loadComments={loadComments}
-          postid={props.postid}
-        />
+        <PostId.Provider
+          value={{ currentPostId, setLoadComments, loadComments }}
+        >
+          <CommentContainer
+            status={commentShow}
+            loadComments={loadComments}
+            postid={props.postid}
+          />
+        </PostId.Provider>
       </div>
     </>
   );

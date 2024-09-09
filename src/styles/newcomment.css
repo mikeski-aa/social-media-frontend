@@ -1,0 +1,39 @@
+.userImgImg {
+  width: 25px;
+  height: 25px;
+}
+
+.mainNewCommentDiv {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.addCommentBtn {
+  position: relative;
+  left: 100%;
+  transform: translateX(-100%);
+}
+
+.newCommentContainer {
+  background-color: rgba(161, 159, 159, 0.445);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.commentInputBox {
+  border-radius: 5px;
+  width: 100%;
+}
+
+.userImgDiv {
+  background-color: red;
+  display: flex;
+  align-items: center;
+}
+
+.inputBox {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}

@@ -30,6 +30,7 @@ function App() {
         setErr(true);
         return;
       } else {
+        console.log(response);
         setUser(response);
       }
     };

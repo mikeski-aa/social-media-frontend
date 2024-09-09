@@ -6,6 +6,7 @@ import comment from "../assets/comment.svg";
 import LikeCommentContainer from "./LikeCommentContainer";
 import dateConversion from "../utils/dateConversion";
 import CommentContainer from "./CommentContainer";
+import getComments from "../services/getComment";
 
 export const PostId = createContext();
 
@@ -13,6 +14,7 @@ function Post(props) {
   const [commentShow, setCommentShow] = useState("hide");
   const [loadComments, setLoadComments] = useState(0);
   const [currentPostId, setCurrentPostId] = useState(0);
+  const [comments, setComments] = useState([]);
   const date = dateConversion(props.postDate);
 
   // probably need to add conditional rednering depending on whether post has image, text or both
@@ -30,6 +32,18 @@ function Post(props) {
       setCommentShow("hide");
     }
   };
+
+  // checking fetching comments only on click
+  useEffect(() => {
+    const fetchComments = async () => {
+      console.log("FETCHING COMMENTS ONLY ON CLICK");
+      const response = await getComments(currentPostId);
+
+      setComments(response);
+    };
+
+    fetchComments();
+  }, [loadComments]);
 
   if (props.text === "") {
     return (
@@ -49,6 +63,10 @@ function Post(props) {
               className="userImage"
             ></img>
           </div>
+          <div className="commentLikeCount">
+            <div className="likeCount">{props.likeCount} likes</div>
+            <div className="commentCount">{comments.length} comments</div>
+          </div>
           <hr></hr>
           <LikeCommentContainer
             like={like}
@@ -56,7 +74,13 @@ function Post(props) {
             handleCommentClick={handleCommentClick}
           />
           <PostId.Provider
-            value={{ currentPostId, setLoadComments, loadComments }}
+            value={{
+              currentPostId,
+              setLoadComments,
+              loadComments,
+              comments,
+              setComments,
+            }}
           >
             <CommentContainer
               status={commentShow}
@@ -81,6 +105,10 @@ function Post(props) {
           <div className="textImageContainer">
             <div className="text">{props.text}</div>
           </div>
+          <div className="commentLikeCount">
+            <div className="likeCount">{props.likeCount} likes</div>
+            <div className="commentCount">{comments.length} comments</div>
+          </div>
           <hr></hr>
           <LikeCommentContainer
             like={like}
@@ -88,7 +116,13 @@ function Post(props) {
             handleCommentClick={handleCommentClick}
           />
           <PostId.Provider
-            value={{ currentPostId, setLoadComments, loadComments }}
+            value={{
+              currentPostId,
+              setLoadComments,
+              loadComments,
+              comments,
+              setComments,
+            }}
           >
             <CommentContainer
               status={commentShow}
@@ -118,6 +152,10 @@ function Post(props) {
             className="userImage"
           ></img>
         </div>
+        <div className="commentLikeCount">
+          <div className="likeCount">{props.likeCount} likes</div>
+          <div className="commentCount">{comments.length} comments</div>
+        </div>
         <hr></hr>
         <LikeCommentContainer
           like={like}
@@ -125,7 +163,13 @@ function Post(props) {
           handleCommentClick={handleCommentClick}
         />
         <PostId.Provider
-          value={{ currentPostId, setLoadComments, loadComments }}
+          value={{
+            currentPostId,
+            setLoadComments,
+            loadComments,
+            comments,
+            setComments,
+          }}
         >
           <CommentContainer
             status={commentShow}

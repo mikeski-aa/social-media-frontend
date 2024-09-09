@@ -60,6 +60,7 @@ function Home() {
                 profilePic={item.user.profilePic}
                 postDate={item.postDate}
                 postid={item.id}
+                likeCount={item.likes}
               ></Post>
             ))}
           </div>

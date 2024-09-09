@@ -14,17 +14,11 @@
   height: 15px;
 }
 
-.commentButton {
+.commentLikeCount {
   display: flex;
-  align-items: center;
-  gap: 0.25rem;
-  border-radius: 5px;
-  padding: 2px;
-  border: 1px solid grey;
-}
-
-.commentButton:hover {
-  cursor: pointer;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  color: grey;
 }
 
 .userImage {

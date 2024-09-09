@@ -11,10 +11,6 @@
 }
 
 .commentText {
-  margin-bottom: 5px;
-  background-color: rgba(158, 158, 158, 0.459);
-  border-radius: 5px;
-  padding: 3px;
 }
 
 .likeBtnImg {
@@ -27,4 +23,11 @@
   align-items: center;
   justify-content: center;
   width: fit-content;
+}
+
+.commentBackgroundDiv {
+  background-color: rgba(158, 158, 158, 0.459);
+  margin-bottom: 5px;
+  border-radius: 5px;
+  padding: 5px;
 }

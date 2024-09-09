@@ -20,7 +20,7 @@ function CommentContainer(props) {
   }, [props.loadComments]);
   return (
     <div className={"commentContainer " + props.status}>
-      <h6>Comments:</h6>
+      <h4>Comments:</h4>
       {comments.map((comment) => (
         <CommentComponent comment={comment} />
       ))}

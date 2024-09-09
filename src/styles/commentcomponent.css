@@ -1,0 +1,30 @@
+.commentTop {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.commentComponent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.commentText {
+  margin-bottom: 5px;
+  background-color: rgba(158, 158, 158, 0.459);
+  border-radius: 5px;
+  padding: 3px;
+}
+
+.likeBtnImg {
+  width: 15px;
+  height: 15px;
+}
+
+.likeCommentButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+}

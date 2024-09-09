@@ -28,6 +28,7 @@ function NewComment(props) {
       postContext.currentPostId
     );
     postContext.setLoadComments(postContext.loadComments + 1);
+    setCommentText("");
     console.log(response);
 
     return;
@@ -43,6 +44,7 @@ function NewComment(props) {
           <textarea
             className="commentInputBox"
             placeholder="Add a comment"
+            value={commentText}
             onChange={(e) => handleCommentText(e)}
           ></textarea>
         </div>

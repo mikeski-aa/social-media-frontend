@@ -1,3 +1,5 @@
+import "../styles/likecommentcontainer.css";
+
 function LikeCommentContainer(props) {
   return (
     <div className="likeCommentContainer">

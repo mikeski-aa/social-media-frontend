@@ -12,6 +12,8 @@
   visibility: none;
   opacity: 0;
   z-index: -1000;
+  width: 0px;
+  height: 0px;
 }
 
 .newPostModalContainer {

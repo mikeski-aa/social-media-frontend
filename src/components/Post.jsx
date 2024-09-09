@@ -14,6 +14,7 @@ function Post(props) {
   const [commentShow, setCommentShow] = useState("hide");
   const [loadComments, setLoadComments] = useState(0);
   const [currentPostId, setCurrentPostId] = useState(0);
+  const [commentCount, setCommentCount] = useState(props.commentCount);
   const [comments, setComments] = useState([]);
   const date = dateConversion(props.postDate);
 
@@ -63,9 +64,9 @@ function Post(props) {
               className="userImage"
             ></img>
           </div>
-          <div className="commentLikeCount">
+          <div className="commentLikeCount" key={commentCount}>
             <div className="likeCount">{props.likeCount} likes</div>
-            <div className="commentCount">{props.commentCount} comments</div>
+            <div className="commentCount">{commentCount} comments</div>
           </div>
           <hr></hr>
           <LikeCommentContainer
@@ -80,6 +81,8 @@ function Post(props) {
               loadComments,
               comments,
               setComments,
+              commentCount,
+              setCommentCount,
             }}
           >
             <CommentContainer
@@ -105,9 +108,9 @@ function Post(props) {
           <div className="textImageContainer">
             <div className="text">{props.text}</div>
           </div>
-          <div className="commentLikeCount">
+          <div className="commentLikeCount" key={commentCount}>
             <div className="likeCount">{props.likeCount} likes</div>
-            <div className="commentCount">{props.commentCount} comments</div>
+            <div className="commentCount">{commentCount} comments</div>
           </div>
           <hr></hr>
           <LikeCommentContainer
@@ -122,6 +125,8 @@ function Post(props) {
               loadComments,
               comments,
               setComments,
+              commentCount,
+              setCommentCount,
             }}
           >
             <CommentContainer
@@ -152,9 +157,15 @@ function Post(props) {
             className="userImage"
           ></img>
         </div>
-        <div className="commentLikeCount">
+        <div
+          className="commentLikeCount"
+          key={commentCount}
+          onClick={console.log("why")}
+        >
           <div className="likeCount">{props.likeCount} likes</div>
-          <div className="commentCount">{props.commentCount} comments</div>
+          <div className="commentCount" onClick={console.log("i work")}>
+            {commentCount} comments
+          </div>
         </div>
         <hr></hr>
         <LikeCommentContainer
@@ -169,6 +180,8 @@ function Post(props) {
             loadComments,
             comments,
             setComments,
+            commentCount,
+            setCommentCount,
           }}
         >
           <CommentContainer

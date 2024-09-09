@@ -29,7 +29,8 @@ function NewComment(props) {
     );
     postContext.setLoadComments(postContext.loadComments + 1);
     setCommentText("");
-    console.log(response);
+    // UPDATING KEY TO FORCE REFRESH OF COMPONENET!
+    postContext.setCommentCount(postContext.commentCount + 1);
 
     return;
   };

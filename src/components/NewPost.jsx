@@ -55,6 +55,9 @@ function NewPost(props) {
       setResetVal(resetVal + 1);
       setPicInput("");
       setTextInput("");
+      // fetch updated db
+      const status = await getStatus(10);
+      props.setStatus(status);
       return console.log(response);
     } else {
       console.log("no upload pic");

@@ -9,26 +9,13 @@ import { PostId } from "./Post";
 
 function CommentContainer(props) {
   const postContext = useContext(PostId);
-  // const [comments, setComments] = useState([]);
 
-  // useEffect(() => {
-  //   const fetchComments = async () => {
-  //     console.log("///////////////////////////////");
-  //     console.log(postContext.currentPostId);
-  //     const response = await getComments(postContext.currentPostId);
-
-  //     setComments(response);
-  //     console.log(response);
-  //   };
-
-  //   fetchComments();
-  // }, [props.loadComments]);
   return (
     <div className={"commentContainer " + props.status}>
       <NewComment />
       <h4>Comments:</h4>
       {postContext.comments.map((comment) => (
-        <CommentComponent comment={comment} />
+        <CommentComponent comment={comment} key={comment.id} />
       ))}
     </div>
   );

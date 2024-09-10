@@ -1,9 +1,15 @@
+import { useContext } from "react";
 import "../styles/likecommentcontainer.css";
+import { PostId } from "./Post";
 
 function LikeCommentContainer(props) {
+  const postContext = useContext(PostId);
   return (
     <div className="likeCommentContainer">
-      <button className="commentButton" onClick={props.handleLikeClick}>
+      <button
+        className={"likeButton " + postContext.likedByUser}
+        onClick={props.handleLikeClick}
+      >
         <img className="buttonImgPost" src={props.like} />
         <div className="buttonText">Like</div>
       </button>

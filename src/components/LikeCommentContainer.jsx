@@ -3,7 +3,7 @@ import "../styles/likecommentcontainer.css";
 function LikeCommentContainer(props) {
   return (
     <div className="likeCommentContainer">
-      <button className="commentButton">
+      <button className="commentButton" onClick={props.handleLikeClick}>
         <img className="buttonImgPost" src={props.like} />
         <div className="buttonText">Like</div>
       </button>

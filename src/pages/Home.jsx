@@ -29,10 +29,14 @@ function Home() {
     };
 
     fetchStatus();
-  }, []);
+  }, [fetchCount]);
 
   const handleNewPostBtn = () => {
     setPostModal("show");
+  };
+
+  const handleLoadMoreClick = () => {
+    setFetchCount(fetchCount + 10);
   };
 
   return (
@@ -60,10 +64,17 @@ function Home() {
                 profilePic={item.user.profilePic}
                 postDate={item.postDate}
                 postid={item.id}
-                likeCount={item.likes}
+                likeCount={item.likes.length}
+                likeUsers={item.likes}
                 commentCount={item._count.comments}
               ></Post>
             ))}
+            <button
+              className="locadMoreContentBtn"
+              onClick={handleLoadMoreClick}
+            >
+              Load more
+            </button>
           </div>
         </div>
       </div>

@@ -7,6 +7,8 @@ import LikeCommentContainer from "./LikeCommentContainer";
 import dateConversion from "../utils/dateConversion";
 import CommentContainer from "./CommentContainer";
 import getComments from "../services/getComment";
+import { AuthContext } from "../App";
+import putStatusLikes from "../services/putStatusLikes";
 
 export const PostId = createContext();
 
@@ -16,14 +18,31 @@ function Post(props) {
   const [currentPostId, setCurrentPostId] = useState(0);
   const [commentCount, setCommentCount] = useState(props.commentCount);
   const [comments, setComments] = useState([]);
+  const [likes, setLikeArray] = useState(props.likeUsers);
+  const [likedByUser, setLikedByUser] = useState();
   const date = dateConversion(props.postDate);
+  const authContext = useContext(AuthContext);
 
   // probably need to add conditional rednering depending on whether post has image, text or both
   // I am unsure of this implementation of conditional redering, not really DRY
 
+  // set post ID
   useEffect(() => {
     setCurrentPostId(props.postid);
   }, [props.postid]);
+
+  // set like array on post loading
+  useEffect(() => {
+    let filtered = likes.filter((item) => item === authContext.user.id);
+    console.log(`Filtered likes: ${filtered}`);
+    console.log(filtered.length);
+
+    if (filtered.length === 0) {
+      setLikedByUser(false);
+    } else {
+      setLikedByUser(true);
+    }
+  }, []);
 
   const handleCommentClick = () => {
     if (commentShow === "hide") {
@@ -32,6 +51,15 @@ function Post(props) {
     } else {
       setCommentShow("hide");
     }
+  };
+
+  // call service to like / unlike
+  const handleLikeClick = async () => {
+    console.log("like clicked");
+
+    const response = await putStatusLikes(currentPostId);
+    console.log(response.likes);
+    setLikeArray(response.likes);
   };
 
   // checking fetching comments only on click
@@ -45,6 +73,17 @@ function Post(props) {
 
     fetchComments();
   }, [loadComments]);
+
+  // side effect for updating whether user is liking the post, to occur when likes array changes
+  useEffect(() => {
+    console.log("side effect running");
+    const filteredArray = likes.filter((item) => item === authContext.user.id);
+    if (filteredArray.length === 1) {
+      setLikedByUser(true);
+    } else {
+      setLikedByUser(false);
+    }
+  }, [likes]);
 
   if (props.text === "") {
     return (
@@ -65,7 +104,7 @@ function Post(props) {
             ></img>
           </div>
           <div className="commentLikeCount" key={commentCount}>
-            <div className="likeCount">{props.likeCount} likes</div>
+            <div className="likeCount">{likes.length} likes</div>
             <div className="commentCount">{commentCount} comments</div>
           </div>
           <hr></hr>
@@ -73,6 +112,8 @@ function Post(props) {
             like={like}
             comment={comment}
             handleCommentClick={handleCommentClick}
+            handleLikeClick={handleLikeClick}
+            likedByUser={likedByUser}
           />
           <PostId.Provider
             value={{
@@ -109,7 +150,7 @@ function Post(props) {
             <div className="text">{props.text}</div>
           </div>
           <div className="commentLikeCount" key={commentCount}>
-            <div className="likeCount">{props.likeCount} likes</div>
+            <div className="likeCount">{likes.length} likes</div>
             <div className="commentCount">{commentCount} comments</div>
           </div>
           <hr></hr>
@@ -117,6 +158,7 @@ function Post(props) {
             like={like}
             comment={comment}
             handleCommentClick={handleCommentClick}
+            handleLikeClick={handleLikeClick}
           />
           <PostId.Provider
             value={{
@@ -157,21 +199,16 @@ function Post(props) {
             className="userImage"
           ></img>
         </div>
-        <div
-          className="commentLikeCount"
-          key={commentCount}
-          onClick={console.log("why")}
-        >
-          <div className="likeCount">{props.likeCount} likes</div>
-          <div className="commentCount" onClick={console.log("i work")}>
-            {commentCount} comments
-          </div>
+        <div className="commentLikeCount" key={commentCount}>
+          <div className="likeCount">{likes.length} likes</div>
+          <div className="commentCount">{commentCount} comments</div>
         </div>
         <hr></hr>
         <LikeCommentContainer
           like={like}
           comment={comment}
           handleCommentClick={handleCommentClick}
+          handleLikeClick={handleLikeClick}
         />
         <PostId.Provider
           value={{

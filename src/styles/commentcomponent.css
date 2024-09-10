@@ -23,6 +23,9 @@
   align-items: center;
   justify-content: center;
   width: fit-content;
+  gap: 0.25rem;
+  background-color: rgba(245, 222, 179, 0);
+  border: 0;
 }
 
 .commentBackgroundDiv {
@@ -30,4 +33,26 @@
   margin-bottom: 5px;
   border-radius: 5px;
   padding: 5px;
+}
+
+.commentLikes {
+  font-size: 0.7rem;
+  color: grey;
+}
+
+.likeCommentButton:hover {
+  cursor: pointer;
+}
+
+.likesContainerWithButton {
+  display: flex;
+  justify-content: space-between;
+}
+
+.likeCommentButton {
+  transition-duration: 0.8s;
+}
+.likeCommentButton.true {
+  background-color: rgba(87, 202, 255, 0.521);
+  border-radius: 5px;
 }

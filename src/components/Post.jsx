@@ -108,12 +108,7 @@ function Post(props) {
             <div className="commentCount">{commentCount} comments</div>
           </div>
           <hr></hr>
-          <LikeCommentContainer
-            like={like}
-            comment={comment}
-            handleCommentClick={handleCommentClick}
-            handleLikeClick={handleLikeClick}
-          />
+
           <PostId.Provider
             value={{
               currentPostId,
@@ -127,6 +122,12 @@ function Post(props) {
               likedByUser,
             }}
           >
+            <LikeCommentContainer
+              like={like}
+              comment={comment}
+              handleCommentClick={handleCommentClick}
+              handleLikeClick={handleLikeClick}
+            />
             <CommentContainer
               status={commentShow}
               loadComments={loadComments}

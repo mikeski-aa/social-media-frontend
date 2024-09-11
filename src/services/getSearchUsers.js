@@ -1,7 +1,7 @@
 import { LOCAL_URL } from "../utils/url.const";
 
-async function getFriends() {
-  const url = LOCAL_URL + `friends`;
+async function getSearchUsers(username) {
+  const url = LOCAL_URL + `user/all?username=${username}`;
   const headerinfo = {
     Authorization: "bearer " + localStorage.getItem("token"),
   };
@@ -22,4 +22,4 @@ async function getFriends() {
   }
 }
 
-export default getFriends;
+export default getSearchUsers;

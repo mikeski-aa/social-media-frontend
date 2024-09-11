@@ -3,6 +3,7 @@ import getFriends from "../services/getFriends";
 import FriendListFriend from "../components/FriendListFriend";
 import "../styles/friends.css";
 import search from "../assets/search.svg";
+import getSearchUsers from "../services/getSearchUsers";
 
 function Friends() {
   const [friends, setFriends] = useState([]);
@@ -19,7 +20,9 @@ function Friends() {
     loadFriends();
   }, []);
 
-  const handleSearchClick = () => {
+  const handleSearchClick = async () => {
+    const response = await getSearchUsers(searchInput);
+    console.log(response);
     setSearchInput("");
   };
 
@@ -38,6 +41,8 @@ function Friends() {
             type="text"
             placeholder="Search for your friends"
             onChange={(e) => handleSearchInput(e)}
+            minLength={1}
+            maxLength={15}
             value={searchInput}
           ></input>
           <button className="searchBtnFriend" onClick={handleSearchClick}>

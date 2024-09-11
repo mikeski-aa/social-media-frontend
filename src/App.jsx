@@ -7,6 +7,7 @@ import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import checkLoginStatus from "./services/checkLoginStatus";
+import Friends from "./pages/Friends";
 import { redirect } from "react-router-dom";
 
 export const AuthContext = createContext();
@@ -50,6 +51,10 @@ function App() {
         {
           path: "profile",
           element: <Profile />,
+        },
+        {
+          path: "friends",
+          element: <Friends />,
         },
       ],
     },

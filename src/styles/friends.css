@@ -1,0 +1,9 @@
+.loadingFriends.false {
+  display: none;
+}
+
+.allFriends {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}

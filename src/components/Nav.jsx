@@ -11,6 +11,10 @@ function Nav() {
     return navigate("/profile");
   };
 
+  const handleFriendsClick = () => {
+    return navigate("/friends");
+  };
+
   const handleLogoutClick = () => {
     localStorage.removeItem("token");
     return navigate("/login");
@@ -21,7 +25,9 @@ function Nav() {
       <button className="btn1" onClick={handleHomeClick}>
         Home
       </button>
-      <button className="btn2">Friends</button>
+      <button className="btn2" onClick={handleFriendsClick}>
+        Friends
+      </button>
       <button className="btn3" onClick={handleProfClick}>
         Profile
       </button>

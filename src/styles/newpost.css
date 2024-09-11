@@ -4,8 +4,7 @@
   width: 100vw;
   height: 100vh;
   position: absolute;
-  background-color: rgba(2, 2, 160, 0.432);
-  transition-duration: 1s;
+  background-color: rgba(190, 190, 190, 0.801);
 }
 
 .modal.hide {
@@ -24,11 +23,9 @@
   z-index: 100;
   transform: translateX(-50%);
   width: fit-content;
-  transition-duration: 1s;
 }
 
 .newPostModalContainer.hide {
-  transform: translateY(-500px);
   opacity: 0;
 }
 

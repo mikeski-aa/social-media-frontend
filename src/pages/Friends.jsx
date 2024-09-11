@@ -4,12 +4,15 @@ import FriendListFriend from "../components/FriendListFriend";
 import "../styles/friends.css";
 import search from "../assets/search.svg";
 import getSearchUsers from "../services/getSearchUsers";
+import SearchUserModal from "../components/SearchUserModal";
 
 function Friends() {
   const [friends, setFriends] = useState([]);
   const [loadingFriends, setLoadingFriends] = useState(true);
   const [searchInput, setSearchInput] = useState("");
   const [content, setContent] = useState([]);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [searchLoading, setSearchLoading] = useState(false);
 
   useEffect(() => {
     const loadFriends = async () => {
@@ -22,7 +25,10 @@ function Friends() {
   }, []);
 
   const handleSearchClick = async () => {
+    setSearchLoading(true);
     const response = await getSearchUsers(searchInput);
+    setSearchLoading(false);
+    setModalVisible(true);
     setContent(response);
     console.log(response);
     setSearchInput("");
@@ -35,6 +41,11 @@ function Friends() {
 
   return (
     <div className="friendsContainer">
+      <SearchUserModal
+        result={content}
+        visibility={modalVisible}
+        setModalVisible={setModalVisible}
+      />
       <div className="friendsHeading">
         <h4>Friends</h4>
         <div className="searchBoxButton">
@@ -51,11 +62,6 @@ function Friends() {
             <button className="searchBtnFriend" onClick={handleSearchClick}>
               <img className="buttonIconSearch" src={search} />
             </button>
-          </div>
-          <div className="searchResults">
-            {content.map((item) => (
-              <div>{item.username}</div>
-            ))}
           </div>
         </div>
       </div>

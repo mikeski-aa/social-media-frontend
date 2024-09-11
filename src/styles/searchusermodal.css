@@ -1,0 +1,13 @@
+.searchModal {
+  outline: 2px solid black;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 5%;
+  width: 90vw;
+  background-color: white;
+}
+
+.modal.false {
+  display: none;
+}

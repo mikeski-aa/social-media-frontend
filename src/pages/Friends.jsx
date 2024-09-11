@@ -9,6 +9,7 @@ function Friends() {
   const [friends, setFriends] = useState([]);
   const [loadingFriends, setLoadingFriends] = useState(true);
   const [searchInput, setSearchInput] = useState("");
+  const [content, setContent] = useState([]);
 
   useEffect(() => {
     const loadFriends = async () => {
@@ -22,6 +23,7 @@ function Friends() {
 
   const handleSearchClick = async () => {
     const response = await getSearchUsers(searchInput);
+    setContent(response);
     console.log(response);
     setSearchInput("");
   };
@@ -36,18 +38,25 @@ function Friends() {
       <div className="friendsHeading">
         <h4>Friends</h4>
         <div className="searchBoxButton">
-          <input
-            className="searchFriend"
-            type="text"
-            placeholder="Search for your friends"
-            onChange={(e) => handleSearchInput(e)}
-            minLength={1}
-            maxLength={15}
-            value={searchInput}
-          ></input>
-          <button className="searchBtnFriend" onClick={handleSearchClick}>
-            <img className="buttonIconSearch" src={search} />
-          </button>
+          <div className="outerDivSearch">
+            <input
+              className="searchFriend"
+              type="text"
+              placeholder="Search for your friends"
+              onChange={(e) => handleSearchInput(e)}
+              minLength={1}
+              maxLength={15}
+              value={searchInput}
+            ></input>
+            <button className="searchBtnFriend" onClick={handleSearchClick}>
+              <img className="buttonIconSearch" src={search} />
+            </button>
+          </div>
+          <div className="searchResults">
+            {content.map((item) => (
+              <div>{item.username}</div>
+            ))}
+          </div>
         </div>
       </div>
 

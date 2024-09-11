@@ -7,3 +7,15 @@
   flex-direction: column;
   gap: 0.5rem;
 }
+
+.searchBoxButton {
+  display: flex;
+  flex-direction: column;
+}
+
+.searchResults {
+  position: relative;
+  background-color: rgba(39, 154, 255, 0.432);
+  width: 100%;
+  z-index: 1000;
+}

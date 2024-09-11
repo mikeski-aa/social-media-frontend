@@ -8,17 +8,22 @@ function SearchUserModal(props) {
   return (
     <div className={"modal " + props.visibility}>
       <div className="searchModal">
+        <button className="closeSearchModalBtn" onClick={handleCloseModal}>
+          Close
+        </button>
         <h4>Search results:</h4>
-        {props.result.map((user) => (
-          <SearchUserProfile
-            username={user.username}
-            profilePic={user.profilePic}
-            key={user.id}
-            id={user.id}
-          />
-        ))}
+        <div className="resultUsers">
+          {props.result.map((user) => (
+            <SearchUserProfile
+              username={user.username}
+              profilePic={user.profilePic}
+              key={user.id}
+              friendOf={user.friendOf}
+              id={user.id}
+            />
+          ))}
+        </div>
       </div>
-      <button onClick={handleCloseModal}>Close</button>
     </div>
   );
 }

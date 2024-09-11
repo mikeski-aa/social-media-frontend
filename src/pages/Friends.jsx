@@ -25,9 +25,19 @@ function Friends() {
   }, []);
 
   const handleSearchClick = async () => {
+    // if no input return null
+    if (searchInput === "") {
+      return null;
+    }
     setSearchLoading(true);
     const response = await getSearchUsers(searchInput);
     setSearchLoading(false);
+
+    // if no results, return null
+    if (response.length === 0) {
+      return null;
+    }
+
     setModalVisible(true);
     setContent(response);
     console.log(response);

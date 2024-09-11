@@ -1,13 +1,37 @@
 .searchModal {
-  outline: 2px solid black;
+  outline: 2px solid rgb(80, 80, 80);
   position: relative;
   left: 50%;
   transform: translateX(-50%);
   top: 5%;
-  width: 90vw;
+  max-width: 90vw;
   background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 10px grey;
 }
 
 .modal.false {
   display: none;
+}
+
+.closeSearchModalBtn {
+  position: relative;
+  left: 100%;
+  transform: translateX(-100%);
+}
+
+.resultUsers {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.addFriend.true {
+  background-color: rgba(12, 148, 189, 0.918);
+}
+
+.addFriend.undefined:hover,
+.addFriend.false:hover {
+  cursor: pointer;
 }

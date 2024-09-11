@@ -14,7 +14,8 @@ async function getSearchUsers(username) {
     }
 
     const json = await response.json();
-
+    console.log("search result");
+    console.log(json);
     return json;
   } catch (error) {
     console.log(error);

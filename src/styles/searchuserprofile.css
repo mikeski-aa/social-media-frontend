@@ -2,3 +2,16 @@
   display: flex;
   justify-content: space-between;
 }
+
+.addFriend.true {
+  background-color: rgba(12, 148, 189, 0.918);
+}
+
+.addFriend.undefined:hover,
+.addFriend.false:hover {
+  cursor: pointer;
+}
+
+.addFriend.pending {
+  background-color: grey;
+}

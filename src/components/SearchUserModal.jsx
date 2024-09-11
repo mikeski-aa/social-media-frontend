@@ -19,6 +19,8 @@ function SearchUserModal(props) {
               profilePic={user.profilePic}
               key={user.id}
               friendOf={user.friendOf}
+              reqIn={user.reqIn}
+              reqOut={user.reqOut}
               id={user.id}
             />
           ))}

@@ -40,6 +40,7 @@ function Friends() {
 
     setModalVisible(true);
     setContent(response);
+    console.log("CONTENT");
     console.log(response);
     setSearchInput("");
   };

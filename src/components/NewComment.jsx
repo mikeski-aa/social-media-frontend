@@ -9,7 +9,7 @@ function NewComment(props) {
   const postContext = useContext(PostId);
   const authContext = useContext(AuthContext);
   const [commentText, setCommentText] = useState("");
-  let img;
+  let img = person;
 
   if (authContext.user.profilePic === "default") {
     img = person;

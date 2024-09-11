@@ -25,7 +25,7 @@ function Login() {
   const handleLoginClick = async (e) => {
     e.preventDefault();
     const response = await postUserLogin(emailInput, passwordInput);
-
+    console.log("RESPONSE HERE");
     console.log(localStorage.getItem("token"));
     console.log(response);
     // if error message display error box
@@ -41,6 +41,7 @@ function Login() {
     }
     console.log("successfuly logged in, navigating away");
     authContext.setErr(false);
+    await authContext.setUser(response.user);
     return navigate("/");
   };
 

@@ -21,10 +21,11 @@ function Nav() {
       <button className="btn1" onClick={handleHomeClick}>
         Home
       </button>
-      <button className="btn2" onClick={handleProfClick}>
+      <button className="btn2">Friends</button>
+      <button className="btn3" onClick={handleProfClick}>
         Profile
       </button>
-      <button className="btn3" onClick={handleLogoutClick}>
+      <button className="btn4" onClick={handleLogoutClick}>
         Logout
       </button>
     </div>

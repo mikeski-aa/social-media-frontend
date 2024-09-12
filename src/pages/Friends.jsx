@@ -7,6 +7,7 @@ import getSearchUsers from "../services/getSearchUsers";
 import SearchUserModal from "../components/SearchUserModal";
 import getIncomingRequests from "../services/getRequests";
 import FriendRequestModal from "../components/FriendRequestModal";
+import useRedirectValidFail from "../hooks/useRedirectValidFail";
 
 export const FriendsContext = createContext();
 
@@ -25,6 +26,8 @@ function Friends() {
   const [forceloadFriends, setForceLoadFriends] = useState(0);
   // previous search is required to allow us to refresh results when accepting or sending requests!
   const [previousSearch, setPreviousSearch] = useState("");
+
+  useRedirectValidFail(authContext.err);
 
   // load friends when the friends page is rendered
   // combinging loading friends with loading requests

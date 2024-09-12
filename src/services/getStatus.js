@@ -1,6 +1,5 @@
 import { LOCAL_URL } from "../utils/url.const";
 
-// TODO: FETCH SPECIFIC STATUS BY ID OF USER!
 async function getStatus(postCount) {
   const url = LOCAL_URL + `status?count=${postCount}`;
   const headerinfo = {

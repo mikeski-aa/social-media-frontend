@@ -1,0 +1,28 @@
+.profileUserProfileImg {
+  width: 20vw;
+  height: 20vw;
+  border: 2px solid black;
+}
+
+.profileStats {
+  background-color: grey;
+  border-radius: 5px;
+  display: flex;
+}
+
+.profileHeader {
+  margin-top: 10vh;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.usernameProfile {
+  font-size: xx-large;
+}
+
+.postsCommentsMainDiv {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}

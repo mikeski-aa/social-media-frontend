@@ -4,11 +4,13 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../App";
 import postRequest from "../services/postRequest";
 import putFriendsAdd from "../services/putFriendsAdd";
+import { FriendsContext } from "../pages/Friends";
 
 // TO DO: HANDLE DISPLAY OF YOUR NAME
 
 function SearchUserProfile(props) {
   const authContext = useContext(AuthContext);
+  const friendsContext = useContext(FriendsContext);
   const [alreadyFriends, setAlreadyFriends] = useState();
   const [btnText, setBtnText] = useState();
   let img;
@@ -58,11 +60,16 @@ function SearchUserProfile(props) {
     if (alreadyFriends === "incoming") {
       const acceptRequest = await putFriendsAdd(props.id);
       console.log(acceptRequest);
-      return null;
+      return friendsContext.setForceLoadFriends(
+        friendsContext.forceloadFriends + 1
+      );
     }
 
     const response = await postRequest(props.id);
     console.log(response);
+    return friendsContext.setForceLoadFriends(
+      friendsContext.forceloadFriends + 1
+    );
   };
 
   return (

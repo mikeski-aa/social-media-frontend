@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import getFriends from "../services/getFriends";
 import FriendListFriend from "../components/FriendListFriend";
 import "../styles/friends.css";
@@ -7,6 +7,8 @@ import getSearchUsers from "../services/getSearchUsers";
 import SearchUserModal from "../components/SearchUserModal";
 import getIncomingRequests from "../services/getRequests";
 import FriendRequestModal from "../components/FriendRequestModal";
+
+export const FriendsContext = createContext();
 
 //TODO: INVESTIGATE DOUBLE LOADING of current friends on page load
 function Friends() {
@@ -21,6 +23,8 @@ function Friends() {
   const [requests, setRequests] = useState([]);
   const [reqVisibility, setReqVisibility] = useState(false);
   const [forceloadFriends, setForceLoadFriends] = useState(0);
+  // previous search is required to allow us to refresh results when accepting or sending requests!
+  const [previousSearch, setPreviousSearch] = useState("");
 
   // load friends when the friends page is rendered
   // combinging loading friends with loading requests
@@ -56,7 +60,7 @@ function Friends() {
       setSearchError(true);
       return null;
     }
-
+    setPreviousSearch(searchInput);
     setSearchErrorMsg("");
     setSearchError(false);
     setModalVisible(true);
@@ -79,58 +83,61 @@ function Friends() {
 
   return (
     <div className="friendsContainer">
-      <SearchUserModal
-        result={content}
-        visibility={modalVisible}
-        setModalVisible={setModalVisible}
-        forceloadFriends={forceloadFriends}
-        setForceLoadFriends={setForceLoadFriends}
-      />
-      <FriendRequestModal
-        visibility={reqVisibility}
-        setReqVisibility={setReqVisibility}
-        result={requests}
-        forceloadFriends={forceloadFriends}
-        setForceLoadFriends={setForceLoadFriends}
-      />
-      <div className="friendsHeading">
-        <h4>Friends</h4>
-        <div className="searchBoxButton">
-          <div className="outerDivSearch">
-            <input
-              className="searchFriend"
-              type="text"
-              placeholder="Search for your friends"
-              onChange={(e) => handleSearchInput(e)}
-              minLength={1}
-              maxLength={15}
-              value={searchInput}
-            ></input>
-            <button className="searchBtnFriend" onClick={handleSearchClick}>
-              <img className="buttonIconSearch" src={search} />
-            </button>
-            <div className={"searchErrorBox " + searchError}>
-              {searchErrorMsg}
+      <FriendsContext.Provider
+        value={{ forceloadFriends, setForceLoadFriends, previousSearch }}
+      >
+        <SearchUserModal
+          result={content}
+          visibility={modalVisible}
+          setModalVisible={setModalVisible}
+        />
+        <FriendRequestModal
+          visibility={reqVisibility}
+          setReqVisibility={setReqVisibility}
+          result={requests}
+        />
+
+        <div className="friendsHeading">
+          <h4>Friends</h4>
+          <div className="searchBoxButton">
+            <div className="outerDivSearch">
+              <input
+                className="searchFriend"
+                type="text"
+                placeholder="Search for your friends"
+                onChange={(e) => handleSearchInput(e)}
+                minLength={1}
+                maxLength={15}
+                value={searchInput}
+              ></input>
+              <button className="searchBtnFriend" onClick={handleSearchClick}>
+                <img className="buttonIconSearch" src={search} />
+              </button>
+              <div className={"searchErrorBox " + searchError}>
+                {searchErrorMsg}
+              </div>
+              <div className={"searchLoading " + searchLoading}>
+                Searching...
+              </div>
             </div>
-            <div className={"searchLoading " + searchLoading}>Searching...</div>
           </div>
         </div>
-      </div>
 
-      <button className="incomingReqs" onClick={handleRequestsOpen}>
-        Friend requests {requests.length}
-      </button>
-      <div className="allFriends">
-        <div className={"loadingFriends " + loadingFriends}>LOADING ...</div>
-        {friends.map((friend) => (
-          <FriendListFriend
-            profilePic={friend.profilePic}
-            username={friend.username}
-            key={friend.id}
-            id={friend.id}
-          />
-        ))}
-      </div>
+        <button className="incomingReqs" onClick={handleRequestsOpen}>
+          Friend requests {requests.length}
+        </button>
+        <div className="allFriends">
+          <div className={"loadingFriends " + loadingFriends}>LOADING ...</div>
+          {friends.map((friend) => (
+            <FriendListFriend
+              profilePic={friend.profilePic}
+              username={friend.username}
+              key={friend.id}
+              id={friend.id}
+            />
+          ))}
+        </div>
+      </FriendsContext.Provider>
     </div>
   );
 }

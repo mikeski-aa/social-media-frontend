@@ -1,10 +1,11 @@
 import "../styles/searchuserprofile.css";
 import person from "../assets/person.svg";
 import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../App";
+import deleteFriend from "../services/deleteFriend";
+import { FriendsContext } from "../pages/Friends";
 
 function FriendRequestProfile(props) {
-  const authContext = useContext(AuthContext);
+  const friendContext = useContext(FriendsContext);
   let img;
 
   if (props.profilePic === "default") {

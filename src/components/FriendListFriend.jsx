@@ -1,7 +1,11 @@
 import "../styles/friendlistfriend.css";
 import person from "../assets/person.svg";
-
+import { FriendsContext } from "../pages/Friends";
+import { useContext } from "react";
+import deleteFriend from "../services/deleteFriend";
+//TO DO: FIX ERROR WHEN DELETING
 function FriendListFriend(props) {
+  const friendsContext = useContext(FriendsContext);
   let img;
 
   if (props.profilePic === "default") {
@@ -10,7 +14,12 @@ function FriendListFriend(props) {
     img = props.profilePic;
   }
 
-  const handleFriendRemove = async () => {};
+  const handleFriendRemove = async () => {
+    const response = await deleteFriend(props.id);
+    return friendsContext.setForceLoadFriends(
+      friendsContext.forceloadFriends + 1
+    );
+  };
 
   return (
     <div className="friendContainer">

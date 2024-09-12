@@ -5,6 +5,8 @@ import "../styles/friends.css";
 import search from "../assets/search.svg";
 import getSearchUsers from "../services/getSearchUsers";
 import SearchUserModal from "../components/SearchUserModal";
+import getIncomingRequests from "../services/getRequests";
+import FriendRequestModal from "../components/FriendRequestModal";
 
 //TODO: INVESTIGATE DOUBLE LOADING of current friends on page load
 function Friends() {
@@ -16,13 +18,22 @@ function Friends() {
   const [searchLoading, setSearchLoading] = useState(false);
   const [searchError, setSearchError] = useState(false);
   const [searchErrorMsg, setSearchErrorMsg] = useState("");
+  const [requests, setRequests] = useState([]);
+  const [reqVisibility, setReqVisibility] = useState(false);
 
+  // load friends when the friends page is rendered
+  // combinging loading friends with loading requests
+  // using await promise all to load both concurrently instead of doing them one at a time
   useEffect(() => {
     const loadFriends = async () => {
-      const friends = await getFriends();
+      const [friends, requests] = await Promise.all([
+        getFriends(),
+        getIncomingRequests(),
+      ]);
       setLoadingFriends(false);
       console.log(friends.friends);
       setFriends(friends.friends);
+      setRequests(requests);
     };
     loadFriends();
   }, []);
@@ -60,7 +71,10 @@ function Friends() {
   };
 
   // handle friend request modal open
-  const handleRequestsOpen = () => {};
+  const handleRequestsOpen = () => {
+    setReqVisibility(true);
+    console.log(requests);
+  };
 
   return (
     <div className="friendsContainer">
@@ -68,6 +82,11 @@ function Friends() {
         result={content}
         visibility={modalVisible}
         setModalVisible={setModalVisible}
+      />
+      <FriendRequestModal
+        visibility={reqVisibility}
+        setReqVisibility={setReqVisibility}
+        result={requests}
       />
       <div className="friendsHeading">
         <h4>Friends</h4>
@@ -94,7 +113,7 @@ function Friends() {
       </div>
 
       <button className="incomingReqs" onClick={handleRequestsOpen}>
-        Friend requests
+        Friend requests {requests.length}
       </button>
       <div className="allFriends">
         <div className={"loadingFriends " + loadingFriends}>LOADING ...</div>

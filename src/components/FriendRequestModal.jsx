@@ -3,7 +3,7 @@ import FriendRequestProfile from "./FriendRequestProfile";
 
 function FriendRequestModal(props) {
   const handleCloseModal = () => {
-    props.setModalVisible(false);
+    props.setReqVisibility(false);
   };
   return (
     <div className={"modal " + props.visibility}>
@@ -15,10 +15,10 @@ function FriendRequestModal(props) {
         <div className="resultUsers">
           {props.result.map((user) => (
             <FriendRequestProfile
-              username={user.username}
-              profilePic={user.profilePic}
-              key={user.id}
-              id={user.id}
+              username={user.requester.username}
+              profilePic={user.requester.profilePic}
+              key={user.requester.id}
+              id={user.requester.id}
             />
           ))}
         </div>

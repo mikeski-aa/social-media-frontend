@@ -3,9 +3,10 @@ import person from "../assets/person.svg";
 import { useContext, useEffect, useState } from "react";
 import deleteFriend from "../services/deleteFriend";
 import { FriendsContext } from "../pages/Friends";
+import putFriendAdd from "../services/putFriendsAdd";
 
 function FriendRequestProfile(props) {
-  const friendContext = useContext(FriendsContext);
+  const friendsContext = useContext(FriendsContext);
   let img;
 
   if (props.profilePic === "default") {
@@ -14,7 +15,12 @@ function FriendRequestProfile(props) {
     img = props.profilePic;
   }
 
-  const handleAcceptClick = async () => {};
+  const handleAcceptClick = async () => {
+    const response = await putFriendAdd(props.id);
+    return friendsContext.setForceLoadFriends(
+      friendsContext.forceloadFriends + 1
+    );
+  };
   const handleDeclineClick = async () => {};
 
   return (

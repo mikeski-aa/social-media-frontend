@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import useRedirectValidFail from "../hooks/useRedirectValidFail";
 import { AuthContext } from "../App";
 import "../styles/profile.css";

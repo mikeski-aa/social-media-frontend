@@ -52,6 +52,7 @@ function SearchUserProfile(props) {
     }
   }, []);
 
+  // very messy logic
   const handleAddFriend = async () => {
     if (alreadyFriends === true || alreadyFriends === "pending") {
       return null;
@@ -59,6 +60,7 @@ function SearchUserProfile(props) {
 
     if (alreadyFriends === "incoming") {
       const acceptRequest = await putFriendsAdd(props.id);
+      setAlreadyFriends(true);
       console.log(acceptRequest);
       return friendsContext.setForceLoadFriends(
         friendsContext.forceloadFriends + 1
@@ -67,6 +69,7 @@ function SearchUserProfile(props) {
 
     const response = await postRequest(props.id);
     console.log(response);
+    setAlreadyFriends("pending");
     return friendsContext.setForceLoadFriends(
       friendsContext.forceloadFriends + 1
     );

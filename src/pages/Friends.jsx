@@ -59,6 +59,9 @@ function Friends() {
     setSearchInput(e.target.value);
   };
 
+  // handle friend request modal open
+  const handleRequestsOpen = () => {};
+
   return (
     <div className="friendsContainer">
       <SearchUserModal
@@ -90,7 +93,9 @@ function Friends() {
         </div>
       </div>
 
-      <div className="incomingReqs">Incoming reqs will go here</div>
+      <button className="incomingReqs" onClick={handleRequestsOpen}>
+        Friend requests
+      </button>
       <div className="allFriends">
         <div className={"loadingFriends " + loadingFriends}>LOADING ...</div>
         {friends.map((friend) => (

@@ -13,12 +13,13 @@ function FriendRequestModal(props) {
         </button>
         <h4>Search results:</h4>
         <div className="resultUsers">
-          {props.result.map((user) => (
+          {props.result.map((request) => (
             <FriendRequestProfile
-              username={user.requester.username}
-              profilePic={user.requester.profilePic}
-              key={user.requester.id}
-              id={user.requester.id}
+              username={request.requester.username}
+              profilePic={request.requester.profilePic}
+              key={request.requester.id}
+              id={request.requester.id}
+              reqid={request.id}
             />
           ))}
         </div>

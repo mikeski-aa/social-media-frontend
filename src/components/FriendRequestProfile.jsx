@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import deleteFriend from "../services/deleteFriend";
 import { FriendsContext } from "../pages/Friends";
 import putFriendAdd from "../services/putFriendsAdd";
+import deleteRequest from "../services/deleteRequest";
 
 function FriendRequestProfile(props) {
   const friendsContext = useContext(FriendsContext);
@@ -21,7 +22,14 @@ function FriendRequestProfile(props) {
       friendsContext.forceloadFriends + 1
     );
   };
-  const handleDeclineClick = async () => {};
+  const handleDeclineClick = async () => {
+    console.log(props.reqid);
+    const response = await deleteRequest(props.reqid);
+    console.log(response);
+    return friendsContext.setForceLoadFriends(
+      friendsContext.forceloadFriends + 1
+    );
+  };
 
   return (
     <div className="searchUserProfile">

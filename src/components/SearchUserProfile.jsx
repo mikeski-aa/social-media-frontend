@@ -61,6 +61,7 @@ function SearchUserProfile(props) {
     if (alreadyFriends === "incoming") {
       const acceptRequest = await putFriendsAdd(props.id);
       setAlreadyFriends(true);
+      setBtnText("Friend added");
       console.log(acceptRequest);
       return friendsContext.setForceLoadFriends(
         friendsContext.forceloadFriends + 1
@@ -70,6 +71,7 @@ function SearchUserProfile(props) {
     const response = await postRequest(props.id);
     console.log(response);
     setAlreadyFriends("pending");
+    setBtnText("Pending...");
     return friendsContext.setForceLoadFriends(
       friendsContext.forceloadFriends + 1
     );

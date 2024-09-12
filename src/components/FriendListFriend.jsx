@@ -3,6 +3,7 @@ import person from "../assets/person.svg";
 import { FriendsContext } from "../pages/Friends";
 import { useContext } from "react";
 import deleteFriend from "../services/deleteFriend";
+
 //TO DO: FIX ERROR WHEN DELETING
 function FriendListFriend(props) {
   const friendsContext = useContext(FriendsContext);

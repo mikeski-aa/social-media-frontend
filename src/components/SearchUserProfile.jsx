@@ -41,7 +41,7 @@ function SearchUserProfile(props) {
   }, []);
 
   const handleAddFriend = async () => {
-    if (alreadyFriends === true) {
+    if (alreadyFriends === true || alreadyFriends === "pending") {
       return null;
     }
 

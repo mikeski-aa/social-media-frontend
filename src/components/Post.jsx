@@ -119,7 +119,6 @@ function Post(props) {
               commentCount,
               setCommentCount,
               likedByUser,
-              likedByUser,
             }}
           >
             <LikeCommentContainer

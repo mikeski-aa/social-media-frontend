@@ -6,6 +6,7 @@ import search from "../assets/search.svg";
 import getSearchUsers from "../services/getSearchUsers";
 import SearchUserModal from "../components/SearchUserModal";
 
+//TODO: INVESTIGATE DOUBLE LOADING of current friends on page load
 function Friends() {
   const [friends, setFriends] = useState([]);
   const [loadingFriends, setLoadingFriends] = useState(true);
@@ -13,6 +14,8 @@ function Friends() {
   const [content, setContent] = useState([]);
   const [modalVisible, setModalVisible] = useState(false);
   const [searchLoading, setSearchLoading] = useState(false);
+  const [searchError, setSearchError] = useState(false);
+  const [searchErrorMsg, setSearchErrorMsg] = useState("");
 
   useEffect(() => {
     const loadFriends = async () => {
@@ -27,6 +30,8 @@ function Friends() {
   const handleSearchClick = async () => {
     // if no input return null
     if (searchInput === "") {
+      setSearchErrorMsg("No results found");
+      setSearchError(true);
       return null;
     }
     setSearchLoading(true);
@@ -35,9 +40,13 @@ function Friends() {
 
     // if no results, return null
     if (response.length === 0) {
+      setSearchErrorMsg("No results found");
+      setSearchError(true);
       return null;
     }
 
+    setSearchErrorMsg("");
+    setSearchError(false);
     setModalVisible(true);
     setContent(response);
     console.log("CONTENT");
@@ -73,6 +82,10 @@ function Friends() {
             <button className="searchBtnFriend" onClick={handleSearchClick}>
               <img className="buttonIconSearch" src={search} />
             </button>
+            <div className={"searchErrorBox " + searchError}>
+              {searchErrorMsg}
+            </div>
+            <div className={"searchLoading " + searchLoading}>Searching...</div>
           </div>
         </div>
       </div>

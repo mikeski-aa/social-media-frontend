@@ -8,12 +8,22 @@
   gap: 0.5rem;
 }
 
-.searchBoxButton {
-  display: flex;
-  flex-direction: column;
-}
-
 .searchResults {
   background-color: rgba(39, 154, 255, 0.432);
   width: 100%;
+}
+
+.searchErrorBox.false {
+  display: none;
+}
+
+.searchErrorBox.true,
+.searchLoading.true {
+  text-align: center;
+  font-weight: bold;
+  outline: 1px solid black;
+}
+
+.searchLoading.false {
+  display: none;
 }

@@ -20,6 +20,7 @@ function Friends() {
   const [searchErrorMsg, setSearchErrorMsg] = useState("");
   const [requests, setRequests] = useState([]);
   const [reqVisibility, setReqVisibility] = useState(false);
+  const [forceloadFriends, setForceLoadFriends] = useState(0);
 
   // load friends when the friends page is rendered
   // combinging loading friends with loading requests
@@ -36,7 +37,7 @@ function Friends() {
       setRequests(requests);
     };
     loadFriends();
-  }, []);
+  }, [forceloadFriends]);
 
   const handleSearchClick = async () => {
     // if no input return null
@@ -82,11 +83,15 @@ function Friends() {
         result={content}
         visibility={modalVisible}
         setModalVisible={setModalVisible}
+        forceloadFriends={forceloadFriends}
+        setForceLoadFriends={setForceLoadFriends}
       />
       <FriendRequestModal
         visibility={reqVisibility}
         setReqVisibility={setReqVisibility}
         result={requests}
+        forceloadFriends={forceloadFriends}
+        setForceLoadFriends={setForceLoadFriends}
       />
       <div className="friendsHeading">
         <h4>Friends</h4>

@@ -3,6 +3,9 @@ import person from "../assets/person.svg";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../App";
 import postRequest from "../services/postRequest";
+import putFriendsAdd from "../services/putFriendsAdd";
+
+// TO DO: HANDLE DISPLAY OF YOUR NAME
 
 function SearchUserProfile(props) {
   const authContext = useContext(AuthContext);
@@ -25,6 +28,13 @@ function SearchUserProfile(props) {
       }
     }
 
+    for (let x = 0; x < props.reqOut.length; x++) {
+      if (props.reqOut[x].requesteeId === authContext.user.id) {
+        setAlreadyFriends("incoming");
+        return setBtnText("Request incoming");
+      }
+    }
+
     // go through friends array and change button to make sure you cant send requests to friends you already have
     if (props.friendOf.length === 0) {
       return setBtnText("Add friend");
@@ -42,6 +52,12 @@ function SearchUserProfile(props) {
 
   const handleAddFriend = async () => {
     if (alreadyFriends === true || alreadyFriends === "pending") {
+      return null;
+    }
+
+    if (alreadyFriends === "incoming") {
+      const acceptRequest = await putFriendsAdd(props.id);
+      console.log(acceptRequest);
       return null;
     }
 

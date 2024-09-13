@@ -1,7 +1,7 @@
 import { LOCAL_URL } from "../utils/url.const";
 
-async function getCommentsByUser(limit, id) {
-  const url = LOCAL_URL + `comments/userpost?limit=${limit}&id=${id}`;
+async function getUser(id) {
+  const url = LOCAL_URL + `user?id=${id}`;
   const headerinfo = {
     Authorization: "bearer " + localStorage.getItem("token"),
   };
@@ -25,4 +25,4 @@ async function getCommentsByUser(limit, id) {
   }
 }
 
-export default getCommentsByUser;
+export default getUser;

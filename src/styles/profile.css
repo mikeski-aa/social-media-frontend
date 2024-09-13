@@ -5,13 +5,17 @@
   background-color: white;
 }
 
+.profileCont {
+  height: 100vh;
+}
+
 .profileStats {
   background-color: grey;
   border-radius: 5px;
   display: flex;
   justify-content: space-between;
   height: 20vh;
-  width: 100vw;
+  max-width: 100vw;
 }
 
 .profileHeader {

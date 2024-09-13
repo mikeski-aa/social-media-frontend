@@ -5,6 +5,7 @@
   height: 100vh;
   position: absolute;
   background-color: rgba(190, 190, 190, 0.801);
+  z-index: 3000;
 }
 
 .modal.hide {

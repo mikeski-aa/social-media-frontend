@@ -7,6 +7,7 @@ import getPostsByUser from "../services/getPostsByUser";
 import ProfileHeader from "../components/ProfileHeader";
 import getCommentsByUser from "../services/getCommentsByUser";
 import CommentComponent from "../components/CommentComponent";
+import EditProfileModal from "../components/EditProfileModal";
 import { useParams } from "react-router";
 
 function Profile() {
@@ -17,6 +18,7 @@ function Profile() {
   const [userComments, setUserComments] = useState([]);
   const [limit, setLimit] = useState(10);
   const [loading, setLoading] = useState(true);
+  const [showEditModal, setShowEditModal] = useState(false);
 
   useRedirectValidFail(authContext.err);
   const { id } = useParams();
@@ -82,12 +84,22 @@ function Profile() {
     setLimit(limit + 10);
   };
 
+  const handleEditProfileBtn = () => {
+    setShowEditModal(true);
+  };
+
   return (
     <>
       <div className="profileCont">
+        <EditProfileModal
+          visibility={showEditModal}
+          setModalVisible={setShowEditModal}
+        />
         <div className="profileStats">
           <ProfileHeader />
-          <button className="editProfileButton">Edit profile</button>
+          <button className="editProfileButton" onClick={handleEditProfileBtn}>
+            Edit profile
+          </button>
         </div>
         <div className="postsCommentsMainDiv">
           <div className="profileButtons">

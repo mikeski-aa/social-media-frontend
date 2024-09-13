@@ -87,6 +87,7 @@ function Profile() {
       <div className="profileCont">
         <div className="profileStats">
           <ProfileHeader />
+          <button className="editProfileButton">Edit profile</button>
         </div>
         <div className="postsCommentsMainDiv">
           <div className="profileButtons">

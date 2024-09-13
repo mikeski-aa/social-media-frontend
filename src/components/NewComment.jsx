@@ -22,6 +22,10 @@ function NewComment(props) {
   };
 
   const handleSubmitNewComment = async () => {
+    // stops from posting blank comments
+    if (commentText === "") {
+      return null;
+    }
     console.log(postContext);
     const response = await postNewComment(
       commentText,

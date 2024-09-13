@@ -1,20 +1,27 @@
 .profileUserProfileImg {
-  width: 20vw;
-  height: 20vw;
-  border: 2px solid black;
+  width: 12vh;
+  height: 12vh;
+  outline: 2px solid black;
+  background-color: white;
 }
 
 .profileStats {
   background-color: grey;
   border-radius: 5px;
   display: flex;
+  justify-content: space-between;
+  height: 20vh;
+  width: 100vw;
 }
 
 .profileHeader {
-  margin-top: 10vh;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  position: relative;
+  top: 100%;
+  transform: translateY(-101%);
+  height: 12vh;
 }
 
 .usernameProfile {
@@ -46,4 +53,11 @@
 
 .loadMoreProfile {
   margin-bottom: 15px;
+}
+
+.editProfileButton {
+  height: fit-content;
+  position: relative;
+  top: 100%;
+  transform: translateY(-100%);
 }

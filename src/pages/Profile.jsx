@@ -25,7 +25,7 @@ function Profile() {
   // load posts on component load
   useEffect(() => {
     const loadPosts = async () => {
-      const posts = await getPostsByUser(limit, id);
+      const posts = await getPostsByUser(limit);
       setUserPosts(posts);
       setLoading(false);
     };
@@ -37,12 +37,12 @@ function Profile() {
     const updateContentFeed = async () => {
       if (showPosts && !showComments) {
         setLoading(true);
-        const posts = await getPostsByUser(limit, id);
+        const posts = await getPostsByUser(limit);
         setUserPosts(posts);
         setLoading(false);
       } else if (!showPosts && showComments) {
         setLoading(true);
-        const comments = await getCommentsByUser(limit, id);
+        const comments = await getCommentsByUser(limit);
         setUserComments(comments);
         setLoading(false);
       }
@@ -57,7 +57,7 @@ function Profile() {
     setShowComments(false);
     setLoading(true);
     setLimit(10);
-    const posts = await getPostsByUser(limit, id);
+    const posts = await getPostsByUser(limit);
     setUserPosts(posts);
     setLoading(false);
 
@@ -71,7 +71,7 @@ function Profile() {
     setShowPosts(false);
     setLoading(true);
     setLimit(10);
-    const comments = await getCommentsByUser(limit, id);
+    const comments = await getCommentsByUser(limit);
     setUserComments(comments);
     setLoading(false);
 

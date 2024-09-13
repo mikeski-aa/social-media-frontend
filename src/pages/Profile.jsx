@@ -7,6 +7,7 @@ import getPostsByUser from "../services/getPostsByUser";
 import ProfileHeader from "../components/ProfileHeader";
 import getCommentsByUser from "../services/getCommentsByUser";
 import CommentComponent from "../components/CommentComponent";
+import { useParams } from "react-router";
 
 function Profile() {
   const authContext = useContext(AuthContext);
@@ -18,9 +19,9 @@ function Profile() {
   const [loading, setLoading] = useState(true);
 
   useRedirectValidFail(authContext.err);
-
-  let img;
-
+  const { id } = useParams();
+  console.log("params id result goes here");
+  console.log(id);
   // load posts on component load
   useEffect(() => {
     const loadPosts = async () => {

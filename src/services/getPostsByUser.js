@@ -1,7 +1,7 @@
 import { LOCAL_URL } from "../utils/url.const";
 
-async function getPostsByUser(limit) {
-  const url = LOCAL_URL + `status/userpost?limit=${limit}`;
+async function getPostsByUser(limit, id) {
+  const url = LOCAL_URL + `status/userpost?limit=${limit}&userid=${id}`;
   const headerinfo = {
     Authorization: "bearer " + localStorage.getItem("token"),
   };

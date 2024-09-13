@@ -10,6 +10,7 @@ import checkLoginStatus from "./services/checkLoginStatus";
 import Friends from "./pages/Friends";
 import { redirect } from "react-router-dom";
 import ErrorPage from "./pages/ErrorPage";
+import UserProfileForId from "./pages/UserProfileForId";
 
 export const AuthContext = createContext();
 
@@ -53,6 +54,10 @@ function App() {
         {
           path: "profile",
           element: <Profile />,
+        },
+        {
+          path: "profile/user/:id",
+          element: <UserProfileForId />,
         },
         {
           path: "friends",

@@ -7,6 +7,7 @@ async function getUser(id) {
   };
 
   try {
+    console.log(url);
     const response = await fetch(url, {
       method: "GET",
       headers: headerinfo,

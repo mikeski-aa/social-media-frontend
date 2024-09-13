@@ -27,10 +27,23 @@
   flex-direction: column;
 }
 
-.profilePostsContainer {
+.profilePostsContainer,
+.profileCommentContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
   max-height: 70vh;
+}
+
+.profileCommentContainer.false {
+  display: none;
+}
+
+.profilePostsContainer.false {
+  display: none;
+}
+
+.loadMoreProfile {
+  margin-bottom: 15px;
 }

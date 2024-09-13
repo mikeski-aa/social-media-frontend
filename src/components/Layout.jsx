@@ -3,9 +3,12 @@ import { AuthContext } from "../App";
 import { useContext } from "react";
 import Nav from "./Nav";
 import "../styles/layout.css";
+import useRedirectValidFail from "../hooks/useRedirectValidFail";
 
 function Layout() {
   const authContext = useContext(AuthContext);
+
+  useRedirectValidFail(authContext.err);
 
   // need to add proper loading componenet
   // not sure if this is the best way to do it

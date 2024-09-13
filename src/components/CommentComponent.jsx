@@ -23,7 +23,6 @@ function CommentComponent(props) {
 
   // side effect for updating whether user is liking the post, to occur when likes array changes
   useEffect(() => {
-    console.log("side effect running");
     const filteredArray = likes.filter((item) => item === authContext.user.id);
     if (filteredArray.length === 1) {
       setLikedByUser(true);

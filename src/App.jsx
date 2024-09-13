@@ -9,6 +9,7 @@ import Profile from "./pages/Profile";
 import checkLoginStatus from "./services/checkLoginStatus";
 import Friends from "./pages/Friends";
 import { redirect } from "react-router-dom";
+import ErrorPage from "./pages/ErrorPage";
 
 export const AuthContext = createContext();
 
@@ -43,6 +44,7 @@ function App() {
     {
       path: "/",
       element: <Layout></Layout>,
+      errorElement: <ErrorPage />,
       children: [
         {
           index: true,

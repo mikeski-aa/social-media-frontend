@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import getFriends from "../services/getFriends";
 import FriendListFriend from "../components/FriendListFriend";
 import "../styles/friends.css";
@@ -8,11 +8,14 @@ import SearchUserModal from "../components/SearchUserModal";
 import getIncomingRequests from "../services/getRequests";
 import FriendRequestModal from "../components/FriendRequestModal";
 import useRedirectValidFail from "../hooks/useRedirectValidFail";
+import { AuthContext } from "../App";
 
 export const FriendsContext = createContext();
 
 //TODO: INVESTIGATE DOUBLE LOADING of current friends on page load
 function Friends() {
+  const authContext = useContext(AuthContext);
+  useRedirectValidFail(authContext.err);
   const [friends, setFriends] = useState([]);
   const [loadingFriends, setLoadingFriends] = useState(true);
   const [searchInput, setSearchInput] = useState("");
@@ -26,8 +29,6 @@ function Friends() {
   const [forceloadFriends, setForceLoadFriends] = useState(0);
   // previous search is required to allow us to refresh results when accepting or sending requests!
   const [previousSearch, setPreviousSearch] = useState("");
-
-  useRedirectValidFail(authContext.err);
 
   // load friends when the friends page is rendered
   // combinging loading friends with loading requests

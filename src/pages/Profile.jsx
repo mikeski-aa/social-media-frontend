@@ -2,17 +2,23 @@ import { useContext, useState, useEffect } from "react";
 import useRedirectValidFail from "../hooks/useRedirectValidFail";
 import { AuthContext } from "../App";
 import "../styles/profile.css";
-import person from "../assets/person.svg";
 import Post from "../components/Post";
 import getPostsByUser from "../services/getPostsByUser";
+import ProfileHeader from "../components/ProfileHeader";
+import getCommentsByUser from "../services/getCommentsByUser";
+import CommentComponent from "../components/CommentComponent";
 
 function Profile() {
+  const authContext = useContext(AuthContext);
   const [showPosts, setShowPosts] = useState(true);
   const [showComments, setShowComments] = useState(false);
   const [userPosts, setUserPosts] = useState([]);
+  const [userComments, setUserComments] = useState([]);
   const [limit, setLimit] = useState(10);
   const [loading, setLoading] = useState(true);
-  const authContext = useContext(AuthContext);
+
+  useRedirectValidFail(authContext.err);
+
   let img;
 
   // load posts on component load
@@ -25,31 +31,73 @@ function Profile() {
     loadPosts();
   }, []);
 
-  useRedirectValidFail(authContext.err);
-  console.log(authContext.user);
+  // side effect for loading more posts or comments depending on what is currently active
+  useEffect(() => {
+    const updateContentFeed = async () => {
+      if (showPosts && !showComments) {
+        setLoading(true);
+        const posts = await getPostsByUser(limit);
+        setUserPosts(posts);
+        setLoading(false);
+      } else if (!showPosts && showComments) {
+        setLoading(true);
+        const comments = await getCommentsByUser(limit);
+        setUserComments(comments);
+        setLoading(false);
+      }
+    };
+    updateContentFeed();
+  }, [limit]);
 
-  if (authContext.user.profilePic === "default") {
-    img = person;
-  } else {
-    img = authContext.user.profilePic;
-  }
+  const handlePostsClick = async () => {
+    if (showPosts === true) {
+      return null;
+    }
+    setShowComments(false);
+    setLoading(true);
+    setLimit(10);
+    const posts = await getPostsByUser(limit);
+    setUserPosts(posts);
+    setLoading(false);
+
+    setShowPosts(true);
+  };
+
+  const handleCommentsClick = async () => {
+    if (showComments === true) {
+      return null;
+    }
+    setShowPosts(false);
+    setLoading(true);
+    setLimit(10);
+    const comments = await getCommentsByUser(limit);
+    setUserComments(comments);
+    setLoading(false);
+
+    setShowComments(true);
+  };
+
+  const handleShowMore = () => {
+    setLimit(limit + 10);
+  };
 
   return (
     <>
       <div className="profileCont">
         <div className="profileStats">
-          <div className="profileHeader">
-            <img src={img} className="profileUserProfileImg"></img>
-            <div className="usernameProfile">{authContext.user.username}</div>
-          </div>
+          <ProfileHeader />
         </div>
         <div className="postsCommentsMainDiv">
           <div className="profileButtons">
-            <button className="postsBtnProf">Posts</button>
-            <button className="commentsBtnProf">Comments</button>
+            <button className="postsBtnProf" onClick={handlePostsClick}>
+              Posts
+            </button>
+            <button className="commentsBtnProf" onClick={handleCommentsClick}>
+              Comments
+            </button>
           </div>
+          {loading ? <div>LOADING ...</div> : null}
           <div className={"profilePostsContainer " + showPosts}>
-            {loading ? <div>LOADING ...</div> : null}
             {userPosts.map((item) => (
               <Post
                 text={item.text}
@@ -65,6 +113,17 @@ function Profile() {
                 commentCount={item._count.comments}
               ></Post>
             ))}
+            <button className="loadMoreProfile" onClick={handleShowMore}>
+              Show more
+            </button>
+          </div>
+          <div className={"profileCommentContainer " + showComments}>
+            {userComments.map((comment) => (
+              <CommentComponent comment={comment} key={comment.id} />
+            ))}
+            <button className="loadMoreProfile" onClick={handleShowMore}>
+              Show more
+            </button>
           </div>
         </div>
       </div>

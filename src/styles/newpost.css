@@ -3,7 +3,7 @@
   top: 0;
   width: 100vw;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   background-color: rgba(190, 190, 190, 0.801);
   z-index: 3000;
 }

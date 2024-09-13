@@ -12,8 +12,16 @@ function EditProfileModal(props) {
         </button>
         <div className="editOptions">
           <div className="changeName">Change username</div>
-          <div className="changeProfilePic">Change banner picture</div>
-          <div className="changeBannerPic">Change banner picture</div>
+          <div className="changeProfilePic">
+            <div className="currentPicture"></div>
+            <input type="file" />
+            <button className="picture">Upload new profile picture</button>
+          </div>
+          <div className="changeBannerPic">
+            <div className="currentBanner"></div>
+            <input type="file" />
+            <button className="picture">Upload new banner</button>
+          </div>
         </div>
       </div>
     </div>

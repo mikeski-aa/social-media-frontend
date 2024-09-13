@@ -13,7 +13,7 @@ function CommentComponent(props) {
   let tempDate = dateConversion(props.comment.commentDate);
 
   console.log("asdasdasd");
-  console.log(props.comment.id);
+  console.log(props.comment.user);
 
   const handleCommentLikeClick = async () => {
     const response = await putCommentLikes(props.comment.id);
@@ -38,6 +38,7 @@ function CommentComponent(props) {
           <PostUserProfile
             profilePic={props.comment.user.profilePic}
             userName={props.comment.user.username}
+            id={props.comment.user.id}
           />
           <div className="postedCommentOnDate">{tempDate}</div>
         </div>

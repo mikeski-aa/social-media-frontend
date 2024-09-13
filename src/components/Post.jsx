@@ -93,6 +93,7 @@ function Post(props) {
             <PostUserProfile
               profilePic={props.profilePic}
               userName={props.userName}
+              id={props.id}
             />
             <div className="postDate">{date}</div>
           </div>
@@ -143,6 +144,7 @@ function Post(props) {
             <PostUserProfile
               profilePic={props.profilePic}
               userName={props.userName}
+              id={props.id}
             />
 
             <div className="postDate">{date}</div>
@@ -191,6 +193,7 @@ function Post(props) {
           <PostUserProfile
             profilePic={props.profilePic}
             userName={props.userName}
+            id={props.id}
           />
           <div className="postDate">{date}</div>
         </div>

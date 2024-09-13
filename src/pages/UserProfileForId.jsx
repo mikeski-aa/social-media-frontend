@@ -6,7 +6,7 @@ import Post from "../components/Post";
 import getPostsByUser from "../services/getPostsByUser";
 import getCommentsByUser from "../services/getCommentsByUser";
 import CommentComponent from "../components/CommentComponent";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import getSearchUsers from "../services/getSearchUsers";
 import getUser from "../services/getUser";
 import person from "../assets/person.svg";
@@ -22,10 +22,17 @@ function UserProfileForId() {
   const [loadingCont, setLoadingCont] = useState(true);
   const [loadError, setLoadError] = useState(false);
   const [user, setUser] = useState();
+  const navigate = useNavigate();
 
   useRedirectValidFail(authContext.err);
   const { id } = useParams();
+  const regex = /[A-Za-z]+/i;
   let img;
+
+  // if ID contains letters, return to your profile
+  if (regex.test(id)) {
+    navigate("/profile");
+  }
 
   useEffect(() => {
     const loadUser = async () => {

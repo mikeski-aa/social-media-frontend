@@ -65,3 +65,24 @@
   top: 100%;
   transform: translateY(-100%);
 }
+
+.picfileinput {
+  display: none;
+}
+
+.label-file {
+  background-color: blue;
+}
+
+.profileImageDiv {
+  height: 12vh;
+  width: 12vh;
+}
+
+.picChangeDiv {
+  position: relative;
+  left: 100%;
+  top: 100%;
+  transform: translateX(-100%);
+  width: fit-content;
+}

@@ -98,6 +98,7 @@ function Profile() {
           setModalVisible={setShowEditModal}
         />
         <div className="profileStats">
+          <img className="test" src={authContext.user.backgroundPic}></img>
           <ProfileHeader />
           <div className="editProfileButtonDiv">
             <button

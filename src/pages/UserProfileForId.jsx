@@ -123,6 +123,7 @@ function UserProfileForId() {
     <>
       <div className="profileCont">
         <div className="profileStats">
+          <img className="test" src={user.backgroundPic}></img>
           <div className="profileHeader">
             <img src={user.profilePic} className="profileUserProfileImg"></img>
             <div className="usernameProfile">{user.username}</div>

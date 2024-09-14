@@ -2,10 +2,12 @@ import "../styles/friendlistfriend.css";
 import { FriendsContext } from "../pages/Friends";
 import { useContext } from "react";
 import deleteFriend from "../services/deleteFriend";
+import { useNavigate } from "react-router";
 
 //TO DO: FIX ERROR WHEN DELETING
 function FriendListFriend(props) {
   const friendsContext = useContext(FriendsContext);
+  const navigate = useNavigate();
 
   const handleFriendRemove = async () => {
     const response = await deleteFriend(props.id);
@@ -14,9 +16,12 @@ function FriendListFriend(props) {
     );
   };
 
+  const handlePorifleClick = () => {
+    navigate(`/profile/user/${props.id}`);
+  };
   return (
     <div className="friendContainer">
-      <div className="friendImgNameCont">
+      <div className="friendImgNameCont" onClick={handlePorifleClick}>
         <img className="friendImg" src={props.profilePic}></img>
         <div className="friendNameDiv">{props.username}</div>
       </div>

@@ -42,3 +42,7 @@
   width: 15px;
   height: 15px;
 }
+
+.friendImgNameCont:hover {
+  cursor: pointer;
+}

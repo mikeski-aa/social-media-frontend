@@ -4,6 +4,7 @@ import { AuthContext } from "../App";
 import postRequest from "../services/postRequest";
 import putFriendsAdd from "../services/putFriendsAdd";
 import { FriendsContext } from "../pages/Friends";
+import { useNavigate } from "react-router";
 
 // TO DO: HANDLE DISPLAY OF YOUR NAME
 
@@ -12,7 +13,7 @@ function SearchUserProfile(props) {
   const friendsContext = useContext(FriendsContext);
   const [alreadyFriends, setAlreadyFriends] = useState();
   const [btnText, setBtnText] = useState();
-  let img;
+  const navigate = useNavigate();
 
   useEffect(() => {
     // side effect to change name and function of buttons in case friend request has been sent out
@@ -70,9 +71,13 @@ function SearchUserProfile(props) {
     );
   };
 
+  const handlePorifleClick = () => {
+    navigate(`/profile/user/${props.id}`);
+  };
+
   return (
     <div className="searchUserProfile">
-      <div className="friendImgNameCont">
+      <div className="friendImgNameCont" onClick={handlePorifleClick}>
         <img className="friendImg" src={props.profilePic}></img>
         <div className="friendNameDiv">{props.username}</div>
       </div>

@@ -4,10 +4,11 @@ import deleteFriend from "../services/deleteFriend";
 import { FriendsContext } from "../pages/Friends";
 import putFriendAdd from "../services/putFriendsAdd";
 import deleteRequest from "../services/deleteRequest";
+import { useNavigate } from "react-router";
 
 function FriendRequestProfile(props) {
   const friendsContext = useContext(FriendsContext);
-
+  const navigate = useNavigate();
   const handleAcceptClick = async () => {
     const response = await putFriendAdd(props.id);
     return friendsContext.setForceLoadFriends(
@@ -23,9 +24,13 @@ function FriendRequestProfile(props) {
     );
   };
 
+  const handlePorifleClick = () => {
+    navigate(`/profile/user/${props.id}`);
+  };
+
   return (
     <div className="searchUserProfile">
-      <div className="friendImgNameCont">
+      <div className="friendImgNameCont" onClick={handlePorifleClick}>
         <img className="friendImg" src={props.profilePic}></img>
         <div className="friendNameDiv">{props.username}</div>
       </div>

@@ -1,4 +1,8 @@
 import { useNavigate } from "react-router";
+import home from "../assets/home.svg";
+import friends from "../assets/friends.svg";
+import logout from "../assets/logoutt.svg";
+import "../styles/nav.css";
 
 function Nav() {
   const navigate = useNavigate();
@@ -23,16 +27,16 @@ function Nav() {
   return (
     <div className="navBar">
       <button className="btn1" onClick={handleHomeClick}>
-        Home
+        <img src={home} className="navIcon"></img>
       </button>
       <button className="btn2" onClick={handleFriendsClick}>
-        Friends
+        <img src={friends} className="navIcon"></img>
       </button>
       <button className="btn3" onClick={handleProfClick}>
         Profile
       </button>
       <button className="btn4" onClick={handleLogoutClick}>
-        Logout
+        <img src={logout} className="navIcon"></img>
       </button>
     </div>
   );

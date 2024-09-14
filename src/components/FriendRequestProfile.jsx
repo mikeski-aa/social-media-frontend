@@ -1,5 +1,4 @@
 import "../styles/searchuserprofile.css";
-import person from "../assets/person.svg";
 import { useContext, useEffect, useState } from "react";
 import deleteFriend from "../services/deleteFriend";
 import { FriendsContext } from "../pages/Friends";
@@ -8,13 +7,6 @@ import deleteRequest from "../services/deleteRequest";
 
 function FriendRequestProfile(props) {
   const friendsContext = useContext(FriendsContext);
-  let img;
-
-  if (props.profilePic === "default") {
-    img = person;
-  } else {
-    img = props.profilePic;
-  }
 
   const handleAcceptClick = async () => {
     const response = await putFriendAdd(props.id);
@@ -34,7 +26,7 @@ function FriendRequestProfile(props) {
   return (
     <div className="searchUserProfile">
       <div className="friendImgNameCont">
-        <img className="friendImg" src={img}></img>
+        <img className="friendImg" src={props.profilePic}></img>
         <div className="friendNameDiv">{props.username}</div>
       </div>
 

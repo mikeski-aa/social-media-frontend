@@ -1,5 +1,4 @@
 import "../styles/searchuserprofile.css";
-import person from "../assets/person.svg";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../App";
 import postRequest from "../services/postRequest";
@@ -14,12 +13,6 @@ function SearchUserProfile(props) {
   const [alreadyFriends, setAlreadyFriends] = useState();
   const [btnText, setBtnText] = useState();
   let img;
-
-  if (props.profilePic === "default") {
-    img = person;
-  } else {
-    img = props.profilePic;
-  }
 
   useEffect(() => {
     // side effect to change name and function of buttons in case friend request has been sent out
@@ -80,7 +73,7 @@ function SearchUserProfile(props) {
   return (
     <div className="searchUserProfile">
       <div className="friendImgNameCont">
-        <img className="friendImg" src={img}></img>
+        <img className="friendImg" src={props.profilePic}></img>
         <div className="friendNameDiv">{props.username}</div>
       </div>
 

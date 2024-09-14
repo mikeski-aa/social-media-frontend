@@ -121,18 +121,12 @@ function UserProfileForId() {
     return <div>Loading...</div>;
   }
 
-  if (user.profilePic === "default") {
-    img = person;
-  } else {
-    img = user.profilePic;
-  }
-
   return (
     <>
       <div className="profileCont">
         <div className="profileStats">
           <div className="profileHeader">
-            <img src={img} className="profileUserProfileImg"></img>
+            <img src={user.profilePic} className="profileUserProfileImg"></img>
             <div className="usernameProfile">{user.username}</div>
           </div>
         </div>

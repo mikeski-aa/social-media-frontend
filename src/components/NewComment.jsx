@@ -1,5 +1,4 @@
 import "../styles/newcomment.css";
-import person from "../assets/person.svg";
 import { useContext, useState } from "react";
 import postNewComment from "../services/postNewComment";
 import { PostId } from "./Post";
@@ -9,13 +8,6 @@ function NewComment(props) {
   const postContext = useContext(PostId);
   const authContext = useContext(AuthContext);
   const [commentText, setCommentText] = useState("");
-  let img = person;
-
-  if (authContext.user.profilePic === "default") {
-    img = person;
-  } else {
-    img = authContext.user.profilePic;
-  }
 
   const handleCommentText = (e) => {
     setCommentText(e.target.value);
@@ -43,7 +35,7 @@ function NewComment(props) {
     <div className="newCommentContainer">
       <div className="mainNewCommentDiv">
         <div className="userImgDiv">
-          <img className="userImgImg" src={img}></img>
+          <img className="userImgImg" src={props.profilePic}></img>
         </div>
         <div className="inputBox">
           <textarea

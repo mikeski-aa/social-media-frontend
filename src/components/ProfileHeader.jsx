@@ -1,28 +1,44 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../App";
 import editIcon from "../assets/editIcon.svg";
 import postNewUserPic from "../services/postNewUserPic";
+import gifloading from "../assets/gifloading.gif";
+import checkLoginStatus from "../services/checkLoginStatus";
 
 function ProfileHeader(props) {
   const authContext = useContext(AuthContext);
+  const [loading, setLoading] = useState(false);
 
   if (typeof authContext.user === "undefined") {
     return null;
   }
 
   const handleFile = async (e) => {
+    if (e.target.files[0] === "undefined") {
+      return null;
+    }
+
+    setLoading(true);
     console.log(e.target.files[0]);
     const response = await postNewUserPic(e.target.files[0]);
+    const updateProfile = await checkLoginStatus();
+    authContext.setUser(updateProfile);
+    setLoading(false);
     console.log(response);
   };
 
   return (
     <div className="profileHeader">
       <div className="profileImageDiv">
-        <img
-          src={authContext.user.profilePic}
-          className="profileUserProfileImg"
-        ></img>
+        {loading ? (
+          <img src={gifloading} className="loadingGifImg"></img>
+        ) : (
+          <img
+            src={authContext.user.profilePic}
+            className="profileUserProfileImg"
+          ></img>
+        )}
+
         <div className="picChangeDiv">
           <input
             type="file"

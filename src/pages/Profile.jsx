@@ -88,6 +88,8 @@ function Profile() {
     setShowEditModal(true);
   };
 
+  const handleFile = async (e) => {};
+
   return (
     <>
       <div className="profileCont">
@@ -97,9 +99,25 @@ function Profile() {
         />
         <div className="profileStats">
           <ProfileHeader />
-          <button className="editProfileButton" onClick={handleEditProfileBtn}>
-            Edit profile
-          </button>
+          <div className="editProfileButtonDiv">
+            <button
+              className="editProfileButton"
+              onClick={handleEditProfileBtn}
+            >
+              Profile info
+            </button>
+            <div className="picChangeDiv">
+              <input
+                type="file"
+                id="file"
+                className="picfileinput"
+                onChange={(e) => handleFile(e)}
+              ></input>
+              <label htmlFor="file" className="label-banner">
+                Upload banner
+              </label>
+            </div>
+          </div>
         </div>
         <div className="postsCommentsMainDiv">
           <div className="profileButtons">

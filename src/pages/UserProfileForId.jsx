@@ -9,7 +9,6 @@ import CommentComponent from "../components/CommentComponent";
 import { useNavigate, useParams } from "react-router";
 import getSearchUsers from "../services/getSearchUsers";
 import getUser from "../services/getUser";
-import person from "../assets/person.svg";
 
 function UserProfileForId() {
   const authContext = useContext(AuthContext);
@@ -27,7 +26,6 @@ function UserProfileForId() {
   useRedirectValidFail(authContext.err);
   const { id } = useParams();
   const regex = /[A-Za-z]+/i;
-  let img;
 
   // if ID contains letters, return to your profile
   if (regex.test(id)) {

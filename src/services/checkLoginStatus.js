@@ -25,6 +25,7 @@ async function checkLoginStatus() {
       id: json.id,
       email: json.email,
       profilePic: json.profilePic,
+      backgroundPic: json.backgroundPic,
     };
     return userInfo;
   } catch (error) {

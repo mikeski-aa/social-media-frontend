@@ -48,3 +48,46 @@
   background-color: rgba(150, 150, 150, 0.212);
   padding: 0.5;
 }
+
+.experimenting {
+  gap: 1rem;
+  outline: 2px solid grey;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.textboxAreaHome {
+  width: 25vw;
+  border-radius: 5px;
+  border: 0;
+}
+
+#idfile {
+  display: none;
+}
+
+.inputLabelPicture {
+  background-color: cyan;
+}
+
+.userPicInput {
+  width: 35px;
+  height: 35px;
+  border-radius: 25px;
+}
+
+.textInputDiv {
+  display: flex;
+  gap: 1rem;
+}
+
+.picInputDiv {
+  display: flex;
+  justify-content: center;
+}
+
+.newPostExp {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}

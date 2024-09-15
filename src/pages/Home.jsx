@@ -54,6 +54,31 @@ function Home() {
             </div>
           </button>
         </div>
+
+        <div className="experimenting">
+          <form className="newPostExp">
+            <div className="textInputDiv">
+              <img
+                src={authContext.user.profilePic}
+                className="userPicInput"
+              ></img>
+              <textarea
+                className="textboxAreaHome"
+                placeholder={`What's on your mind ${authContext.user.username}`}
+              ></textarea>
+            </div>
+            <hr></hr>
+            <div className="picInputDiv">
+              <label className="inputLabelPicture" htmlFor="idfile">
+                Add a picture
+              </label>
+              <input type="file" id="idfile"></input>
+            </div>
+            <div className={"errorBox "}></div>
+            <button className="postNewPost">Post</button>
+          </form>
+        </div>
+
         <div className="mainFeed">
           <h3>Your feed</h3>
           <div className="allPostContainer">

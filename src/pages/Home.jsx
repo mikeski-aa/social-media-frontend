@@ -48,7 +48,11 @@ function Home() {
       />
       <div className="mainCont">
         <div className="newPost">
-          <button onClick={handleNewPostBtn}>What's on your mind? </button>
+          <button onClick={handleNewPostBtn} className="buttonNewPost">
+            <div className="textareadiv">
+              What's on your mind {authContext.user.username}?
+            </div>
+          </button>
         </div>
         <div className="mainFeed">
           <h3>Your feed</h3>

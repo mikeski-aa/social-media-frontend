@@ -33,3 +33,15 @@
 .newPostModalContainer.show {
   opacity: 1;
 }
+
+.textareadiv {
+  border-radius: 10px;
+  outline: 2px solid black;
+  padding: 2px;
+}
+
+.buttonNewPost {
+  border: 0;
+  padding: 2px;
+  background-color: rgba(255, 255, 255, 0);
+}

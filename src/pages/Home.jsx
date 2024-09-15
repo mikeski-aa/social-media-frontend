@@ -1,20 +1,24 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState, useEffect, useRef } from "react";
 import { AuthContext } from "../App";
 import useRedirectValidFail from "../hooks/useRedirectValidFail";
 import NewPost from "../components/NewPost";
 import Post from "../components/Post";
 import getStatus from "../services/getStatus";
 import "../styles/home.css";
+import useAutosizeInputTextArea from "../hooks/useAutosizeInputTextArea";
 
 function Home() {
   const [postModal, setPostModal] = useState("hide");
   const [status, setStatus] = useState([]);
   const [fetchCount, setFetchCount] = useState(10);
   const [loading, setLoading] = useState(false);
+  const [inputAreaValue, setInputAreaValue] = useState("");
+  const textAreaRef = useRef(null);
 
   const authContext = useContext(AuthContext);
 
   useRedirectValidFail(authContext.err);
+  useAutosizeInputTextArea(textAreaRef, inputAreaValue);
 
   // this useeffect will load when
   useEffect(() => {
@@ -37,6 +41,11 @@ function Home() {
 
   const handleLoadMoreClick = () => {
     setFetchCount(fetchCount + 10);
+  };
+
+  const handleInputChange = (e) => {
+    setInputAreaValue(e.target.value);
+    console.log(e.target.value);
   };
 
   return (
@@ -63,8 +72,12 @@ function Home() {
                 className="userPicInput"
               ></img>
               <textarea
+                ref={textAreaRef}
                 className="textboxAreaHome"
                 placeholder={`What's on your mind ${authContext.user.username}`}
+                onChange={(e) => handleInputChange(e)}
+                rows={1}
+                value={inputAreaValue}
               ></textarea>
             </div>
             <hr></hr>

@@ -20,4 +20,24 @@
   position: relative;
   left: 50%;
   transform: translateX(-50%);
+  gap: 2rem;
+}
+
+.btn1:hover,
+.btn2:hover,
+.btn3:hover,
+.btn4:hover {
+  cursor: pointer;
+}
+
+.profileNav {
+  width: 25px;
+  height: 25px;
+  border-radius: 25px;
+}
+
+.btn3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }

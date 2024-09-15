@@ -41,3 +41,10 @@
   align-items: center;
   gap: 0.5rem;
 }
+
+.btn2.true,
+.btn1.true,
+.btn3.true {
+  background-color: rgba(150, 150, 150, 0.432);
+  padding: 0.5;
+}

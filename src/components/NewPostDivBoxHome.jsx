@@ -75,7 +75,7 @@ function NewPostDivBoxHome(props) {
       return console.log(response);
     }
   };
-  useAutosizeInputTextArea(textAreaRef, inputAreaValue);
+  useAutosizeInputTextArea(textAreaRef, textInput);
   return (
     <>
       <div className="experimenting">
@@ -91,7 +91,7 @@ function NewPostDivBoxHome(props) {
               placeholder={`What's on your mind ${authContext.user.username}`}
               onChange={(e) => handleInputChange(e)}
               rows={1}
-              value={inputAreaValue}
+              value={textInput}
             ></textarea>
           </div>
           <hr></hr>
@@ -108,7 +108,9 @@ function NewPostDivBoxHome(props) {
           </div>
           <div className={"errorBox "}></div>
           <div className={"errorBox " + errorBox}>{errorText}</div>
-          <button className="postNewPost">Post</button>
+          <button className="postNewPost" onClick={handlePostPost}>
+            Post
+          </button>
         </form>
       </div>
     </>

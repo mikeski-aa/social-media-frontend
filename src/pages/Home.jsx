@@ -6,6 +6,7 @@ import Post from "../components/Post";
 import getStatus from "../services/getStatus";
 import "../styles/home.css";
 import useAutosizeInputTextArea from "../hooks/useAutosizeInputTextArea";
+import NewPostDivBoxHome from "../components/NewPostDivBoxHome";
 
 function Home() {
   const [postModal, setPostModal] = useState("hide");
@@ -13,7 +14,6 @@ function Home() {
   const [fetchCount, setFetchCount] = useState(10);
   const [loading, setLoading] = useState(false);
   const [inputAreaValue, setInputAreaValue] = useState("");
-  const textAreaRef = useRef(null);
 
   const authContext = useContext(AuthContext);
 
@@ -50,14 +50,8 @@ function Home() {
     setInputAreaValue(e.target.value);
   };
 
-  useAutosizeInputTextArea(textAreaRef, inputAreaValue);
   return (
     <>
-      <NewPost
-        showhide={postModal}
-        setPostModal={setPostModal}
-        setStatus={setStatus}
-      />
       <div className="mainCont">
         <div className="newPost">
           <button onClick={handleNewPostBtn} className="buttonNewPost">
@@ -66,35 +60,10 @@ function Home() {
             </div>
           </button>
         </div>
-
-        <div className="experimenting">
-          <form className="newPostExp">
-            <div className="textInputDiv">
-              <img
-                src={authContext.user.profilePic}
-                className="userPicInput"
-              ></img>
-              <textarea
-                ref={textAreaRef}
-                className="textboxAreaHome"
-                placeholder={`What's on your mind ${authContext.user.username}`}
-                onChange={(e) => handleInputChange(e)}
-                rows={1}
-                value={inputAreaValue}
-              ></textarea>
-            </div>
-            <hr></hr>
-            <div className="picInputDiv">
-              <label className="inputLabelPicture" htmlFor="idfile">
-                Add a picture
-              </label>
-              <input type="file" id="idfile"></input>
-            </div>
-            <div className={"errorBox "}></div>
-            <button className="postNewPost">Post</button>
-          </form>
-        </div>
-
+        <NewPostDivBoxHome
+          setPostModal={setPostModal}
+          setStatus={setStatus}
+        ></NewPostDivBoxHome>
         <div className="mainFeed">
           <h3>Your feed</h3>
           <div className="allPostContainer">

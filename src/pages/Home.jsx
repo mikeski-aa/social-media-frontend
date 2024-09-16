@@ -18,7 +18,10 @@ function Home() {
   const authContext = useContext(AuthContext);
 
   useRedirectValidFail(authContext.err);
-  useAutosizeInputTextArea(textAreaRef, inputAreaValue);
+
+  if (typeof authContext.user === "undefined") {
+    return null;
+  }
 
   // this useeffect will load when
   useEffect(() => {
@@ -45,9 +48,9 @@ function Home() {
 
   const handleInputChange = (e) => {
     setInputAreaValue(e.target.value);
-    console.log(e.target.value);
   };
 
+  useAutosizeInputTextArea(textAreaRef, inputAreaValue);
   return (
     <>
       <NewPost

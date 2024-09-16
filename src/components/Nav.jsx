@@ -5,6 +5,7 @@ import logout from "../assets/logoutt.svg";
 import "../styles/nav.css";
 import { AuthContext } from "../App";
 import { useContext, useEffect, useState } from "react";
+import useRedirectValidFail from "../hooks/useRedirectValidFail";
 
 function Nav() {
   const authContext = useContext(AuthContext);
@@ -12,6 +13,11 @@ function Nav() {
   const [activeFriends, setActiveFriends] = useState(false);
   const [activeHome, setActiveHome] = useState(false);
   const [activeProfile, setActiveProfile] = useState(false);
+
+  useRedirectValidFail(authContext.err);
+  if (typeof authContext.user === "undefined") {
+    return null;
+  }
 
   if (window.location.pathanme === "/friends") {
     console.log("xd");

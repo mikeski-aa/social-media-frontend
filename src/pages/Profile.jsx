@@ -21,6 +21,9 @@ function Profile() {
   const [showEditModal, setShowEditModal] = useState(false);
 
   useRedirectValidFail(authContext.err);
+  if (typeof authContext.user === "undefined") {
+    return null;
+  }
   const { id } = useParams();
   console.log("params id result goes here");
   console.log(id);

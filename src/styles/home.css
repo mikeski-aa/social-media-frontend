@@ -19,6 +19,7 @@
 }
 
 .mainCont {
+  margin-top: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,4 +28,15 @@
 
 .newPost {
   margin-top: 15px;
+}
+
+.newImgButtonPic {
+  width: 15px;
+  height: 15px;
+}
+
+.inputLabelPicture {
+  background-color: rgba(129, 129, 129, 0.507);
+  border-radius: 5px;
+  padding: 2px;
 }

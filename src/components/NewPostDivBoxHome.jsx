@@ -5,6 +5,7 @@ import postStatus from "../services/postStatus";
 import getStatus from "../services/getStatus";
 import { AuthContext } from "../App";
 import useAutosizeInputTextArea from "../hooks/useAutosizeInputTextArea";
+import pictureicon from "../assets/pictureicon.svg";
 
 function NewPostDivBoxHome(props) {
   const [textInput, setTextInput] = useState("");
@@ -13,6 +14,7 @@ function NewPostDivBoxHome(props) {
   const [errorText, setErrorText] = useState("");
   const textAreaRef = useRef(null);
   const authContext = useContext(AuthContext);
+  const [fileName, setFileName] = useState("");
 
   // by adding a key to file input, react can be forced to re-render the component when key changes
   // easy way of clearing the value post upload
@@ -25,8 +27,13 @@ function NewPostDivBoxHome(props) {
   };
 
   const handlePicInput = (e) => {
+    if (typeof e.target.files[0] === "undefined") {
+      return null;
+    }
+
     console.log(e.target.files[0]);
     setPicInput(e.target.files[0]);
+    setFileName(e.target.files[0].name);
   };
 
   const handlePostPost = async (e) => {
@@ -50,12 +57,12 @@ function NewPostDivBoxHome(props) {
     if (picInput != "") {
       const imageUpload = await postImage(picInput);
       const response = await postStatus(textInput, imageUpload.result.url);
-      props.setPostModal("hide");
 
       // reset modal values
       setResetVal(resetVal + 1);
       setPicInput("");
       setTextInput("");
+      setFileName("");
       // fetch updated db
       const status = await getStatus(10);
       props.setStatus(status);
@@ -63,12 +70,12 @@ function NewPostDivBoxHome(props) {
     } else {
       console.log("no upload pic");
       const response = await postStatus(textInput, "null");
-      props.setPostModal("hide");
 
       // reset modal values
       setResetVal(resetVal + 1);
       setPicInput("");
       setTextInput("");
+      setFileName("");
       // fetch updated db
       const status = await getStatus(10);
       props.setStatus(status);
@@ -97,7 +104,8 @@ function NewPostDivBoxHome(props) {
           <hr></hr>
           <div className="picInputDiv">
             <label className="inputLabelPicture" htmlFor="idfile">
-              Add a picture
+              <img src={pictureicon} className="newImgButtonPic" />
+              Add Picture {fileName}
             </label>
             <input
               type="file"

@@ -7,6 +7,7 @@ import getStatus from "../services/getStatus";
 import "../styles/home.css";
 import useAutosizeInputTextArea from "../hooks/useAutosizeInputTextArea";
 import NewPostDivBoxHome from "../components/NewPostDivBoxHome";
+import pictureicon from "../assets/pictureicon.svg";
 
 function Home() {
   const [postModal, setPostModal] = useState("hide");
@@ -53,13 +54,6 @@ function Home() {
   return (
     <>
       <div className="mainCont">
-        <div className="newPost">
-          <button onClick={handleNewPostBtn} className="buttonNewPost">
-            <div className="textareadiv">
-              What's on your mind {authContext.user.username}?
-            </div>
-          </button>
-        </div>
         <NewPostDivBoxHome
           setPostModal={setPostModal}
           setStatus={setStatus}

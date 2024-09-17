@@ -8,7 +8,9 @@ import ProfileHeader from "../components/ProfileHeader";
 import getCommentsByUser from "../services/getCommentsByUser";
 import CommentComponent from "../components/CommentComponent";
 import EditProfileModal from "../components/EditProfileModal";
+import postNewBanner from "../services/postNewBanner";
 import { useParams } from "react-router";
+import checkLoginStatus from "../services/checkLoginStatus";
 
 function Profile() {
   const authContext = useContext(AuthContext);
@@ -95,13 +97,10 @@ function Profile() {
     if (typeof e.target.files[0] === "undefined") {
       return null;
     }
-
-    setLoading(true);
-    console.log(e.target.files[0]);
-    const response = await postNewUserPic(e.target.files[0]);
+    alert("banner upload");
+    const response = await postNewBanner(e.target.files[0]);
     const updateProfile = await checkLoginStatus();
     authContext.setUser(updateProfile);
-    setLoading(false);
     console.log(response);
   };
 

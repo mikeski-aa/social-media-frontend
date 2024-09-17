@@ -17,7 +17,7 @@ function ProfileHeader(props) {
     if (typeof e.target.files[0] === "undefined") {
       return null;
     }
-
+    alert("avatar upload");
     setLoading(true);
     console.log(e.target.files[0]);
     const response = await postNewUserPic(e.target.files[0]);
@@ -42,11 +42,11 @@ function ProfileHeader(props) {
         <div className="picChangeDiv">
           <input
             type="file"
-            id="file"
+            id="bannerfile"
             className="picfileinput"
             onChange={(e) => handleFile(e)}
           ></input>
-          <label htmlFor="file" className="label-file">
+          <label htmlFor="bannerfile" className="label-file0banner">
             <img src={editIcon} className="editIcon" />
           </label>
         </div>

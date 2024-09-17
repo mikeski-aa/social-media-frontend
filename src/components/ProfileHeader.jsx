@@ -14,7 +14,7 @@ function ProfileHeader(props) {
   }
 
   const handleFile = async (e) => {
-    if (e.target.files[0] === "undefined") {
+    if (typeof e.target.files[0] === "undefined") {
       return null;
     }
 

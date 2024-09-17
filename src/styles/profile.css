@@ -64,8 +64,8 @@
   align-items: center;
   height: fit-content;
   position: relative;
-  top: 100%;
-  transform: translateY(-100%);
+  width: fit-content;
+  gap: 1rem;
 }
 
 .editProfileButton {
@@ -115,13 +115,12 @@
 }
 
 .label-banner {
-  background-color: white;
   border-radius: 5px;
   padding: 2px;
 }
 
 .test {
-  width: 100vw;
+  width: 100%;
   position: absolute;
   z-index: -2000;
   height: 20vh;

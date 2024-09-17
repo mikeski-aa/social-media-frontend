@@ -91,7 +91,19 @@ function Profile() {
     setShowEditModal(true);
   };
 
-  const handleFile = async (e) => {};
+  const handleFile = async (e) => {
+    if (typeof e.target.files[0] === "undefined") {
+      return null;
+    }
+
+    setLoading(true);
+    console.log(e.target.files[0]);
+    const response = await postNewUserPic(e.target.files[0]);
+    const updateProfile = await checkLoginStatus();
+    authContext.setUser(updateProfile);
+    setLoading(false);
+    console.log(response);
+  };
 
   return (
     <>

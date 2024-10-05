@@ -115,12 +115,6 @@ function Profile() {
           <img className="test" src={authContext.user.backgroundPic}></img>
           <ProfileHeader />
           <div className="editProfileButtonDiv">
-            <button
-              className="editProfileButton"
-              onClick={handleEditProfileBtn}
-            >
-              Profile info
-            </button>
             <div className="picChangeDiv">
               <input
                 type="file"

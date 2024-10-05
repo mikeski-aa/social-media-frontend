@@ -7,7 +7,7 @@ import getStatus from "../services/getStatus";
 import "../styles/home.css";
 import useAutosizeInputTextArea from "../hooks/useAutosizeInputTextArea";
 import NewPostDivBoxHome from "../components/NewPostDivBoxHome";
-import pictureicon from "../assets/pictureicon.svg";
+
 
 function Home() {
   const [postModal, setPostModal] = useState("hide");

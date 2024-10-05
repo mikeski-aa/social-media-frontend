@@ -88,15 +88,6 @@
   width: 12vh;
 }
 
-.picChangeDiv {
-  position: relative;
-  top: 0%;
-  left: 0%;
-  transform: translateX(-100%);
-
-  /* width: fit-content; */
-}
-
 .editIcon {
   display: flex;
   width: 15px;
@@ -115,8 +106,16 @@
 }
 
 .label-banner {
+  transform: translateY(500px);
   border-radius: 5px;
   padding: 2px;
+  background-color: white;
+  outline: 1px solid black;
+}
+
+.label-banner:hover {
+  cursor: pointer;
+  background-color: grey;
 }
 
 .test {

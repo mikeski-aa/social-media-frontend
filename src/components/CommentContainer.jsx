@@ -13,7 +13,8 @@ function CommentContainer(props) {
   return (
     <div className={"commentContainer " + props.status}>
       <NewComment />
-      <h4>Comments:</h4>
+      {postContext.comments.length == 0 ? null : <h4>Comments:</h4>}
+
       {postContext.comments.map((comment) => (
         <CommentComponent comment={comment} key={comment.id} />
       ))}

@@ -1,6 +1,6 @@
 .profPicImg {
-  width: 25px;
-  height: 25px;
+  width: 45px;
+  height: 45px;
   border-radius: 25px;
 }
 
@@ -8,8 +8,16 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  background: none;
+  border: none;
 }
 
 .profileDiv {
   cursor: pointer;
+}
+
+.profName {
+  color: blue;
+  font-size: 1rem;
+  font-weight: 500;
 }

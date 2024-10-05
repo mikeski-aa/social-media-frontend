@@ -131,10 +131,16 @@ function UserProfileForId() {
         </div>
         <div className="postsCommentsMainDiv">
           <div className="profileButtons">
-            <button className="postsBtnProf" onClick={handlePostsClick}>
+            <button
+              className={`postsBtnProf ${showPosts}`}
+              onClick={handlePostsClick}
+            >
               Posts
             </button>
-            <button className="commentsBtnProf" onClick={handleCommentsClick}>
+            <button
+              className={`commentsBtnProf ${showComments}`}
+              onClick={handleCommentsClick}
+            >
               Comments
             </button>
           </div>

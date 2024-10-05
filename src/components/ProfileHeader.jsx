@@ -46,7 +46,7 @@ function ProfileHeader(props) {
             className="picfileinput"
             onChange={(e) => handleFile(e)}
           ></input>
-          <label htmlFor="bannerfile" className="label-file0banner">
+          <label htmlFor="bannerfile" className="label-file-banner">
             <img src={editIcon} className="editIcon" />
           </label>
         </div>

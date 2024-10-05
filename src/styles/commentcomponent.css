@@ -2,6 +2,7 @@
   display: flex;
   gap: 0.5rem;
   align-items: center;
+  justify-content: space-between;
 }
 
 .commentComponent {
@@ -30,7 +31,9 @@
 }
 
 .commentBackgroundDiv {
-  background-color: rgba(158, 158, 158, 0.459);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
   margin-bottom: 5px;
   border-radius: 5px;
   padding: 5px;
@@ -56,4 +59,9 @@
 .likeCommentButton.true {
   background-color: rgba(87, 202, 255, 0.521);
   border-radius: 5px;
+}
+
+.postedCommentOnDate {
+  color: rgb(88, 88, 88);
+  font-size: 0.8rem;
 }

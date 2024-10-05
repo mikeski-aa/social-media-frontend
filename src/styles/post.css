@@ -39,9 +39,13 @@
 }
 
 .commentCount {
-
 }
 
 .commentCount:hover {
   cursor: pointer;
+}
+
+.postDate {
+  color: rgb(88, 88, 88);
+  font-size: 0.8rem;
 }

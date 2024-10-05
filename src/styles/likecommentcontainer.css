@@ -32,6 +32,6 @@
 }
 
 .commentButton.show {
-  border-bottom: 2px solid blue;
+  border-bottom: 2px solid rgb(56, 158, 253);
   font-weight: bold;
 }

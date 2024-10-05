@@ -85,6 +85,16 @@ function Post(props) {
     }
   }, [likes]);
 
+  // show comments when clicking comment counter
+  const handleTestClick = () => {
+    if (commentShow === "hide") {
+      setCommentShow("show");
+      setLoadComments(loadComments + 1);
+    } else {
+      setCommentShow("hide");
+    }
+  };
+
   if (props.text === "") {
     return (
       <>
@@ -106,7 +116,9 @@ function Post(props) {
           </div>
           <div className="commentLikeCount" key={commentCount}>
             <div className="likeCount">{likes.length} likes</div>
-            <div className="commentCount">{commentCount} comments</div>
+            <div className="commentCount" onClick={handleTestClick}>
+              {commentCount} comments
+            </div>
           </div>
           <hr></hr>
 
@@ -127,6 +139,7 @@ function Post(props) {
               comment={comment}
               handleCommentClick={handleCommentClick}
               handleLikeClick={handleLikeClick}
+              status={commentShow}
             />
             <CommentContainer
               status={commentShow}
@@ -154,7 +167,9 @@ function Post(props) {
           </div>
           <div className="commentLikeCount" key={commentCount}>
             <div className="likeCount">{likes.length} likes</div>
-            <div className="commentCount">{commentCount} comments</div>
+            <div className="commentCount" onClick={handleTestClick}>
+              {commentCount} comments
+            </div>
           </div>
           <hr></hr>
 
@@ -175,6 +190,7 @@ function Post(props) {
               comment={comment}
               handleCommentClick={handleCommentClick}
               handleLikeClick={handleLikeClick}
+              status={commentShow}
             />
             <CommentContainer
               status={commentShow}
@@ -207,7 +223,9 @@ function Post(props) {
         </div>
         <div className="commentLikeCount" key={commentCount}>
           <div className="likeCount">{likes.length} likes</div>
-          <div className="commentCount">{commentCount} comments</div>
+          <div className="commentCount" onClick={handleTestClick}>
+            {commentCount} comments
+          </div>
         </div>
         <hr></hr>
         <PostId.Provider
@@ -227,6 +245,7 @@ function Post(props) {
             comment={comment}
             handleCommentClick={handleCommentClick}
             handleLikeClick={handleLikeClick}
+            status={commentShow}
           />
           <CommentContainer
             status={commentShow}

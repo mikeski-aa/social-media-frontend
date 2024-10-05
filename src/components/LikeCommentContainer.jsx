@@ -14,7 +14,10 @@ function LikeCommentContainer(props) {
         <img className="buttonImgPost" src={props.like} />
         <div className="buttonText">Like</div>
       </button>
-      <button className="commentButton" onClick={props.handleCommentClick}>
+      <button
+        className={`commentButton ${props.status}`}
+        onClick={props.handleCommentClick}
+      >
         <img className="buttonImgPost" src={props.comment} />
         <div className="buttonText">Comment</div>
       </button>

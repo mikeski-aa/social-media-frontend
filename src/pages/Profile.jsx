@@ -115,7 +115,7 @@ function Profile() {
           <img className="test" src={authContext.user.backgroundPic}></img>
           <ProfileHeader />
           <div className="editProfileButtonDiv">
-            <div className="picChangeDiv">
+            <div className="picChangeDivBanner">
               <input
                 type="file"
                 id="file"
@@ -123,7 +123,7 @@ function Profile() {
                 onChange={(e) => handleFile(e)}
               ></input>
               <label htmlFor="file" className="label-banner">
-                Upload banner
+                Change banner
               </label>
             </div>
           </div>

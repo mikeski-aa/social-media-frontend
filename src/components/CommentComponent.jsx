@@ -10,14 +10,11 @@ function CommentComponent(props) {
   const authContext = useContext(AuthContext);
   const [likes, setLikeArray] = useState(props.comment.likes);
   const [likedByUser, setLikedByUser] = useState();
-  let tempDate = dateConversion(props.comment.commentDate);
 
-  console.log("asdasdasd");
-  console.log(props.comment.user);
+  const tempDate = dateConversion(props.comment.commentDate);
 
   const handleCommentLikeClick = async () => {
     const response = await putCommentLikes(props.comment.id);
-    console.log(response.likes);
     setLikeArray(response.likes);
   };
 

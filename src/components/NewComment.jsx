@@ -35,7 +35,7 @@ function NewComment(props) {
     <div className="newCommentContainer">
       <div className="mainNewCommentDiv">
         <div className="userImgDiv">
-          <img className="userImgImg" src={props.profilePic}></img>
+          <img className="userImgImg" src={authContext.user.profilePic}></img>
         </div>
         <div className="inputBox">
           <textarea

@@ -10,7 +10,7 @@ function dateConversion(inputDate) {
 
   if (minutes < 1) {
     return `Less than 1 minute ago`;
-  } else if (minutes > 1 && hours < 1) {
+  } else if (minutes > 1 && minutes < 60) {
     return `${minutes} minutes ago`;
   } else if (hours <= 24 && hours > 1) {
     return `${hours} hours ago`;

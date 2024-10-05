@@ -3,6 +3,7 @@
 }
 
 .allFriends {
+  margin-top: 15px;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -26,4 +27,28 @@
 
 .searchLoading.false {
   display: none;
+}
+
+.searchBtnFriend {
+  border: none;
+  background: none;
+}
+
+.searchBtnFriend:hover {
+  cursor: pointer;
+}
+
+.searchBoxButton {
+  outline: 1px solid rgb(0, 0, 0);
+  border-radius: 15px;
+}
+
+.incomingReqs:hover {
+  cursor: pointer;
+  background-color: rgba(87, 202, 255, 0.521);
+}
+
+.incomingReqs {
+  border: none;
+  background: none;
 }

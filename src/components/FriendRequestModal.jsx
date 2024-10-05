@@ -11,7 +11,12 @@ function FriendRequestModal(props) {
         <button className="closeSearchModalBtn" onClick={handleCloseModal}>
           Close
         </button>
-        <h4>Search results:</h4>
+        {props.result.length > 0 ? (
+          <h4>Incoming Friend requests:</h4>
+        ) : (
+          <h4>No new friend requests found</h4>
+        )}
+
         <div className="resultUsers">
           {props.result.map((request) => (
             <FriendRequestProfile

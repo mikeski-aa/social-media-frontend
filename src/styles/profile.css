@@ -30,6 +30,9 @@
 .usernameProfile {
   font-size: xx-large;
   font-weight: 500;
+  background-color: rgba(255, 255, 255, 0.829);
+  border-radius: 5px;
+  padding: 5px;
 }
 
 .postsCommentsMainDiv {
@@ -63,7 +66,7 @@
 .editProfileButtonDiv {
   position: relative;
   top: 7px;
-  transform: translateX(-25%);
+  transform: translateX(-40%);
   display: flex;
   align-items: center;
   height: fit-content;

@@ -1,8 +1,8 @@
 .profileUserProfileImg {
   width: 12vh;
   height: 12vh;
-  outline: 2px solid black;
-  background-color: white;
+  /* outline: 2px solid black;
+  background-color: white; */
 }
 
 .profileCont {
@@ -85,7 +85,8 @@
 .profileImageDiv {
   display: flex;
   height: 12vh;
-  width: 12vh;
+  outline: 2px solid black;
+  background-color: white;
 }
 
 .editIcon {
@@ -130,4 +131,10 @@
 }
 
 .picChangeDivBanner {
+}
+
+.picChangeDiv {
+  position: relative;
+  top: 100%;
+  transform: translateY(-15px);
 }

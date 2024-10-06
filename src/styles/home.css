@@ -44,3 +44,7 @@
 .inputLabelPicture:hover {
   cursor: pointer;
 }
+
+.homeYourFeedHeading {
+  font-size: 1.5rem;
+}

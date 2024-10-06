@@ -60,5 +60,6 @@
 
 .deleteFriend:hover {
   cursor: pointer;
-  border: 1px solid blue;
+  background-color: rgb(255, 255, 255);
+  color: rgb(17, 127, 252);
 }

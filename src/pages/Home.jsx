@@ -8,7 +8,6 @@ import "../styles/home.css";
 import useAutosizeInputTextArea from "../hooks/useAutosizeInputTextArea";
 import NewPostDivBoxHome from "../components/NewPostDivBoxHome";
 
-
 function Home() {
   const [postModal, setPostModal] = useState("hide");
   const [status, setStatus] = useState([]);
@@ -39,16 +38,8 @@ function Home() {
     fetchStatus();
   }, [fetchCount]);
 
-  const handleNewPostBtn = () => {
-    setPostModal("show");
-  };
-
   const handleLoadMoreClick = () => {
     setFetchCount(fetchCount + 10);
-  };
-
-  const handleInputChange = (e) => {
-    setInputAreaValue(e.target.value);
   };
 
   return (
@@ -59,7 +50,7 @@ function Home() {
           setStatus={setStatus}
         ></NewPostDivBoxHome>
         <div className="mainFeed">
-          <h3>Your feed</h3>
+          <h3 className="homeYourFeedHeading">Your feed</h3>
           <div className="allPostContainer">
             {loading ? <div>LOADING ...</div> : null}
             {status.map((item) => (

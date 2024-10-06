@@ -29,9 +29,20 @@
   display: none;
 }
 
+.outerDivSearch {
+  display: flex;
+  flex-direction: column;
+}
+
+.searchInputAndBtn {
+  display: flex;
+}
+
 .searchBtnFriend {
   border: none;
   background: none;
+  display: flex;
+  align-items: center;
 }
 
 .searchBtnFriend:hover {
@@ -39,7 +50,7 @@
 }
 
 .searchBoxButton {
-  outline: 1px solid rgb(0, 0, 0);
+  /* outline: 1px solid rgb(0, 0, 0); */
   border-radius: 15px;
 }
 
@@ -54,4 +65,22 @@
   background-color: rgb(17, 127, 252);
   color: white;
   font-weight: 600;
+}
+
+.searchErrorBox,
+.searchLoading {
+  border-radius: 5px;
+}
+
+.friendPageHeadingFour {
+  font-size: 1.5rem;
+}
+
+@media (min-width: 700px) {
+  .friendsContainer {
+    width: 45vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }

@@ -48,6 +48,7 @@ function Friends() {
   }, [forceloadFriends]);
 
   const handleSearchClick = async () => {
+    setSearchError(false);
     // if no input return null
     if (searchInput === "") {
       setSearchErrorMsg("No results found");
@@ -102,21 +103,23 @@ function Friends() {
         />
 
         <div className="friendsHeading">
-          <h4>Friends</h4>
+          <h4 className="friendPageHeadingFour">Friends</h4>
           <div className="searchBoxButton">
             <div className="outerDivSearch">
-              <input
-                className="searchFriend"
-                type="text"
-                placeholder="Search for your friends"
-                onChange={(e) => handleSearchInput(e)}
-                minLength={1}
-                maxLength={15}
-                value={searchInput}
-              ></input>
-              <button className="searchBtnFriend" onClick={handleSearchClick}>
-                <img className="buttonIconSearch" src={search} />
-              </button>
+              <div className="searchInputAndBtn">
+                <input
+                  className="searchFriend"
+                  type="text"
+                  placeholder="Search for your friends"
+                  onChange={(e) => handleSearchInput(e)}
+                  minLength={1}
+                  maxLength={15}
+                  value={searchInput}
+                ></input>
+                <button className="searchBtnFriend" onClick={handleSearchClick}>
+                  <img className="buttonIconSearch" src={search} />
+                </button>
+              </div>
               <div className={"searchErrorBox " + searchError}>
                 {searchErrorMsg}
               </div>

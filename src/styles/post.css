@@ -49,3 +49,9 @@
   color: rgb(88, 88, 88);
   font-size: 0.8rem;
 }
+
+.userInfoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

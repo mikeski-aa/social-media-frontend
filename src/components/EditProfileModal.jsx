@@ -46,8 +46,11 @@ function EditProfileModal(props) {
     <div className={"modal " + props.visibility}>
       {bannerUpload ? (
         <div className="loadingFakeModal">
-          Uploading banner...{" "}
-          <img src={gifloading} className="loadingGifImg"></img>
+          <div className="innerFakeModal">
+            {" "}
+            Uploading new banner. This may take some time...{" "}
+            <img src={gifloading} className="loadingGifImg"></img>
+          </div>
         </div>
       ) : null}
       <div className="editProfileContainer">

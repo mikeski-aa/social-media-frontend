@@ -15,3 +15,26 @@
 .addFriend.pending {
   background-color: grey;
 }
+
+.btnAcceptFriend {
+  background: rgb(17, 127, 252);
+  color: white;
+  font-weight: 600;
+}
+
+.btnDeclineFriend {
+  background-color: grey;
+  color: white;
+  font-weight: 600;
+}
+
+.btnAcceptFriend:hover,
+.btnDeclineFriend:hover {
+  cursor: pointer;
+}
+
+.closeSearchModalBtn {
+  background-color: grey;
+  color: white;
+  font-weight: 600;
+}

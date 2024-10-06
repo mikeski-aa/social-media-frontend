@@ -90,7 +90,7 @@ function Register() {
                 onChange={(e) => handleEmailInput(e)}
               />
             </div>
-            <div className="passwordInput">
+            <div className="passwordInputDivBox">
               <label htmlFor="passwordInput">PASSWORD</label>
               <input
                 type="password"

@@ -28,10 +28,10 @@
 }
 
 .likeButton.true {
-  background-color: rgba(87, 202, 255, 0.521);
+  background-color: rgb(17, 127, 252);
 }
 
 .commentButton.show {
-  border-bottom: 2px solid rgb(56, 158, 253);
+  border-bottom: 2px solid rgb(17, 127, 252);
   font-weight: bold;
 }

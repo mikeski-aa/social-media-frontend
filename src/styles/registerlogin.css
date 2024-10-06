@@ -8,12 +8,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #f1f2f6;
 }
 
 .formBox {
   display: flex;
   flex-direction: column;
-  background-color: rgba(137, 43, 226, 0.493);
+  background-color: rgb(255, 255, 255);
   padding: 5px;
   border-radius: 5px;
   align-items: center;
@@ -33,6 +34,7 @@ hr {
 .usernameDiv,
 .inputName,
 .passwordInput,
+.passwordInputDivBox,
 .confirmPasswordInputDiv,
 .buttonBox {
   display: flex;
@@ -49,6 +51,7 @@ hr {
 .passwordInput,
 .confirmPasswordInput,
 .usernameInput {
+  outline: 1px solid grey;
 }
 
 .errorBox.show {
@@ -69,4 +72,31 @@ hr {
 .textRegister {
   max-width: inherit;
   text-align: center;
+}
+
+.emailInput,
+.passwordInput {
+  padding: 10px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: large;
+}
+
+.loginBtn,
+.guestBtn {
+  height: 3rem;
+  font-weight: 700;
+  background-color: rgb(17, 127, 252);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition-duration: 1s;
+}
+
+.loginBtn:hover,
+.guestBtn:hover {
+  background-color: white;
+  color: rgb(17, 127, 252);
+  outline: 2px solid rgb(17, 127, 252);
+  cursor: pointer;
 }

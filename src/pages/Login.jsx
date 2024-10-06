@@ -45,6 +45,11 @@ function Login() {
     return navigate("/");
   };
 
+  // redirect to register page
+  const handleRegisterClick = () => {
+    navigate("/register");
+  };
+
   return (
     <>
       <div className="formBoxContainer">
@@ -52,40 +57,48 @@ function Login() {
           <div className="boxHeader">OdinBook</div>
           <form className="inputForm">
             <div className="inputName">
-              <label htmlFor="emailInput">EMAIL</label>
+              <label htmlFor="emailInput"></label>
               <input
                 type="email"
                 name="emialInput"
                 className="emailInput"
+                placeholder="Email"
                 onChange={(e) => handleEmailInput(e)}
               />
             </div>
-            <div className="passwordInput">
-              <label htmlFor="passwordInput">PASSWORD</label>
+            <div className="passwordInputDivBox">
+              <label htmlFor="passwordInput"></label>
               <input
                 type="password"
                 name="passwordInput"
                 className="passwordInput"
+                placeholder="Password"
                 onChange={(e) => handlePasswordInput(e)}
               />
             </div>
             <div className="buttonBox">
               <button className="loginBtn" onClick={(e) => handleLoginClick(e)}>
-                LOGIN
+                Login
               </button>
             </div>
             <div className="buttonBox">
-              <button className="guestBtn">GUEST LOGIN</button>
+              <button className="guestBtn">Guest login</button>
             </div>
             <div className={"errorBox " + errorStatus}>{errorText}</div>
           </form>
 
           <hr />
           <div className="registerLink">
-            <div className="textRegister">
+            <button
+              className="registerRedirectBtn"
+              onClick={handleRegisterClick}
+            >
+              Create new account
+            </button>
+            {/* <div className="textRegister">
               Don't have an account? <Link to="/register">CLICK HERE </Link>
               to regsiter!
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

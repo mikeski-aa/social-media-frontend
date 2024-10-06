@@ -2,6 +2,7 @@ import "../styles/registerlogin.css";
 import { useState } from "react";
 import postUser from "../services/postUser";
 import { Link, useNavigate } from "react-router-dom";
+import headerImage from "../assets/headerimage.png";
 
 function Register() {
   const [usernameInput, setUsernameInput] = useState("");
@@ -64,47 +65,61 @@ function Register() {
     return navigate("/login");
   };
 
+  const handleLoginClick = () => {
+    navigate("/login");
+  };
+
   return (
     <>
       <div className="formBoxContainer">
+        <div className="leftLoginBanner">
+          <img src={headerImage} className="headerImageLogin"></img>
+          <div className="headerTextLogin">
+            Connect with friends and the world around you on Odinbook.
+          </div>
+        </div>
         <div className="formBox">
-          <div className="boxHeader">OdinBook</div>
+          <div className="boxHeader"></div>
           <form className="inputForm">
             <div className="usernameDiv">
-              <label htmlFor="usernameInput">USERNAME</label>
+              <label htmlFor="usernameInput"></label>
               <input
                 type="text"
                 name="usernameInput"
                 className="usernameInput"
                 maxLength={15}
                 minLength={1}
+                placeholder="Username"
                 onChange={(e) => hanldeUsernameInput(e)}
               />
             </div>
             <div className="inputName">
-              <label htmlFor="emailInput">EMAIL</label>
+              <label htmlFor="emailInput"></label>
               <input
                 type="email"
                 name="emailInput"
                 className="emailInput"
+                placeholder="Email"
                 onChange={(e) => handleEmailInput(e)}
               />
             </div>
             <div className="passwordInputDivBox">
-              <label htmlFor="passwordInput">PASSWORD</label>
+              <label htmlFor="passwordInput"></label>
               <input
                 type="password"
                 name="passwordInput"
                 className="passwordInput"
+                placeholder="Password"
                 onChange={(e) => handlePasswordInput(e)}
               />
             </div>
             <div className="confirmPasswordInputDiv">
-              <label htmlFor="confirmPasswordInput">PASSWORD</label>
+              <label htmlFor="confirmPasswordInput"></label>
               <input
                 type="password"
                 name="confirmPasswordInput"
                 className="confirmPasswordInput"
+                placeholder="Confirm password"
                 onChange={(e) => handleConfirmPasswordInput(e)}
               />
             </div>
@@ -117,10 +132,9 @@ function Register() {
           </form>
           <hr />
           <div className="registerLink">
-            <div className="textRegister">
-              Already have an account? <Link to="/login">CLICK HERE </Link> to
-              login!
-            </div>
+            <button className="registerRedirectBtn" onClick={handleLoginClick}>
+              I already have an account
+            </button>
           </div>
         </div>
       </div>

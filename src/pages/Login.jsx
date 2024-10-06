@@ -102,10 +102,6 @@ function Login() {
             >
               Create new account
             </button>
-            {/* <div className="textRegister">
-              Don't have an account? <Link to="/register">CLICK HERE </Link>
-              to regsiter!
-            </div> */}
           </div>
         </div>
       </div>

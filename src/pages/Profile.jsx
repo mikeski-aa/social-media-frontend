@@ -114,7 +114,7 @@ function Profile() {
           <img className="test" src={authContext.user.backgroundPic}></img>
           <ProfileHeader />
           <div className="editProfileButtonDiv">
-            <div className="picChangeDivBanner">
+            {/* <div className="picChangeDivBanner">
               <input
                 type="file"
                 id="file"
@@ -124,7 +124,7 @@ function Profile() {
               <label htmlFor="file" className="label-banner">
                 Change banner
               </label>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="postsCommentsMainDiv">

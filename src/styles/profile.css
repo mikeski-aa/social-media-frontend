@@ -162,13 +162,13 @@
 .postsBtnProf:hover,
 .commentsBtnProf:hover {
   cursor: pointer;
-  border-bottom: 2px solid rgb(56, 158, 253);
+  border-bottom: 2px solid rgb(17, 127, 252);
 }
 
 .postsBtnProf.true,
 .commentsBtnProf.true {
-  border-bottom: 2px solid rgb(56, 158, 253);
-  color: rgb(56, 158, 253);
+  border-bottom: 2px solid rgb(17, 127, 252);
+  color: rgb(17, 127, 252);
   font-weight: bold;
 }
 

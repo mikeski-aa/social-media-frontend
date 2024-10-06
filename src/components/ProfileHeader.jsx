@@ -40,7 +40,7 @@ function ProfileHeader(props) {
         )}
 
         <div className="picChangeDiv">
-          <input
+          {/* <input
             type="file"
             id="bannerfile"
             className="picfileinput"
@@ -48,7 +48,7 @@ function ProfileHeader(props) {
           ></input>
           <label htmlFor="bannerfile" className="label-file-banner">
             <img src={editIcon} className="editIcon" />
-          </label>
+          </label> */}
         </div>
       </div>
 

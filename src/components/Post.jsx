@@ -95,6 +95,7 @@ function Post(props) {
     }
   };
 
+  // no text only pic
   if (props.text === "") {
     return (
       <>
@@ -149,6 +150,7 @@ function Post(props) {
         </div>
       </>
     );
+    // no image only text
   } else if (props.imageUrl === "null") {
     return (
       <>
@@ -202,6 +204,7 @@ function Post(props) {
     );
   }
 
+  // image and text
   return (
     <>
       <div className="postContainer">

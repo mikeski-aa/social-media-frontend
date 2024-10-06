@@ -4,6 +4,7 @@ import postUserLogin from "../services/postUserLogin";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../App";
+import headerImage from "../assets/headerimage.png";
 
 function Login() {
   const [emailInput, setEmailInput] = useState("");
@@ -53,8 +54,14 @@ function Login() {
   return (
     <>
       <div className="formBoxContainer">
+        <div className="leftLoginBanner">
+          <img src={headerImage} className="headerImageLogin"></img>
+          <div className="headerTextLogin">
+            Connect with friends and the world around you on Odinbook.
+          </div>
+        </div>
         <div className="formBox">
-          <div className="boxHeader">OdinBook</div>
+          <div className="boxHeader"></div>
           <form className="inputForm">
             <div className="inputName">
               <label htmlFor="emailInput"></label>

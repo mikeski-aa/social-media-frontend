@@ -9,15 +9,17 @@
   justify-content: center;
   align-items: center;
   background-color: #f1f2f6;
+  gap: 2rem;
 }
 
 .formBox {
   display: flex;
   flex-direction: column;
   background-color: rgb(255, 255, 255);
-  padding: 5px;
+  padding: 15px;
   border-radius: 5px;
   align-items: center;
+  width: 20vw;
 }
 
 .inputForm {
@@ -84,6 +86,7 @@ hr {
 
 .loginBtn,
 .guestBtn {
+  font-size: 0.87rem;
   height: 3rem;
   font-weight: 700;
   background-color: rgb(17, 127, 252);
@@ -99,4 +102,55 @@ hr {
   color: rgb(17, 127, 252);
   outline: 2px solid rgb(17, 127, 252);
   cursor: pointer;
+}
+
+.registerRedirectBtn {
+  height: 3rem;
+  font-weight: 700;
+  background-color: #44b62b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition-duration: 1s;
+  margin-top: 15px;
+}
+
+.registerRedirectBtn:hover {
+  background-color: white;
+  color: #44b62b;
+  outline: 2px solid #44b62b;
+  cursor: pointer;
+}
+
+.headerImageLogin {
+  width: 50%;
+}
+
+.leftLoginBanner {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.headerTextLogin {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+@media (max-width: 950px) {
+  .formBoxContainer {
+    flex-direction: column;
+  }
+
+  .formBox {
+    width: 80vw;
+  }
+
+  .leftLoginBanner {
+    display: flex;
+    align-items: center;
+  }
+  .headerTextLogin {
+    text-align: center;
+  }
 }

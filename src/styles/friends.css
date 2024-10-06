@@ -76,11 +76,15 @@
   font-size: 1.5rem;
 }
 
+.friendsContainer {
+  width: 92vw;
+}
+
 @media (min-width: 700px) {
   .friendsContainer {
     width: 45vw;
-    position: relative;
+    /* position: relative;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%); */
   }
 }

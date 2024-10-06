@@ -112,7 +112,7 @@ function Profile() {
         />
         <div className="profileStats">
           <img className="test" src={authContext.user.backgroundPic}></img>
-          <ProfileHeader />
+          <ProfileHeader openProfleModel={handleEditProfileBtn} />
           <div className="editProfileButtonDiv">
             {/* <div className="picChangeDivBanner">
               <input

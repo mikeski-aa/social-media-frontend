@@ -26,7 +26,10 @@
   top: 100%;
   transform: translateY(-101%);
   height: 12vh;
-  /* margin-left: 15px; */
+  margin-left: 15px;
+}
+
+.profileHeader:hover {
 }
 
 .usernameProfile {
@@ -170,6 +173,20 @@
   border-bottom: 2px solid rgb(17, 127, 252);
   color: rgb(17, 127, 252);
   font-weight: bold;
+}
+
+.profileHeaderNameEditContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.editProfileBtn {
+  width: 50%;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+.editProfileBtn:hover {
+  cursor: pointer;
 }
 
 @media (max-width: 600px) {

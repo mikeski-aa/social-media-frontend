@@ -53,7 +53,7 @@ function ProfileHeader(props) {
       </div>
       <div className="profileHeaderNameEditContainer">
         <div className="usernameProfile">{authContext.user.username}</div>
-        <button className="editProfileBtn" onClick={props.openProfleModel}>
+        <button className="editProfileBtn" onClick={props.openProfileModal}>
           Edit profile
         </button>
       </div>

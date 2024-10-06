@@ -112,20 +112,8 @@ function Profile() {
         />
         <div className="profileStats">
           <img className="test" src={authContext.user.backgroundPic}></img>
-          <ProfileHeader openProfleModel={handleEditProfileBtn} />
-          <div className="editProfileButtonDiv">
-            {/* <div className="picChangeDivBanner">
-              <input
-                type="file"
-                id="file"
-                className="picfileinput"
-                onChange={(e) => handleFile(e)}
-              ></input>
-              <label htmlFor="file" className="label-banner">
-                Change banner
-              </label>
-            </div> */}
-          </div>
+          <ProfileHeader openProfileModal={handleEditProfileBtn} />
+          <div className="editProfileButtonDiv"></div>
         </div>
         <div className="postsCommentsMainDiv">
           <div className="profileButtons">

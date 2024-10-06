@@ -116,7 +116,8 @@
   width: 12vh;
 }
 
-.label-banner {
+.label-banner,
+.label-file-banner {
   border-radius: 5px;
   padding: 2px;
   background-color: rgb(17, 127, 252);
@@ -126,7 +127,8 @@
   text-wrap: nowrap;
 }
 
-.label-banner:hover {
+.label-banner:hover,
+.label-file-banner:hover {
   cursor: pointer;
   background-color: rgb(255, 255, 255);
   color: rgb(17, 127, 252);

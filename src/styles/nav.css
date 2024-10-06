@@ -109,6 +109,12 @@
 
 .topImageHeader {
   height: 2rem;
+  transition: 1s;
+}
+
+.topImageHeader:hover {
+  filter: invert();
+  cursor: pointer;
 }
 
 .navButtonsContainer {

@@ -3,6 +3,7 @@
   height: 12vh;
   /* outline: 2px solid black;
   background-color: white; */
+  outline: 2px solid white;
 }
 
 .profileCont {
@@ -25,6 +26,7 @@
   top: 100%;
   transform: translateY(-101%);
   height: 12vh;
+  /* margin-left: 15px; */
 }
 
 .usernameProfile {
@@ -98,7 +100,7 @@
   display: flex;
   width: 15px;
   height: 15px;
-  background-color: rgba(255, 255, 255, 0.87);
+  background-color: rgb(17, 127, 252);
   border-radius: 5px;
 }
 
@@ -114,14 +116,17 @@
 .label-banner {
   border-radius: 5px;
   padding: 2px;
-  background-color: white;
-  outline: 1px solid black;
+  background-color: rgb(17, 127, 252);
+  color: white;
+  outline: 1px solid rgb(255, 255, 255);
+  font-weight: 600;
   text-wrap: nowrap;
 }
 
 .label-banner:hover {
   cursor: pointer;
-  background-color: grey;
+  background-color: rgb(255, 255, 255);
+  color: rgb(17, 127, 252);
 }
 
 .test {
@@ -165,4 +170,10 @@
   border-bottom: 2px solid rgb(56, 158, 253);
   color: rgb(56, 158, 253);
   font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  .editProfileButtonDiv {
+    transform: translateX(-60%);
+  }
 }

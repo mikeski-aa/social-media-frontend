@@ -66,9 +66,17 @@ function Nav() {
     return navigate("/login");
   };
 
+  const handleBannerClick = () => {
+    return navigate("/");
+  };
+
   return (
     <div className="navBar">
-      <img className="topImageHeader" src={headerImage}></img>
+      <img
+        className="topImageHeader"
+        src={headerImage}
+        onClick={handleBannerClick}
+      ></img>
       <div className="navButtonsContainer">
         <button className={"btn1 " + activeHome} onClick={handleHomeClick}>
           <img src={home} className="navIcon"></img>

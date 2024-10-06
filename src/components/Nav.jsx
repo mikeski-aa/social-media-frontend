@@ -6,6 +6,7 @@ import "../styles/nav.css";
 import { AuthContext } from "../App";
 import { useContext, useEffect, useState } from "react";
 import useRedirectValidFail from "../hooks/useRedirectValidFail";
+import headerImage from "../assets/headerimage.png";
 
 function Nav() {
   const authContext = useContext(AuthContext);
@@ -67,19 +68,25 @@ function Nav() {
 
   return (
     <div className="navBar">
-      <button className={"btn1 " + activeHome} onClick={handleHomeClick}>
-        <img src={home} className="navIcon"></img>
-      </button>
-      <button className={"btn2 " + activeFriends} onClick={handleFriendsClick}>
-        <img src={friends} className="navIcon"></img>
-      </button>
-      <button className={"btn3 " + activeProfile} onClick={handleProfClick}>
-        <img src={authContext.user.profilePic} className="profileNav"></img>
-        Profile
-      </button>
-      <button className="btn4" onClick={handleLogoutClick}>
-        <img src={logout} className="navIcon"></img>
-      </button>
+      <img className="topImageHeader" src={headerImage}></img>
+      <div className="navButtonsContainer">
+        <button className={"btn1 " + activeHome} onClick={handleHomeClick}>
+          <img src={home} className="navIcon"></img>
+        </button>
+        <button
+          className={"btn2 " + activeFriends}
+          onClick={handleFriendsClick}
+        >
+          <img src={friends} className="navIcon"></img>
+        </button>
+        <button className={"btn3 " + activeProfile} onClick={handleProfClick}>
+          <img src={authContext.user.profilePic} className="profileNav"></img>
+          Profile
+        </button>
+        <button className="btn4" onClick={handleLogoutClick}>
+          <img src={logout} className="navIcon"></img>
+        </button>
+      </div>
     </div>
   );
 }

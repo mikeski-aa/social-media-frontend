@@ -51,4 +51,7 @@
 .incomingReqs {
   border: none;
   background: none;
+  background-color: rgb(17, 127, 252);
+  color: white;
+  font-weight: 600;
 }

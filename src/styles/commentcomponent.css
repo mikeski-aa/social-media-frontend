@@ -9,7 +9,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  min-width: 100%;
+  width: 40vw;
 }
 
 .commentText {
@@ -66,8 +66,8 @@
   font-size: 0.8rem;
 }
 
-/* @media (max-width: 500px) {
+@media (max-width: 500px) {
   .commentComponent {
-    max-width: 0vw;
+    width: 85vw;
   }
-} */
+}

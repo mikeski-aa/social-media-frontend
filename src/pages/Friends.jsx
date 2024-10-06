@@ -129,7 +129,7 @@ function Friends() {
 
         {requests.length < 1 ? null : (
           <button className="incomingReqs" onClick={handleRequestsOpen}>
-            Friend requests {requests.length}
+            Incoming friend requests: {requests.length}
           </button>
         )}
 
@@ -143,6 +143,9 @@ function Friends() {
               id={friend.id}
             />
           ))}
+          {friends.length == 0 ? (
+            <div className="emptyFriendsDiv">Your friend list is empty</div>
+          ) : null}
         </div>
       </FriendsContext.Provider>
     </div>

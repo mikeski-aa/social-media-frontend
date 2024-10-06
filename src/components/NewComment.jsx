@@ -4,6 +4,7 @@ import postNewComment from "../services/postNewComment";
 import { PostId } from "./Post";
 import { AuthContext } from "../App";
 
+
 function NewComment(props) {
   const postContext = useContext(PostId);
   const authContext = useContext(AuthContext);

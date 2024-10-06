@@ -1,6 +1,6 @@
 .postContainer {
   border: 2px solid rgb(182, 182, 182);
-  width: 65vw;
+  width: 40vw;
   display: flex;
   flex-direction: column;
   border-radius: 5px;
@@ -22,7 +22,7 @@
 }
 
 .userImage {
-  max-width: 500px;
+  max-width: 40vw;
   border-radius: 5px;
   position: relative;
   left: 50%;
@@ -31,7 +31,7 @@
 
 @media (max-width: 500px) {
   .userImage {
-    max-width: 250px;
+    max-width: 85vw;
   }
   .postContainer {
     width: 85vw;

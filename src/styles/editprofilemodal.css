@@ -79,6 +79,7 @@
   cursor: pointer;
   background-color: rgb(255, 255, 255);
   color: rgb(17, 127, 252);
+  outline-color: rgb(17, 127, 252);
 }
 
 .loadingFakeModal {

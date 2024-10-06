@@ -32,6 +32,12 @@ function UserProfileForId() {
     navigate("/profile");
   }
 
+  // if ID === your id, redirect to your profile
+  // not the most elegant solution
+  if (id == authContext.user.id) {
+    navigate("/profile");
+  }
+
   useEffect(() => {
     const loadUser = async () => {
       setLoading(true);

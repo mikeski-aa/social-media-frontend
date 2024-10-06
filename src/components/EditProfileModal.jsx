@@ -34,7 +34,7 @@ function EditProfileModal(props) {
       return null;
     }
     setBannerUpload(true);
-    alert("banner upload");
+
     const response = await postNewBanner(e.target.files[0]);
     const updateProfile = await checkLoginStatus();
     authContext.setUser(updateProfile);

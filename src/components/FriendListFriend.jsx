@@ -27,7 +27,7 @@ function FriendListFriend(props) {
       </div>
 
       <button className="deleteFriend" onClick={handleFriendRemove}>
-        Remove friend
+        Unfriend
       </button>
     </div>
   );

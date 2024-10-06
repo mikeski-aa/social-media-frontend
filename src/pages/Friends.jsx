@@ -127,9 +127,12 @@ function Friends() {
           </div>
         </div>
 
-        <button className="incomingReqs" onClick={handleRequestsOpen}>
-          Friend requests {requests.length}
-        </button>
+        {requests.length < 1 ? null : (
+          <button className="incomingReqs" onClick={handleRequestsOpen}>
+            Friend requests {requests.length}
+          </button>
+        )}
+
         <div className="allFriends">
           <div className={"loadingFriends " + loadingFriends}>LOADING ...</div>
           {friends.map((friend) => (

@@ -46,3 +46,15 @@
 .friendImgNameCont:hover {
   cursor: pointer;
 }
+
+.deleteFriend {
+  background-color: rgba(12, 148, 189, 0.918);
+  color: white;
+  font-weight: 600;
+  border: 1px solid grey;
+}
+
+.deleteFriend:hover {
+  cursor: pointer;
+  border: 1px solid blue;
+}

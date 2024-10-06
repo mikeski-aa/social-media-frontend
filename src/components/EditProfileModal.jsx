@@ -10,6 +10,7 @@ function EditProfileModal(props) {
   const authContext = useContext(AuthContext);
   const [fileName, setFileName] = useState("Choose a file");
   const [loading, setLoading] = useState(false);
+  const [bannerUpload, setBannerUpload] = useState(false);
 
   const handleCloseModal = () => {
     props.setModalVisible(false);
@@ -32,15 +33,23 @@ function EditProfileModal(props) {
     if (typeof e.target.files[0] === "undefined") {
       return null;
     }
+    setBannerUpload(true);
     alert("banner upload");
     const response = await postNewBanner(e.target.files[0]);
     const updateProfile = await checkLoginStatus();
     authContext.setUser(updateProfile);
+    setBannerUpload(false);
     console.log(response);
   };
 
   return (
     <div className={"modal " + props.visibility}>
+      {bannerUpload ? (
+        <div className="loadingFakeModal">
+          Uploading banner...{" "}
+          <img src={gifloading} className="loadingGifImg"></img>
+        </div>
+      ) : null}
       <div className="editProfileContainer">
         <button className="closeSearchModalBtn" onClick={handleCloseModal}>
           Close

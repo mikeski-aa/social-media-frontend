@@ -56,4 +56,35 @@
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
+  margin-top: 15px;
+}
+
+.label-banner,
+.label-file-banner {
+  display: flex;
+  width: 250px;
+  text-align: center;
+  justify-content: center;
+  border-radius: 5px;
+  padding: 2px;
+  background-color: rgb(17, 127, 252);
+  color: white;
+  outline: 1px solid rgb(255, 255, 255);
+  font-weight: 600;
+  text-wrap: nowrap;
+}
+
+.label-banner:hover,
+.label-file-banner:hover {
+  cursor: pointer;
+  background-color: rgb(255, 255, 255);
+  color: rgb(17, 127, 252);
+}
+
+.loadingFakeModal {
+  background-color: rgba(128, 128, 128, 0.521);
+  position: relative;
+
+  width: 100vw;
+  height: 100vh;
 }

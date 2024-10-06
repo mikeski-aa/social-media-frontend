@@ -8,7 +8,8 @@ import ProfileHeader from "../components/ProfileHeader";
 import getCommentsByUser from "../services/getCommentsByUser";
 import CommentComponent from "../components/CommentComponent";
 import EditProfileModal from "../components/EditProfileModal";
-import postNewBanner from "../services/postNewBanner";
+import { postNewBanner } from "../services/refactor/userCalls";
+// import postNewBanner from "../services/postNewBanner";
 import { useParams } from "react-router";
 import checkLoginStatus from "../services/checkLoginStatus";
 
@@ -90,17 +91,6 @@ function Profile() {
 
   const handleEditProfileBtn = () => {
     setShowEditModal(true);
-  };
-
-  const handleFile = async (e) => {
-    if (typeof e.target.files[0] === "undefined") {
-      return null;
-    }
-    alert("banner upload");
-    const response = await postNewBanner(e.target.files[0]);
-    const updateProfile = await checkLoginStatus();
-    authContext.setUser(updateProfile);
-    console.log(response);
   };
 
   return (

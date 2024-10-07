@@ -140,4 +140,34 @@ async function postImage(image) {
   }
 }
 
-export { getPostsByUser, getStatus, postStatus, putStatusLikes, postImage };
+// delete specific comment
+async function deleteStatus(statusid) {
+  const url = LOCAL_URL + `status/delete?commentid=${statusid}`;
+  const headerinfo = {
+    Authorization: "bearer " + localStorage.getItem("token"),
+    Accept: "application/json",
+    "Content-Type": "application/json",
+  };
+
+  try {
+    const response = await fetch(url, {
+      method: "DELETE",
+      headers: headerinfo,
+    });
+
+    const json = await response.json();
+    return json;
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+}
+
+export {
+  getPostsByUser,
+  getStatus,
+  postStatus,
+  putStatusLikes,
+  postImage,
+  deleteStatus,
+};

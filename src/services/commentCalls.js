@@ -110,4 +110,33 @@ async function putCommentLikes(commentid) {
   }
 }
 
-export { getComments, getCommentsByUser, postNewComment, putCommentLikes };
+// delete specific comment
+async function deleteComment(commentid) {
+  const url = LOCAL_URL + `comments/delete?commentid=${commentid}`;
+  const headerinfo = {
+    Authorization: "bearer " + localStorage.getItem("token"),
+    Accept: "application/json",
+    "Content-Type": "application/json",
+  };
+
+  try {
+    const response = await fetch(url, {
+      method: "DELETE",
+      headers: headerinfo,
+    });
+
+    const json = await response.json();
+    return json;
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+}
+
+export {
+  getComments,
+  getCommentsByUser,
+  postNewComment,
+  putCommentLikes,
+  deleteComment,
+};

@@ -1,4 +1,4 @@
-import { LOCAL_URL } from "../utils/url.const";
+import { LOCAL_URL } from "../../utils/url.const";
 
 async function getCommentsByUser(limit, id) {
   const url = LOCAL_URL + `comments/userpost?limit=${limit}&id=${id}`;

@@ -1,9 +1,9 @@
 import "../styles/newcomment.css";
 import { useContext, useState } from "react";
-import postNewComment from "../services/postNewComment";
+// import postNewComment from "../services/postNewComment";
+import { postNewComment } from "../services/commentCalls";
 import { PostId } from "./Post";
 import { AuthContext } from "../App";
-
 
 function NewComment(props) {
   const postContext = useContext(PostId);

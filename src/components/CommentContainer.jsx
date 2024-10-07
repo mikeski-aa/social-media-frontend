@@ -1,7 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import "../styles/commentcontainer.css";
 import CommentComponent from "./CommentComponent";
-import getComments from "../services/getComment";
+// import getComments from "../services/getComment";
+import { getComments } from "../services/commentCalls";
 import NewComment from "./NewComment";
 import { PostId } from "./Post";
 

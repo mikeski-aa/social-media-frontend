@@ -1,4 +1,4 @@
-import { LOCAL_URL } from "../utils/url.const";
+import { LOCAL_URL } from "../../utils/url.const";
 
 async function deleteFriend(userid) {
   const url = LOCAL_URL + `friends/delete?friendid=${userid}`;

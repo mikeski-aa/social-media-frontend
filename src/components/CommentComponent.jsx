@@ -3,7 +3,8 @@ import dateConversion from "../utils/dateConversion";
 import "../styles/commentcomponent.css";
 import like from "../assets/like.svg";
 import { useContext, useEffect, useState } from "react";
-import putCommentLikes from "../services/putCommentLikes";
+// import putCommentLikes from "../services/deprecated_comment_calls/putCommentLikes";
+import { putCommentLikes } from "../services/commentCalls";
 import { AuthContext } from "../App";
 
 function CommentComponent(props) {

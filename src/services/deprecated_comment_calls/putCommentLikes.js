@@ -1,4 +1,4 @@
-import { LOCAL_URL } from "../utils/url.const";
+import { LOCAL_URL } from "../../utils/url.const";
 
 async function putCommentLikes(commentid) {
   const url = LOCAL_URL + `comments/likes?commentid=${commentid}`;

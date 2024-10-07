@@ -3,7 +3,8 @@ import { useContext, useEffect, useState } from "react";
 // import deleteFriend from "../services/deleteFriend";
 import { deleteFriend } from "../services/friendsCalls";
 import { FriendsContext } from "../pages/Friends";
-import putFriendAdd from "../services/putFriendsAdd";
+// import putFriendAdd from "../services/deprecated_friends_calls/putFriendsAdd";
+import { putFriendAdd } from "../services/friendsCalls";
 import deleteRequest from "../services/deleteRequest";
 import { useNavigate } from "react-router";
 

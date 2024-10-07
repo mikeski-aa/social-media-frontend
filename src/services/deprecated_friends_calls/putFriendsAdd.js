@@ -1,27 +1,18 @@
-import { LOCAL_URL } from "../utils/url.const";
+import { LOCAL_URL } from "../../utils/url.const";
 
-async function postNewComment(text, postid) {
-  const url = LOCAL_URL + "comments";
+async function putFriendAdd(userid) {
+  const url = LOCAL_URL + `friends/accept?requesterid=${userid}`;
   const headerinfo = {
     Authorization: "bearer " + localStorage.getItem("token"),
     Accept: "application/json",
     "Content-Type": "application/json",
   };
-  const body = {
-    text: text,
-    postid: postid,
-  };
 
   try {
     const response = await fetch(url, {
-      method: "POST",
+      method: "PUT",
       headers: headerinfo,
-      body: JSON.stringify(body),
     });
-
-    if (!response.ok) {
-      throw new Error(`Error: ${response.status}`);
-    }
 
     const json = await response.json();
 
@@ -32,4 +23,4 @@ async function postNewComment(text, postid) {
   }
 }
 
-export default postNewComment;
+export default putFriendAdd;

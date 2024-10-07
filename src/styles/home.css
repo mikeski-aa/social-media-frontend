@@ -36,13 +36,24 @@
 }
 
 .inputLabelPicture {
-  background-color: rgba(129, 129, 129, 0.507);
+  border-color: rgb(17, 127, 252);
+  background-color: white;
   border-radius: 5px;
   padding: 2px;
+  color: rgb(17, 127, 252);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border: 2px solid rgb(17, 127, 252);
+  font-weight: 600;
+  transition-duration: 0.5s;
 }
 
 .inputLabelPicture:hover {
   cursor: pointer;
+  background-color: rgb(17, 127, 252);
+
+  color: white;
 }
 
 .homeYourFeedHeading {
@@ -62,7 +73,7 @@
   border-radius: 5px;
   border-color: rgb(17, 127, 252);
   color: rgb(17, 127, 252);
-  transition-duration: 1s;
+  transition-duration: 0.5s;
 }
 
 .loadMoreContentBtn:hover {

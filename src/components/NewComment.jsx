@@ -19,15 +19,17 @@ function NewComment(props) {
     if (commentText === "") {
       return null;
     }
+    postContext.setLoadComments(true);
     const response = await postNewComment(
       commentText,
       postContext.currentPostId
     );
+
     postContext.setLoadComments(postContext.loadComments + 1);
     setCommentText("");
     // UPDATING KEY TO FORCE REFRESH OF COMPONENET!
     postContext.setCommentCount(postContext.commentCount + 1);
-
+    postContext.setLoadComments(false);
     return;
   };
 

@@ -17,10 +17,7 @@ function CommentContainer(props) {
       {postContext.loadingComments === true ? (
         <div className="loadingCommentsDiv">Loading comments...</div>
       ) : null}
-      {postContext.comments.length == 0 &&
-      postContext.loadingComments === true ? null : (
-        <h4>Comments:</h4>
-      )}
+      {postContext.comments.length != 0 ? <h4>Comments:</h4> : null}
 
       {postContext.comments.map((comment) => (
         <CommentComponent comment={comment} key={comment.id} />

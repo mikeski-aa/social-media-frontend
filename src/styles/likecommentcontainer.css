@@ -23,15 +23,17 @@
   cursor: pointer;
 }
 
-.likeButton {
-  transition-duration: 0.8s;
+.likeButton,
+.commentButton {
+  transition-duration: 0.5s;
+  border: 2px solid rgba(255, 255, 255, 0);
 }
 
 .likeButton.true {
-  background-color: rgb(17, 127, 252);
+  border: 2px solid rgb(17, 127, 252);
 }
 
 .commentButton.show {
-  border-bottom: 2px solid rgb(17, 127, 252);
+  border: 2px solid rgb(17, 127, 252);
   font-weight: bold;
 }

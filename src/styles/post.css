@@ -68,12 +68,15 @@
 
 .deletePostIcon:hover {
   cursor: pointer;
-  background-color: rgba(132, 132, 223, 0.527);
+  border: 2px solid rgb(17, 127, 252);
 }
 
 .deletePostIcon {
   width: 15px;
   height: 15px;
+  border: 2px solid rgba(255, 255, 255, 0);
+  border-radius: 5px;
+  transition-duration: 0.5s;
 }
 
 /* .textImageContainer {

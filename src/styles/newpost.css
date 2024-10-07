@@ -46,7 +46,7 @@
   border-radius: 5px;
   border-color: rgb(17, 127, 252);
   color: rgb(17, 127, 252);
-  transition-duration: 1s;
+  transition-duration: 0.5s;
 }
 
 .postNewPost:hover {

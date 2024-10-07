@@ -95,7 +95,7 @@ hr {
   color: white;
   border: none;
   border-radius: 5px;
-  transition-duration: 1s;
+  transition-duration: 0.5s;
 }
 
 .loginBtn:hover,
@@ -113,7 +113,7 @@ hr {
   color: white;
   border: none;
   border-radius: 5px;
-  transition-duration: 1s;
+  transition-duration: 0.5s;
   margin-top: 15px;
 }
 

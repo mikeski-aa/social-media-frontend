@@ -54,10 +54,11 @@
 }
 
 .likeCommentButton {
-  transition-duration: 0.8s;
+  transition-duration: 0.5s;
+  border: 2px solid rgba(255, 255, 255, 0);
 }
 .likeCommentButton.true {
-  background-color: rgba(87, 202, 255, 0.521);
+  border: 2px solid rgb(17, 127, 252);
   border-radius: 5px;
 }
 

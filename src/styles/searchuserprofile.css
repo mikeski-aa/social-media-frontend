@@ -3,8 +3,40 @@
   justify-content: space-between;
 }
 
+.addFriend {
+  width: 150px;
+  border: 2px solid rgba(255, 255, 255, 0);
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.addFriend.undefined {
+  border: 2px solid rgb(17, 127, 252);
+  color: rgb(17, 127, 252);
+  background-color: white;
+}
+
+.addFriend.undefined:hover {
+  border: 2px solid white;
+  color: white;
+  background-color: rgb(17, 127, 252);
+}
+
+.addFriend.incoming {
+  background-color: white;
+  color: rgb(17, 127, 252);
+}
+
+.addFriend.incoming:hover {
+  cursor: pointer;
+  color: white;
+  background-color: rgb(17, 127, 252);
+}
+
 .addFriend.true {
-  background-color: rgba(12, 148, 189, 0.918);
+  background-color: rgb(17, 127, 252);
+  color: white;
 }
 
 .addFriend.undefined:hover,

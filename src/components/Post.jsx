@@ -107,22 +107,25 @@ function Post(props) {
 
   // handle clicking delete post
   const handleDeletePostClick = async () => {
-    alert(`delete clicked + ${currentPostId}`);
-    props.setLoading(true);
-    const response = await deleteStatus(currentPostId);
-    console.log(response);
+    if (confirm("Do you want to delete?") === true) {
+      props.setLoading(true);
+      const response = await deleteStatus(currentPostId);
+      console.log(response);
 
-    // depending on origin, use appropriate fetch of new comments to update feed
-    if (props.origin === "home") {
-      // need to add reload of comments to update without refresh
-      const fetchNewPosts = await getStatus(10);
-      props.setStatus(fetchNewPosts);
-    } else if (props.origin === "profile") {
-      const fetchNewPosts = await getPostsByUser(10);
-      props.setStatus(fetchNewPosts);
+      // depending on origin, use appropriate fetch of new comments to update feed
+      if (props.origin === "home") {
+        // need to add reload of comments to update without refresh
+        const fetchNewPosts = await getStatus(10);
+        props.setStatus(fetchNewPosts);
+      } else if (props.origin === "profile") {
+        const fetchNewPosts = await getPostsByUser(10);
+        props.setStatus(fetchNewPosts);
+      }
+
+      props.setLoading(false);
+    } else {
+      return null;
     }
-
-    props.setLoading(false);
   };
 
   // no text only pic

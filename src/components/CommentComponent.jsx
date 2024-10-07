@@ -36,20 +36,22 @@ function CommentComponent(props) {
 
   // handle clicking delete comment
   const handleDeleteComment = async () => {
-    alert(`delete clicked + ${props.comment.id}`);
-
-    // need to add reload of comments to update without refresh
-    // this is a bit messy
-    if (typeof postContext.commentOrigin != "undefined") {
-      const response = await deleteComment(props.comment.id);
-      postContext.setCommentCount(postContext.commentCount - 1);
-      postContext.setLoadComments(postContext.loadComments + 1);
+    if (confirm("Are you sure you want to delete this comment?") === true) {
+      // need to add reload of comments to update without refresh
+      // this is a bit messy
+      if (typeof postContext != "undefined") {
+        const response = await deleteComment(props.comment.id);
+        postContext.setCommentCount(postContext.commentCount - 1);
+        postContext.setLoadComments(postContext.loadComments + 1);
+      } else {
+        props.setLoading(true);
+        const response = await deleteComment(props.comment.id);
+        const userComments = await getCommentsByUser(10);
+        props.setUserComments(userComments);
+        props.setLoading(false);
+      }
     } else {
-      props.setLoading(true);
-      const response = await deleteComment(props.comment.id);
-      const userComments = await getCommentsByUser(10);
-      props.setUserComments(userComments);
-      props.setLoading(false);
+      return null;
     }
   };
 

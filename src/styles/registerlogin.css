@@ -62,13 +62,15 @@ hr {
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
-  outline: 2px solid red;
-  background-color: white;
+  outline: 2px solid rgb(255, 71, 71);
+  background-color: rgb(255, 71, 71);
+  color: white;
   border-radius: 5px;
   border: 0;
   max-width: inherit;
   text-wrap: wrap;
   width: 250px;
+  font-weight: 600;
 }
 
 .textRegister {

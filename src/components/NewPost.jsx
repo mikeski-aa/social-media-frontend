@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../styles/newpost.css";
-import postImage from "../services/postImage";
+// import postImage from "../services/deprecated_status_calls/postImage";
+import { postImage } from "../services/statusCalls";
 // import postStatus from "../services/postStatus";
 import { postStatus } from "../services/statusCalls";
 // import getStatus from "../services/getStatus";

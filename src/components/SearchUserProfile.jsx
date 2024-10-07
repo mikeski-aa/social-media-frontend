@@ -1,7 +1,8 @@
 import "../styles/searchuserprofile.css";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../App";
-import postRequest from "../services/postRequest";
+// import postRequest from "../services/deprecated_request_calls/postRequest";
+import { postRequest } from "../services/requestCalls";
 import putFriendsAdd from "../services/deprecated_friends_calls/putFriendsAdd";
 import { FriendsContext } from "../pages/Friends";
 import { useNavigate } from "react-router";

@@ -1,20 +1,21 @@
-import { LOCAL_URL } from "../utils/url.const";
+import { LOCAL_URL } from "../../utils/url.const";
 
-async function postImage(image) {
-  const url = LOCAL_URL + "statuspic";
+async function postRequest(requesteeid) {
+  const url = LOCAL_URL + "requests";
   const headerinfo = {
     Authorization: "bearer " + localStorage.getItem("token"),
+    Accept: "application/json",
+    "Content-Type": "application/json",
+  };
+  const body = {
+    requesteeid: +requesteeid,
   };
 
-  const myForm = new FormData();
-  myForm.append("picture", image);
-
-  console.log(url);
   try {
     const response = await fetch(url, {
       method: "POST",
       headers: headerinfo,
-      body: myForm,
+      body: JSON.stringify(body),
     });
 
     if (!response.ok) {
@@ -22,7 +23,7 @@ async function postImage(image) {
     }
 
     const json = await response.json();
-    console.log(json);
+
     return json;
   } catch (error) {
     console.log(error);
@@ -30,4 +31,4 @@ async function postImage(image) {
   }
 }
 
-export default postImage;
+export default postRequest;

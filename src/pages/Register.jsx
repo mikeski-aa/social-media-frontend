@@ -1,6 +1,7 @@
 import "../styles/registerlogin.css";
 import { useState } from "react";
-import postUser from "../services/postUser";
+// import postUser from "../services/postUser";
+import { postUser } from "../services/userCalls";
 import { Link, useNavigate } from "react-router-dom";
 import headerImage from "../assets/headerimage.png";
 

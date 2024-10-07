@@ -1,20 +1,16 @@
-import { LOCAL_URL } from "../utils/url.const";
+import { LOCAL_URL } from "../../utils/url.const";
 
-async function postNewBanner(image) {
-  const url = LOCAL_URL + "user/banner";
+async function getUser(id) {
+  const url = LOCAL_URL + `user?id=${id}`;
   const headerinfo = {
     Authorization: "bearer " + localStorage.getItem("token"),
   };
 
-  const myForm = new FormData();
-  myForm.append("picture", image);
-
-  console.log(url);
   try {
+    console.log(url);
     const response = await fetch(url, {
-      method: "POST",
+      method: "GET",
       headers: headerinfo,
-      body: myForm,
     });
 
     if (!response.ok) {
@@ -30,4 +26,4 @@ async function postNewBanner(image) {
   }
 }
 
-export default postNewBanner;
+export default getUser;

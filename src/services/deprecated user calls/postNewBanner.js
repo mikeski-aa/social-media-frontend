@@ -1,7 +1,7 @@
-import { LOCAL_URL } from "../utils/url.const";
+import { LOCAL_URL } from "../../utils/url.const";
 
-async function postNewUserPic(image) {
-  const url = LOCAL_URL + "user/avatar";
+async function postNewBanner(image) {
+  const url = LOCAL_URL + "user/banner";
   const headerinfo = {
     Authorization: "bearer " + localStorage.getItem("token"),
   };
@@ -30,4 +30,4 @@ async function postNewUserPic(image) {
   }
 }
 
-export default postNewUserPic;
+export default postNewBanner;

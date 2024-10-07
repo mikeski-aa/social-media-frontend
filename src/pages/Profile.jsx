@@ -8,7 +8,7 @@ import ProfileHeader from "../components/ProfileHeader";
 import getCommentsByUser from "../services/getCommentsByUser";
 import CommentComponent from "../components/CommentComponent";
 import EditProfileModal from "../components/EditProfileModal";
-import { postNewBanner } from "../services/refactor/userCalls";
+import { postNewBanner } from "../services/userCalls";
 // import postNewBanner from "../services/postNewBanner";
 import { useParams } from "react-router";
 import checkLoginStatus from "../services/checkLoginStatus";

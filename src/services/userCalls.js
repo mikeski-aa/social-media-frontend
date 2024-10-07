@@ -1,5 +1,6 @@
-import { LOCAL_URL } from "../../utils/url.const";
+import { LOCAL_URL } from "../utils/url.const";
 
+// calls api to find searched for usernames
 async function getSearchUsers(username) {
   const url = LOCAL_URL + `user/all?username=${username}`;
   const headerinfo = {
@@ -23,6 +24,7 @@ async function getSearchUsers(username) {
   }
 }
 
+// get info for a specific user id
 async function getUser(id) {
   const url = LOCAL_URL + `user?id=${id}`;
   const headerinfo = {
@@ -49,6 +51,7 @@ async function getUser(id) {
   }
 }
 
+// post a new user banner, this updates user profile
 async function postNewBanner(image) {
   const url = LOCAL_URL + "user/banner";
   const headerinfo = {
@@ -79,6 +82,7 @@ async function postNewBanner(image) {
   }
 }
 
+// updating user profile (for new pic upload)
 async function postNewUserPic(image) {
   const url = LOCAL_URL + "user/avatar";
   const headerinfo = {
@@ -109,6 +113,7 @@ async function postNewUserPic(image) {
   }
 }
 
+// post a new user on reg
 async function postUser(username, password, confirmPassword, email) {
   const headerinfo = {
     Accept: "application/json",

@@ -3,7 +3,7 @@ import getFriends from "../services/getFriends";
 import FriendListFriend from "../components/FriendListFriend";
 import "../styles/friends.css";
 import search from "../assets/search.svg";
-import { getSearchUsers } from "../services/refactor/userCalls";
+import { getSearchUsers } from "../services/userCalls";
 // import getSearchUsers from "../services/getSearchUsers";
 import SearchUserModal from "../components/SearchUserModal";
 import getIncomingRequests from "../services/getRequests";

@@ -7,10 +7,10 @@ import getPostsByUser from "../services/getPostsByUser";
 import getCommentsByUser from "../services/getCommentsByUser";
 import CommentComponent from "../components/CommentComponent";
 import { useNavigate, useParams } from "react-router";
-import { getSearchUsers } from "../services/refactor/userCalls";
+import { getSearchUsers } from "../services/userCalls";
 // import getSearchUsers from "../services/getSearchUsers";
 // import getUser from "../services/getUser";
-import { getUser } from "../services/refactor/userCalls";
+import { getUser } from "../services/userCalls";
 
 function UserProfileForId() {
   const authContext = useContext(AuthContext);

@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../App";
 import editIcon from "../assets/editIcon.svg";
-import { postNewUserPic } from "../services/refactor/userCalls";
+import { postNewUserPic } from "../services/userCalls";
 // import postNewUserPic from "../services/postNewUserPic";
 import gifloading from "../assets/gifloading.gif";
 import checkLoginStatus from "../services/checkLoginStatus";

@@ -1,11 +1,11 @@
 import { useContext, useState } from "react";
 import "../styles/editprofilemodal.css";
 import { AuthContext } from "../App";
-import { postNewUserPic } from "../services/refactor/userCalls";
+import { postNewUserPic } from "../services/userCalls";
 // import postNewUserPic from "../services/postNewUserPic";
 import checkLoginStatus from "../services/checkLoginStatus";
 import gifloading from "../assets/gifloading.gif";
-import { postNewBanner } from "../services/refactor/userCalls";
+import { postNewBanner } from "../services/userCalls";
 // import postNewBanner from "../services/postNewBanner";
 
 function EditProfileModal(props) {

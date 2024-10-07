@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import "../styles/registerlogin.css";
 // import postUserLogin from "../services/deprecated_login_calls/postUserLogin";
-import { postUserLogin } from "../services/loginCalls";
+import { postUserLogin, postGuestLogin } from "../services/loginCalls";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../App";
@@ -52,6 +52,22 @@ function Login() {
     navigate("/register");
   };
 
+  // handle logging in as guest
+  const handleGuestLogin = async (e) => {
+    // need to prevent default to stop default form behaviour otherwise login won't work
+    e.preventDefault();
+    console.log("testing ");
+    const response = await postGuestLogin();
+    console.log("guest login");
+    console.log(response);
+    alert(response.user);
+
+    console.log("successfuly logged in, navigating away");
+    authContext.setErr(false);
+    await authContext.setUser(response.user);
+    return navigate("/");
+  };
+
   return (
     <>
       <div className="formBoxContainer">
@@ -90,7 +106,9 @@ function Login() {
               </button>
             </div>
             <div className="buttonBox">
-              <button className="guestBtn">Guest login</button>
+              <button className="guestBtn" onClick={(e) => handleGuestLogin(e)}>
+                Guest login
+              </button>
             </div>
             <div className={"errorBox " + errorStatus}>{errorText}</div>
           </form>

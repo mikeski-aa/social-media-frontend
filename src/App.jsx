@@ -6,10 +6,8 @@ import Register from "./pages/Register";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
-// import checkLoginStatus from "./services/deprecated_login_calls/checkLoginStatus";
 import { checkLoginStatus } from "./services/loginCalls";
 import Friends from "./pages/Friends";
-import { redirect } from "react-router-dom";
 import ErrorPage from "./pages/ErrorPage";
 import UserProfileForId from "./pages/UserProfileForId";
 
@@ -36,6 +34,7 @@ function App() {
       } else {
         console.log(response);
         setUser(response);
+        console.log("login validated");
       }
     };
 

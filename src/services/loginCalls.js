@@ -59,7 +59,6 @@ async function postUserLogin(email, password) {
     // save token in localstorage here
     localStorage.setItem("token", json.token);
 
-    console.log(json);
     return json;
   } catch (error) {
     console.log(error);
@@ -67,4 +66,29 @@ async function postUserLogin(email, password) {
   }
 }
 
-export { checkLoginStatus, postUserLogin };
+// guest user login
+async function postGuestLogin() {
+  const url = LOCAL_URL + "guest";
+  const headerinfo = {
+    Accept: "application/json",
+    "Content-Type": "application/json",
+  };
+
+  try {
+    const response = await fetch(url, { method: "POST", headers: headerinfo });
+
+    const json = await response.json();
+
+    // save token in localstorage
+    localStorage.setItem("token", json.token);
+
+    console.log(json);
+
+    return json;
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+}
+
+export { checkLoginStatus, postUserLogin, postGuestLogin };

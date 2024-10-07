@@ -22,19 +22,14 @@ function App() {
   useEffect(() => {
     const validateLogin = async () => {
       const response = await checkLoginStatus();
-      console.log("running login validate");
 
       setIsLoading(false);
       // if user is no longer logged in or token is invalid, redirect back to login page!
       if (typeof response.validated === "undefined") {
-        console.log("no user logged in found, redirect");
-        console.log(response);
         setErr(true);
         return;
       } else {
-        console.log(response);
         setUser(response);
-        console.log("login validated");
       }
     };
 

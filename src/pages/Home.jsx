@@ -8,6 +8,7 @@ import { getStatus } from "../services/statusCalls";
 import "../styles/home.css";
 import useAutosizeInputTextArea from "../hooks/useAutosizeInputTextArea";
 import NewPostDivBoxHome from "../components/NewPostDivBoxHome";
+import LoadingHamster from "../components/LoadingHamster";
 
 function Home() {
   const [postModal, setPostModal] = useState("hide");
@@ -52,8 +53,9 @@ function Home() {
         ></NewPostDivBoxHome>
         <div className="mainFeed">
           <h3 className="homeYourFeedHeading">Your feed</h3>
+
           <div className="allPostContainer">
-            {loading ? <div>LOADING ...</div> : null}
+            {loading ? <LoadingHamster text={"your feed"} /> : null}
             {status.map((item) => (
               <Post
                 text={item.text}

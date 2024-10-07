@@ -56,13 +56,7 @@ function Login() {
   const handleGuestLogin = async (e) => {
     // need to prevent default to stop default form behaviour otherwise login won't work
     e.preventDefault();
-    console.log("testing ");
     const response = await postGuestLogin();
-    console.log("guest login");
-    console.log(response);
-    alert(response.user);
-
-    console.log("successfuly logged in, navigating away");
     authContext.setErr(false);
     await authContext.setUser(response.user);
     return navigate("/");

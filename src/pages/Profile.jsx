@@ -15,6 +15,7 @@ import { postNewBanner } from "../services/userCalls";
 import { useParams } from "react-router";
 // import checkLoginStatus from "../services/deprecated_login_calls/checkLoginStatus";
 import { checkLoginStatus } from "../services/loginCalls";
+import LoadingHamster from "../components/LoadingHamster";
 
 function Profile() {
   const authContext = useContext(AuthContext);
@@ -125,7 +126,7 @@ function Profile() {
               Comments
             </button>
           </div>
-          {loading ? <div>LOADING ...</div> : null}
+          {loading ? <LoadingHamster text="content" /> : null}
           <div className={"profilePostsContainer " + showPosts}>
             {userPosts.map((item) => (
               <Post
@@ -152,7 +153,7 @@ function Profile() {
             <div className="emptyDivForSpace">space</div>
           </div>
           <div className={"profileCommentContainer " + showComments}>
-            {commentLoading ? <div>LOADING ...</div> : null}
+            {commentLoading ? <LoadingHamster text="comments" /> : null}
             {userComments.map((comment) => (
               <CommentComponent
                 comment={comment}

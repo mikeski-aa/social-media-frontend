@@ -11,10 +11,14 @@ function FriendListFriend(props) {
   const navigate = useNavigate();
 
   const handleFriendRemove = async () => {
-    const response = await deleteFriend(props.id);
-    return friendsContext.setForceLoadFriends(
-      friendsContext.forceloadFriends + 1
-    );
+    if (confirm("Are you sure you want to delete this friend?") === true) {
+      const response = await deleteFriend(props.id);
+      return friendsContext.setForceLoadFriends(
+        friendsContext.forceloadFriends + 1
+      );
+    } else {
+      null;
+    }
   };
 
   const handlePorifleClick = () => {

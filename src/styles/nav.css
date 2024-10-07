@@ -35,6 +35,7 @@
 .btn3:hover,
 .btn4:hover {
   cursor: pointer;
+  border-bottom: 2px solid rgb(17, 127, 252);
 }
 
 .profileNav {

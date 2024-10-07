@@ -8,6 +8,7 @@ import { checkLoginStatus } from "../services/loginCalls";
 import gifloading from "../assets/gifloading.gif";
 import { postNewBanner } from "../services/userCalls";
 // import postNewBanner from "../services/postNewBanner";
+import LoadingHamster from "./LoadingHamster";
 
 function EditProfileModal(props) {
   const authContext = useContext(AuthContext);
@@ -51,8 +52,7 @@ function EditProfileModal(props) {
         <div className="loadingFakeModal">
           <div className="innerFakeModal">
             {" "}
-            Uploading new banner. This may take some time...{" "}
-            <img src={gifloading} className="loadingGifImg"></img>
+            <LoadingHamster text="new banner" />
           </div>
         </div>
       ) : null}

@@ -6,6 +6,7 @@ import { postNewUserPic } from "../services/userCalls";
 import gifloading from "../assets/gifloading.gif";
 // import checkLoginStatus from "../services/deprecated_login_calls/checkLoginStatus";
 import { checkLoginStatus } from "../services/loginCalls";
+import LoadingHamster from "./LoadingHamster";
 
 function ProfileHeader(props) {
   const authContext = useContext(AuthContext);

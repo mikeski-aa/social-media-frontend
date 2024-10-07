@@ -51,6 +51,7 @@ function NewComment(props) {
       <button className="addCommentBtn" onClick={handleSubmitNewComment}>
         Submit
       </button>
+      <hr></hr>
     </div>
   );
 }

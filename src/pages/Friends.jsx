@@ -12,6 +12,7 @@ import { getIncomingRequests } from "../services/requestCalls";
 import FriendRequestModal from "../components/FriendRequestModal";
 import useRedirectValidFail from "../hooks/useRedirectValidFail";
 import { AuthContext } from "../App";
+import LoadingHamster from "../components/LoadingHamster";
 
 export const FriendsContext = createContext();
 
@@ -140,7 +141,9 @@ function Friends() {
         )}
 
         <div className="allFriends">
-          <div className={"loadingFriends " + loadingFriends}>LOADING ...</div>
+          <div className={"loadingFriends " + loadingFriends}>
+            <LoadingHamster text="friends" />
+          </div>
           {friends.map((friend) => (
             <FriendListFriend
               profilePic={friend.profilePic}
@@ -149,7 +152,7 @@ function Friends() {
               id={friend.id}
             />
           ))}
-          {friends.length == 0 ? (
+          {friends.length == 0 && loadingFriends === false ? (
             <div className="emptyFriendsDiv">Your friend list is empty</div>
           ) : null}
         </div>

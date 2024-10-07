@@ -7,7 +7,6 @@ async function checkLoginStatus() {
     Authorization: "bearer " + localStorage.getItem("token"),
   };
 
-  console.log(headerinfo);
   try {
     const response = await fetch(url, { method: "GET", headers: headerinfo });
 
@@ -30,7 +29,6 @@ async function checkLoginStatus() {
     };
     return userInfo;
   } catch (error) {
-    console.log(error);
     return error;
   }
 }

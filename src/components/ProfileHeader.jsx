@@ -4,7 +4,8 @@ import editIcon from "../assets/editIcon.svg";
 import { postNewUserPic } from "../services/userCalls";
 // import postNewUserPic from "../services/postNewUserPic";
 import gifloading from "../assets/gifloading.gif";
-import checkLoginStatus from "../services/checkLoginStatus";
+// import checkLoginStatus from "../services/deprecated_login_calls/checkLoginStatus";
+import { checkLoginStatus } from "../services/loginCalls";
 
 function ProfileHeader(props) {
   const authContext = useContext(AuthContext);

@@ -1,4 +1,4 @@
-import { LOCAL_URL } from "../utils/url.const";
+import { LOCAL_URL } from "../../utils/url.const";
 
 async function postUserLogin(email, password) {
   const url = LOCAL_URL + "/login";
@@ -22,7 +22,7 @@ async function postUserLogin(email, password) {
 
     // save token in localstorage here
     localStorage.setItem("token", json.token);
-    
+
     console.log(json);
     return json;
   } catch (error) {

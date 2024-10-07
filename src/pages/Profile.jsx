@@ -13,7 +13,8 @@ import EditProfileModal from "../components/EditProfileModal";
 import { postNewBanner } from "../services/userCalls";
 // import postNewBanner from "../services/postNewBanner";
 import { useParams } from "react-router";
-import checkLoginStatus from "../services/checkLoginStatus";
+// import checkLoginStatus from "../services/deprecated_login_calls/checkLoginStatus";
+import { checkLoginStatus } from "../services/loginCalls";
 
 function Profile() {
   const authContext = useContext(AuthContext);

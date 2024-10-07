@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import "../styles/registerlogin.css";
-import postUserLogin from "../services/postUserLogin";
+// import postUserLogin from "../services/deprecated_login_calls/postUserLogin";
+import { postUserLogin } from "../services/loginCalls";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../App";

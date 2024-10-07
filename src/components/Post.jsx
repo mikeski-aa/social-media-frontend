@@ -14,6 +14,7 @@ import { putStatusLikes } from "../services/statusCalls";
 import binIcon from "../assets/bin.svg";
 import { deleteStatus } from "../services/statusCalls";
 import { getStatus } from "../services/statusCalls";
+import { getPostsByUser } from "../services/statusCalls";
 
 export const PostId = createContext();
 
@@ -106,9 +107,16 @@ function Post(props) {
     props.setLoading(true);
     const response = await deleteStatus(currentPostId);
     console.log(response);
-    // need to add reload of comments to update without refresh
-    const fetchNewPosts = await getStatus(10);
-    props.setStatus(fetchNewPosts);
+
+    if (props.origin === "home") {
+      // need to add reload of comments to update without refresh
+      const fetchNewPosts = await getStatus(10);
+      props.setStatus(fetchNewPosts);
+    } else if (props.origin === "profile") {
+      const fetchNewPosts = await getPostsByUser(10);
+      props.setStatus(fetchNewPosts);
+    }
+
     props.setLoading(false);
   };
 

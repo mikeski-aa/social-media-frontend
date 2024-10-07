@@ -69,6 +69,7 @@ function Home() {
                 commentCount={item._count.comments}
                 id={item.user.id}
                 ownerid={item.userId}
+                origin={"home"}
                 setStatus={setStatus}
                 setLoading={setLoading}
               ></Post>

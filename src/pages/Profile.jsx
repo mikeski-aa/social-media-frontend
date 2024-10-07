@@ -139,6 +139,9 @@ function Profile() {
                 likeUsers={item.likes}
                 commentCount={item._count.comments}
                 id={item.user.id}
+                origin={"profile"}
+                setLoading={setLoading}
+                setStatus={setUserPosts}
               ></Post>
             ))}
             <button className="loadMoreProfile" onClick={handleShowMore}>

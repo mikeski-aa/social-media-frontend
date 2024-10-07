@@ -8,8 +8,11 @@ import { putCommentLikes } from "../services/commentCalls";
 import { AuthContext } from "../App";
 import binIcon from "../assets/bin.svg";
 import { deleteComment } from "../services/commentCalls";
+import { PostId } from "./Post";
+import { getCommentsByUser } from "../services/commentCalls";
 
 function CommentComponent(props) {
+  const postContext = useContext(PostId);
   const authContext = useContext(AuthContext);
   const [likes, setLikeArray] = useState(props.comment.likes);
   const [likedByUser, setLikedByUser] = useState();
@@ -34,9 +37,20 @@ function CommentComponent(props) {
   // handle clicking delete comment
   const handleDeleteComment = async () => {
     alert(`delete clicked + ${props.comment.id}`);
-    const response = await deleteComment(props.comment.id);
-    console.log(response);
-    // need to add reload of posts to update without refresh
+
+    // need to add reload of comments to update without refresh
+    // this is a bit messy
+    if (typeof postContext.commentOrigin != "undefined") {
+      const response = await deleteComment(props.comment.id);
+      postContext.setCommentCount(postContext.commentCount - 1);
+      postContext.setLoadComments(postContext.loadComments + 1);
+    } else {
+      props.setLoading(true);
+      const response = await deleteComment(props.comment.id);
+      const userComments = await getCommentsByUser(10);
+      props.setUserComments(userComments);
+      props.setLoading(false);
+    }
   };
 
   return (

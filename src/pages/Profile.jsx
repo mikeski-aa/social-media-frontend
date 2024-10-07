@@ -24,6 +24,7 @@ function Profile() {
   const [userComments, setUserComments] = useState([]);
   const [limit, setLimit] = useState(10);
   const [loading, setLoading] = useState(true);
+  const [commentLoading, setCommentLoading] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
 
   useRedirectValidFail(authContext.err);
@@ -33,6 +34,7 @@ function Profile() {
   const { id } = useParams();
   console.log("params id result goes here");
   console.log(id);
+
   // load posts on component load
   useEffect(() => {
     const loadPosts = async () => {
@@ -52,10 +54,10 @@ function Profile() {
         setUserPosts(posts);
         setLoading(false);
       } else if (!showPosts && showComments) {
-        setLoading(true);
+        setCommentLoading(true);
         const comments = await getCommentsByUser(limit);
         setUserComments(comments);
-        setLoading(false);
+        setCommentLoading(false);
       }
     };
     updateContentFeed();
@@ -150,8 +152,15 @@ function Profile() {
             <div className="emptyDivForSpace">space</div>
           </div>
           <div className={"profileCommentContainer " + showComments}>
+            {commentLoading ? <div>LOADING ...</div> : null}
             {userComments.map((comment) => (
-              <CommentComponent comment={comment} key={comment.id} />
+              <CommentComponent
+                comment={comment}
+                key={comment.id}
+                origin="profile"
+                setLoading={setCommentLoading}
+                setUserComments={setUserComments}
+              />
             ))}
             <button className="loadMoreProfile" onClick={handleShowMore}>
               Show more

@@ -19,7 +19,6 @@ function NewComment(props) {
     if (commentText === "") {
       return null;
     }
-    console.log(postContext);
     const response = await postNewComment(
       commentText,
       postContext.currentPostId

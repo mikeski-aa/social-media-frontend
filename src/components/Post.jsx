@@ -28,6 +28,7 @@ function Post(props) {
   const [likedByUser, setLikedByUser] = useState();
   const date = dateConversion(props.postDate);
   const authContext = useContext(AuthContext);
+  const commentOrigin = props.origin;
 
   // probably need to add conditional rednering depending on whether post has image, text or both
   // I am unsure of this implementation of conditional redering, not really DRY
@@ -92,7 +93,7 @@ function Post(props) {
   }, [likes]);
 
   // show comments when clicking comment counter
-  const handleTestClick = () => {
+  const handleClickComment = () => {
     if (commentShow === "hide") {
       setCommentShow("show");
       setLoadComments(loadComments + 1);
@@ -108,6 +109,7 @@ function Post(props) {
     const response = await deleteStatus(currentPostId);
     console.log(response);
 
+    // depending on origin, use appropriate fetch of new comments to update feed
     if (props.origin === "home") {
       // need to add reload of comments to update without refresh
       const fetchNewPosts = await getStatus(10);
@@ -152,7 +154,7 @@ function Post(props) {
           </div>
           <div className="commentLikeCount" key={commentCount}>
             <div className="likeCount">{likes.length} likes</div>
-            <div className="commentCount" onClick={handleTestClick}>
+            <div className="commentCount" onClick={handleClickComment}>
               {commentCount} comments
             </div>
           </div>
@@ -168,6 +170,7 @@ function Post(props) {
               commentCount,
               setCommentCount,
               likedByUser,
+              commentOrigin,
             }}
           >
             <LikeCommentContainer
@@ -214,7 +217,7 @@ function Post(props) {
           </div>
           <div className="commentLikeCount" key={commentCount}>
             <div className="likeCount">{likes.length} likes</div>
-            <div className="commentCount" onClick={handleTestClick}>
+            <div className="commentCount" onClick={handleClickComment}>
               {commentCount} comments
             </div>
           </div>
@@ -230,6 +233,7 @@ function Post(props) {
               commentCount,
               setCommentCount,
               likedByUser,
+              commentOrigin,
             }}
           >
             <LikeCommentContainer
@@ -281,7 +285,7 @@ function Post(props) {
         </div>
         <div className="commentLikeCount" key={commentCount}>
           <div className="likeCount">{likes.length} likes</div>
-          <div className="commentCount" onClick={handleTestClick}>
+          <div className="commentCount" onClick={handleClickComment}>
             {commentCount} comments
           </div>
         </div>
@@ -296,6 +300,7 @@ function Post(props) {
             commentCount,
             setCommentCount,
             likedByUser,
+            commentOrigin,
           }}
         >
           <LikeCommentContainer

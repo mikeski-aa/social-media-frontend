@@ -1,7 +1,8 @@
 import "../styles/friendlistfriend.css";
 import { FriendsContext } from "../pages/Friends";
 import { useContext } from "react";
-import deleteFriend from "../services/deleteFriend";
+// import deleteFriend from "../services/deleteFriend";
+import { deleteFriend } from "../services/friendsCalls";
 import { useNavigate } from "react-router";
 
 //TO DO: FIX ERROR WHEN DELETING

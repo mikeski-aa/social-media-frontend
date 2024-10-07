@@ -1,6 +1,7 @@
 import "../styles/searchuserprofile.css";
 import { useContext, useEffect, useState } from "react";
-import deleteFriend from "../services/deleteFriend";
+// import deleteFriend from "../services/deleteFriend";
+import { deleteFriend } from "../services/friendsCalls";
 import { FriendsContext } from "../pages/Friends";
 import putFriendAdd from "../services/putFriendsAdd";
 import deleteRequest from "../services/deleteRequest";

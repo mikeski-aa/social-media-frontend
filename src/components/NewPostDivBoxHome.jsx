@@ -1,8 +1,10 @@
 import { useContext, useRef, useState } from "react";
 import "../styles/newpost.css";
 import postImage from "../services/postImage";
-import postStatus from "../services/postStatus";
-import getStatus from "../services/getStatus";
+// import postStatus from "../services/postStatus";
+import { postStatus } from "../services/statusCalls";
+// import getStatus from "../services/getStatus";
+import { getStatus } from "../services/statusCalls";
 import { AuthContext } from "../App";
 import useAutosizeInputTextArea from "../hooks/useAutosizeInputTextArea";
 import pictureicon from "../assets/pictureicon.svg";

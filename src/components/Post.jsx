@@ -8,7 +8,8 @@ import dateConversion from "../utils/dateConversion";
 import CommentContainer from "./CommentContainer";
 import getComments from "../services/getComment";
 import { AuthContext } from "../App";
-import putStatusLikes from "../services/putStatusLikes";
+// import putStatusLikes from "../services/deprecated_status_calls/putStatusLikes";
+import { putStatusLikes } from "../services/statusCalls";
 
 export const PostId = createContext();
 

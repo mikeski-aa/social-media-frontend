@@ -1,7 +1,8 @@
 import { LOCAL_URL } from "../utils/url.const";
 
-async function putStatusLikes(postid) {
-  const url = LOCAL_URL + `status/likes?postid=${postid}`;
+// call api to delete a friend
+async function deleteFriend(userid) {
+  const url = LOCAL_URL + `friends/delete?friendid=${userid}`;
   const headerinfo = {
     Authorization: "bearer " + localStorage.getItem("token"),
     Accept: "application/json",
@@ -23,4 +24,4 @@ async function putStatusLikes(postid) {
   }
 }
 
-export default putStatusLikes;
+export { deleteFriend };

@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import getFriends from "../services/getFriends";
+// import getFriends from "../services/deprecated_friends_calls/getFriends";
+import { getFriends } from "../services/friendsCalls";
 import FriendListFriend from "../components/FriendListFriend";
 import "../styles/friends.css";
 import search from "../assets/search.svg";

@@ -1,7 +1,7 @@
-import { LOCAL_URL } from "../utils/url.const";
+import { LOCAL_URL } from "../../utils/url.const";
 
-async function getStatus(postCount) {
-  const url = LOCAL_URL + `status?count=${postCount}`;
+async function getPostsByUser(limit, id) {
+  const url = LOCAL_URL + `status/userpost?limit=${limit}&id=${id}`;
   const headerinfo = {
     Authorization: "bearer " + localStorage.getItem("token"),
   };
@@ -24,5 +24,3 @@ async function getStatus(postCount) {
     return error;
   }
 }
-
-export default getStatus;

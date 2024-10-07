@@ -1,23 +1,20 @@
-import { LOCAL_URL } from "../utils/url.const";
+import { LOCAL_URL } from "../../utils/url.const";
 
-async function getPostsByUser(limit, id) {
-  const url = LOCAL_URL + `status/userpost?limit=${limit}&id=${id}`;
+async function getFriends() {
+  const url = LOCAL_URL + `friends`;
   const headerinfo = {
     Authorization: "bearer " + localStorage.getItem("token"),
   };
 
   try {
-    const response = await fetch(url, {
-      method: "GET",
-      headers: headerinfo,
-    });
+    const response = await fetch(url, { headers: headerinfo, method: "GET" });
 
     if (!response.ok) {
       throw new Error(`Error: ${response.status}`);
     }
 
     const json = await response.json();
-    console.log(json);
+
     return json;
   } catch (error) {
     console.log(error);
@@ -25,4 +22,4 @@ async function getPostsByUser(limit, id) {
   }
 }
 
-export default getPostsByUser;
+export default getFriends;

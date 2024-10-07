@@ -50,5 +50,35 @@
 }
 
 /* .mainFeed {
-  width: 50vw;
+  margin-bottom: 15px;
 } */
+
+.loadMoreContentBtn {
+  width: 20vw;
+  padding: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  background: none;
+  border-radius: 5px;
+  border-color: rgb(17, 127, 252);
+  color: rgb(17, 127, 252);
+  transition-duration: 1s;
+}
+
+.loadMoreContentBtn:hover {
+  cursor: pointer;
+  background-color: rgb(17, 127, 252);
+  color: white;
+}
+
+@media (max-width: 500px) {
+  .loadMoreContentBtn {
+    width: 50vw;
+  }
+}
+
+.emptyDivForSpace {
+  height: 15px;
+  visibility: none;
+  color: #f1f2f6;
+}

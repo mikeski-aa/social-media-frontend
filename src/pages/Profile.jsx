@@ -144,6 +144,7 @@ function Profile() {
             <button className="loadMoreProfile" onClick={handleShowMore}>
               Show more
             </button>
+            <div className="emptyDivForSpace">space</div>
           </div>
           <div className={"profileCommentContainer " + showComments}>
             {userComments.map((comment) => (
@@ -152,6 +153,7 @@ function Profile() {
             <button className="loadMoreProfile" onClick={handleShowMore}>
               Show more
             </button>
+            <div className="emptyDivForSpace">space</div>
           </div>
         </div>
       </div>

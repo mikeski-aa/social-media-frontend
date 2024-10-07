@@ -71,11 +71,12 @@ function Home() {
               ></Post>
             ))}
             <button
-              className="locadMoreContentBtn"
+              className="loadMoreContentBtn"
               onClick={handleLoadMoreClick}
             >
               Load more
             </button>
+            <div className="emptyDivForSpace">space</div>
           </div>
         </div>
       </div>

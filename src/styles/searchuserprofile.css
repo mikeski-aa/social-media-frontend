@@ -17,24 +17,52 @@
 }
 
 .btnAcceptFriend {
-  background: rgb(17, 127, 252);
+  background-color: rgb(17, 127, 252);
   color: white;
   font-weight: 600;
+  border: 1px solid rgba(128, 128, 128, 0);
+  border-radius: 5px;
 }
 
 .btnDeclineFriend {
-  background-color: grey;
+  background-color: rgb(255, 71, 71);
   color: white;
   font-weight: 600;
+  border-radius: 5px;
+  border: 1px solid rgba(128, 128, 128, 0);
 }
 
-.btnAcceptFriend:hover,
+.btnAcceptFriend:hover {
+  cursor: pointer;
+  background-color: rgb(255, 255, 255);
+  color: rgb(17, 127, 252);
+  border-color: rgb(17, 127, 252);
+}
+
 .btnDeclineFriend:hover {
   cursor: pointer;
+  background-color: rgb(255, 255, 255);
+  color: rgb(255, 71, 71);
+  border-color: rgb(255, 71, 71);
 }
 
 .closeSearchModalBtn {
-  background-color: grey;
+  background-color: rgb(255, 71, 71);
   color: white;
   font-weight: 600;
+  border-radius: 5px;
+  border: 1px solid rgba(128, 128, 128, 0);
+}
+
+.closeSearchModalBtn:hover {
+  cursor: pointer;
+  background-color: rgb(255, 255, 255);
+  color: rgb(255, 71, 71);
+  border-color: rgb(255, 71, 71);
+}
+
+.requestFriendContainer {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
 }

@@ -65,7 +65,21 @@
 }
 
 .loadMoreProfile {
-  margin-bottom: 15px;
+  width: 20vw;
+  padding: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  background: none;
+  border-radius: 5px;
+  border-color: rgb(17, 127, 252);
+  color: rgb(17, 127, 252);
+  transition-duration: 1s;
+}
+
+.loadMoreProfile:hover {
+  cursor: pointer;
+  background-color: rgb(17, 127, 252);
+  color: white;
 }
 
 .editProfileButtonDiv {
@@ -173,7 +187,7 @@
   background-color: rgb(17, 127, 252);
   color: white;
   font-weight: 600;
-  border: 1px solid white;
+  border: 1px solid rgba(247, 247, 247, 0);
   border-radius: 5px;
   transition-duration: 1s;
 }
@@ -187,5 +201,9 @@
 @media (max-width: 600px) {
   .editProfileButtonDiv {
     transform: translateX(-60%);
+  }
+
+  .loadMoreProfile {
+    width: 50vw;
   }
 }

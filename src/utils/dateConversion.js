@@ -12,7 +12,9 @@ function dateConversion(inputDate) {
     return `Less than 1 minute ago`;
   } else if (minutes > 1 && minutes < 60) {
     return `${minutes} minutes ago`;
-  } else if (hours <= 24 && hours > 1) {
+  } else if (hours < 2 && minutes > 60) {
+    return `${hours} hour ago`;
+  } else if (hours < 24 && minutes > 120) {
     return `${hours} hours ago`;
   } else if (hours > 24 && hours < 48) {
     return `Yesterday`;
@@ -29,6 +31,13 @@ function dateConversion(inputDate) {
     const formattedDate = test.toLocaleDateString("en-US", options);
 
     return `${formattedDate}`;
+  } else {
+    console.log("Logging dates");
+    console.log(inputDate);
+    console.log(hours);
+    console.log(minutes);
+    console.log("//////////");
+    return "error";
   }
 }
 

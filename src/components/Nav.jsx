@@ -80,12 +80,14 @@ function Nav() {
       <div className="navButtonsContainer">
         <button className={"btn1 " + activeHome} onClick={handleHomeClick}>
           <img src={home} className="navIcon"></img>
+          Home
         </button>
         <button
           className={"btn2 " + activeFriends}
           onClick={handleFriendsClick}
         >
           <img src={friends} className="navIcon"></img>
+          Friends
         </button>
         <button className={"btn3 " + activeProfile} onClick={handleProfClick}>
           <img src={authContext.user.profilePic} className="profileNav"></img>
@@ -93,6 +95,7 @@ function Nav() {
         </button>
         <button className="btn4" onClick={handleLogoutClick}>
           <img src={logout} className="navIcon"></img>
+          Log out
         </button>
       </div>
     </div>

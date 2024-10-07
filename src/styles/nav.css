@@ -7,9 +7,13 @@
 .btn2,
 .btn3,
 .btn4 {
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
   background: 0;
   border: 0;
-  border-radius: 25px;
 }
 
 .navBar {
@@ -39,17 +43,10 @@
   border-radius: 25px;
 }
 
-.btn3 {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
 .btn2.true,
 .btn1.true,
 .btn3.true {
-  background-color: rgba(150, 150, 150, 0.212);
-  padding: 0.5;
+  border-bottom: 2px solid rgb(17, 127, 252);
 }
 
 .experimenting {
@@ -129,6 +126,7 @@
 @media (max-width: 980px) {
   .navBar {
     flex-direction: column;
+    gap: 10px;
   }
 
   .textboxAreaHome {

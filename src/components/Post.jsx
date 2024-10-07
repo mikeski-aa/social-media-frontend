@@ -26,6 +26,7 @@ function Post(props) {
   const [comments, setComments] = useState([]);
   const [likes, setLikeArray] = useState(props.likeUsers);
   const [likedByUser, setLikedByUser] = useState();
+  const [loadingComments, setLoadingComments] = useState(false);
   const date = dateConversion(props.postDate);
   const authContext = useContext(AuthContext);
   const commentOrigin = props.origin;
@@ -72,10 +73,12 @@ function Post(props) {
   // checking fetching comments only on click
   useEffect(() => {
     const fetchComments = async () => {
+      setLoadingComments(true);
       console.log("FETCHING COMMENTS ONLY ON CLICK");
       const response = await getComments(currentPostId);
 
       setComments(response);
+      setLoadingComments(false);
     };
 
     fetchComments();
@@ -171,6 +174,7 @@ function Post(props) {
               setCommentCount,
               likedByUser,
               commentOrigin,
+              loadingComments,
             }}
           >
             <LikeCommentContainer
@@ -234,6 +238,7 @@ function Post(props) {
               setCommentCount,
               likedByUser,
               commentOrigin,
+              loadingComments,
             }}
           >
             <LikeCommentContainer
@@ -301,6 +306,7 @@ function Post(props) {
             setCommentCount,
             likedByUser,
             commentOrigin,
+            loadingComments,
           }}
         >
           <LikeCommentContainer

@@ -68,6 +68,7 @@ function Home() {
                 likeUsers={item.likes}
                 commentCount={item._count.comments}
                 id={item.user.id}
+                ownerid={item.userId}
               ></Post>
             ))}
             <button

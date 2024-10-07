@@ -124,7 +124,7 @@ function Post(props) {
             </div>
           </div>
           <hr></hr>
-
+          <div>{props.ownerid}</div>
           <PostId.Provider
             value={{
               currentPostId,
@@ -176,7 +176,7 @@ function Post(props) {
             </div>
           </div>
           <hr></hr>
-
+          <div>{props.ownerid}</div>
           <PostId.Provider
             value={{
               currentPostId,
@@ -233,6 +233,7 @@ function Post(props) {
           </div>
         </div>
         <hr></hr>
+        <div>{props.ownerid}</div>
         <PostId.Provider
           value={{
             currentPostId,

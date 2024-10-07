@@ -12,13 +12,13 @@ function dateConversion(inputDate) {
     return `Less than 1 minute ago`;
   } else if (minutes > 1 && minutes < 60) {
     return `${minutes} minutes ago`;
-  } else if (hours < 2 && minutes > 60) {
+  } else if (hours < 2 && hours > 1) {
     return `${hours} hour ago`;
-  } else if (hours < 24 && minutes > 120) {
+  } else if (hours < 24 && hours >= 2) {
     return `${hours} hours ago`;
   } else if (hours > 24 && hours < 48) {
     return `Yesterday`;
-  } else if (hours > 48) {
+  } else if (hours >= 48) {
     const options = {
       weekday: "long",
       day: "numeric",

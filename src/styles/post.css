@@ -56,6 +56,26 @@
   justify-content: space-between;
 }
 
+.deletePostBtnOwner {
+  width: fit-content;
+  position: relative;
+  left: 100%;
+  transform: translateX(-100%);
+  background: none;
+  border: none;
+  height: 15px;
+}
+
+.deletePostIcon:hover {
+  cursor: pointer;
+  background-color: rgba(132, 132, 223, 0.527);
+}
+
+.deletePostIcon {
+  width: 25px;
+  height: 25px;
+}
+
 /* .textImageContainer {
   background-color: red;
   width: 200px;

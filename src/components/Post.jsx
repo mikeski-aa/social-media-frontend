@@ -11,6 +11,7 @@ import { getComments } from "../services/commentCalls";
 import { AuthContext } from "../App";
 // import putStatusLikes from "../services/deprecated_status_calls/putStatusLikes";
 import { putStatusLikes } from "../services/statusCalls";
+import binIcon from "../assets/bin.svg";
 
 export const PostId = createContext();
 
@@ -97,11 +98,25 @@ function Post(props) {
     }
   };
 
+  // handle clicking delete post
+  const handleDeletePostClick = async () => {
+    alert(`delete clicked + ${currentPostId}`);
+  };
+
   // no text only pic
   if (props.text === "") {
     return (
       <>
         <div className="postContainer">
+          {props.userid === authContext.user.id ? (
+            <button className="deletePostBtnOwner">
+              <img
+                src={binIcon}
+                className="deletePostIcon"
+                onClick={handleDeletePostClick}
+              ></img>
+            </button>
+          ) : null}
           <div className="userInfoContainer">
             <PostUserProfile
               profilePic={props.profilePic}
@@ -110,6 +125,7 @@ function Post(props) {
             />
             <div className="postDate">{date}</div>
           </div>
+
           <div className="textImageContainer">
             <img
               src={props.imageUrl}
@@ -124,7 +140,7 @@ function Post(props) {
             </div>
           </div>
           <hr></hr>
-          <div>{props.ownerid}</div>
+
           <PostId.Provider
             value={{
               currentPostId,
@@ -157,6 +173,15 @@ function Post(props) {
     return (
       <>
         <div className="postContainer">
+          {props.userid === authContext.user.id ? (
+            <button className="deletePostBtnOwner">
+              <img
+                src={binIcon}
+                className="deletePostIcon"
+                onClick={handleDeletePostClick}
+              ></img>
+            </button>
+          ) : null}
           <div className="userInfoContainer">
             <PostUserProfile
               profilePic={props.profilePic}
@@ -166,6 +191,7 @@ function Post(props) {
 
             <div className="postDate">{date}</div>
           </div>
+
           <div className="textImageContainer">
             <div className="text">{props.text}</div>
           </div>
@@ -176,7 +202,7 @@ function Post(props) {
             </div>
           </div>
           <hr></hr>
-          <div>{props.ownerid}</div>
+
           <PostId.Provider
             value={{
               currentPostId,
@@ -210,6 +236,15 @@ function Post(props) {
   return (
     <>
       <div className="postContainer">
+        {props.userid === authContext.user.id ? (
+          <button className="deletePostBtnOwner">
+            <img
+              src={binIcon}
+              className="deletePostIcon"
+              onClick={handleDeletePostClick}
+            ></img>
+          </button>
+        ) : null}
         <div className="userInfoContainer">
           <PostUserProfile
             profilePic={props.profilePic}
@@ -218,6 +253,7 @@ function Post(props) {
           />
           <div className="postDate">{date}</div>
         </div>
+
         <div className="textImageContainer">
           <div className="text">{props.text}</div>
           <img
@@ -233,7 +269,6 @@ function Post(props) {
           </div>
         </div>
         <hr></hr>
-        <div>{props.ownerid}</div>
         <PostId.Provider
           value={{
             currentPostId,

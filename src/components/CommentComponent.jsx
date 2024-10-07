@@ -6,6 +6,7 @@ import { useContext, useEffect, useState } from "react";
 // import putCommentLikes from "../services/deprecated_comment_calls/putCommentLikes";
 import { putCommentLikes } from "../services/commentCalls";
 import { AuthContext } from "../App";
+import binIcon from "../assets/bin.svg";
 
 function CommentComponent(props) {
   const authContext = useContext(AuthContext);
@@ -29,8 +30,22 @@ function CommentComponent(props) {
     }
   }, [likes]);
 
+  // handle clicking delete comment
+  const handleDeleteComment = async () => {
+    alert(`delete clicked + ${props.comment.id}`);
+  };
+
   return (
     <div className="commentComponent">
+      {props.comment.userId === authContext.user.id ? (
+        <button className="deletePostBtnOwner">
+          <img
+            src={binIcon}
+            className="deletePostIcon"
+            onClick={handleDeleteComment}
+          ></img>
+        </button>
+      ) : null}
       <div className="commentBackgroundDiv">
         <div className="commentTop">
           <PostUserProfile

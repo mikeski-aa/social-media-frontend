@@ -24,7 +24,7 @@ function Home() {
     return null;
   }
 
-  // this useeffect will load when
+  // this useeffect will load when page is loaded
   useEffect(() => {
     const fetchStatus = async () => {
       console.log("I loaded when the page was refreshed again!");
@@ -69,6 +69,8 @@ function Home() {
                 commentCount={item._count.comments}
                 id={item.user.id}
                 ownerid={item.userId}
+                setStatus={setStatus}
+                setLoading={setLoading}
               ></Post>
             ))}
             <button

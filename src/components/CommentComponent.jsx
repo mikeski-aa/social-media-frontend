@@ -7,6 +7,7 @@ import { useContext, useEffect, useState } from "react";
 import { putCommentLikes } from "../services/commentCalls";
 import { AuthContext } from "../App";
 import binIcon from "../assets/bin.svg";
+import { deleteComment } from "../services/commentCalls";
 
 function CommentComponent(props) {
   const authContext = useContext(AuthContext);
@@ -33,6 +34,9 @@ function CommentComponent(props) {
   // handle clicking delete comment
   const handleDeleteComment = async () => {
     alert(`delete clicked + ${props.comment.id}`);
+    const response = await deleteComment(props.comment.id);
+    console.log(response);
+    // need to add reload of posts to update without refresh
   };
 
   return (

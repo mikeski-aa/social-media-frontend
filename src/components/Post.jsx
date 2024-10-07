@@ -12,6 +12,8 @@ import { AuthContext } from "../App";
 // import putStatusLikes from "../services/deprecated_status_calls/putStatusLikes";
 import { putStatusLikes } from "../services/statusCalls";
 import binIcon from "../assets/bin.svg";
+import { deleteStatus } from "../services/statusCalls";
+import { getStatus } from "../services/statusCalls";
 
 export const PostId = createContext();
 
@@ -101,6 +103,13 @@ function Post(props) {
   // handle clicking delete post
   const handleDeletePostClick = async () => {
     alert(`delete clicked + ${currentPostId}`);
+    props.setLoading(true);
+    const response = await deleteStatus(currentPostId);
+    console.log(response);
+    // need to add reload of comments to update without refresh
+    const fetchNewPosts = await getStatus(10);
+    props.setStatus(fetchNewPosts);
+    props.setLoading(false);
   };
 
   // no text only pic

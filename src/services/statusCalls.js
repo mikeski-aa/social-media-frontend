@@ -140,9 +140,9 @@ async function postImage(image) {
   }
 }
 
-// delete specific comment
+// delete specific status
 async function deleteStatus(statusid) {
-  const url = LOCAL_URL + `status/delete?commentid=${statusid}`;
+  const url = LOCAL_URL + `status/delete?statusid=${statusid}`;
   const headerinfo = {
     Authorization: "bearer " + localStorage.getItem("token"),
     Accept: "application/json",

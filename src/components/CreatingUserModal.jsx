@@ -1,5 +1,6 @@
 import loadingServer from "../assets/server.gif";
 import "../styles/creatingusermodal.css";
+
 function CreatingUserModal() {
   return (
     <div className="modalContainer">

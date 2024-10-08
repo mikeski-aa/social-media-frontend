@@ -18,7 +18,6 @@ async function getPostsByUser(limit, id) {
     }
 
     const json = await response.json();
-    console.log(json);
     return json;
   } catch (error) {
     console.log(error);
@@ -44,7 +43,7 @@ async function getStatus(postCount) {
     }
 
     const json = await response.json();
-    console.log(json);
+
     return json;
   } catch (error) {
     console.log(error);
@@ -119,7 +118,6 @@ async function postImage(image) {
   const myForm = new FormData();
   myForm.append("picture", image);
 
-  console.log(url);
   try {
     const response = await fetch(url, {
       method: "POST",

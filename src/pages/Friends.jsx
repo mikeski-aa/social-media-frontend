@@ -44,7 +44,6 @@ function Friends() {
         getIncomingRequests(),
       ]);
       setLoadingFriends(false);
-      console.log(friends.friends);
       setFriends(friends.friends);
       setRequests(requests);
     };
@@ -136,7 +135,7 @@ function Friends() {
 
         {requests.length < 1 ? null : (
           <button className="incomingReqs" onClick={handleRequestsOpen}>
-            Incoming friend requests: {requests.length}
+            Friend request: {requests.length}
           </button>
         )}
 

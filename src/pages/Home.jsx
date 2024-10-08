@@ -27,7 +27,6 @@ function Home() {
   // this useeffect will load when page is loaded
   useEffect(() => {
     const fetchStatus = async () => {
-      console.log("I loaded when the page was refreshed again!");
       // need to first get an array of posts
       // afterwards we want to fetch maximum of 10 posts ordered
       setLoading(true);

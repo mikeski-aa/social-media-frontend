@@ -42,8 +42,6 @@ function Post(props) {
   // set like array on post loading
   useEffect(() => {
     let filtered = likes.filter((item) => item === authContext.user.id);
-    console.log(`Filtered likes: ${filtered}`);
-    console.log(filtered.length);
 
     if (filtered.length === 0) {
       setLikedByUser(false);
@@ -63,10 +61,8 @@ function Post(props) {
 
   // call service to like / unlike
   const handleLikeClick = async () => {
-    console.log("like clicked");
-
     const response = await putStatusLikes(currentPostId);
-    console.log(response.likes);
+
     setLikeArray(response.likes);
   };
 
@@ -74,7 +70,7 @@ function Post(props) {
   useEffect(() => {
     const fetchComments = async () => {
       setLoadingComments(true);
-      console.log("FETCHING COMMENTS ONLY ON CLICK");
+
       const response = await getComments(currentPostId);
 
       setComments(response);
@@ -86,7 +82,6 @@ function Post(props) {
 
   // side effect for updating whether user is liking the post, to occur when likes array changes
   useEffect(() => {
-    console.log("side effect running");
     const filteredArray = likes.filter((item) => item === authContext.user.id);
     if (filteredArray.length === 1) {
       setLikedByUser(true);
@@ -107,10 +102,9 @@ function Post(props) {
 
   // handle clicking delete post
   const handleDeletePostClick = async () => {
-    if (confirm("Do you want to delete?") === true) {
+    if (confirm("Do you want to delete your post?") === true) {
       props.setLoading(true);
       const response = await deleteStatus(currentPostId);
-      console.log(response);
 
       // depending on origin, use appropriate fetch of new comments to update feed
       if (props.origin === "home") {

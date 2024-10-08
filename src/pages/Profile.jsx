@@ -33,8 +33,6 @@ function Profile() {
     return null;
   }
   const { id } = useParams();
-  console.log("params id result goes here");
-  console.log(id);
 
   // load posts on component load
   useEffect(() => {

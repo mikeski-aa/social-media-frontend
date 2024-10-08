@@ -16,9 +16,6 @@ async function checkLoginStatus() {
 
     const json = await response.json();
 
-    console.log("json log");
-    console.log(json.id);
-
     const userInfo = {
       validated: true,
       username: json.username,

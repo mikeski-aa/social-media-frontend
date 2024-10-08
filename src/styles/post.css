@@ -79,6 +79,10 @@
   transition-duration: 0.5s;
 }
 
+.text {
+  margin-bottom: 5px;
+}
+
 /* .textImageContainer {
   background-color: red;
   width: 200px;

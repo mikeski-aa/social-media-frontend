@@ -27,13 +27,6 @@ function Nav() {
   }
 
   useEffect(() => {
-    console.log("///////////////////////////////");
-    console.log("///////////////////////////////");
-    console.log("///////////////////////////////");
-    console.log("///////////////////////////////");
-    console.log("///////////////////////////////");
-    console.log("changed pathname");
-
     if (window.location.pathname === "/friends") {
       setActiveFriends(true);
       setActiveHome(false);

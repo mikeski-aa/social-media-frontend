@@ -198,6 +198,10 @@
   border-color: rgb(17, 127, 252);
 }
 
+.editProfileBtn {
+  width: fit-content;
+}
+
 @media (max-width: 600px) {
   .editProfileButtonDiv {
     transform: translateX(-60%);

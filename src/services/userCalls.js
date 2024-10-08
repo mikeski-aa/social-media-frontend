@@ -15,8 +15,7 @@ async function getSearchUsers(username) {
     }
 
     const json = await response.json();
-    console.log("search result");
-    console.log(json);
+
     return json;
   } catch (error) {
     console.log(error);
@@ -32,7 +31,6 @@ async function getUser(id) {
   };
 
   try {
-    console.log(url);
     const response = await fetch(url, {
       method: "GET",
       headers: headerinfo,
@@ -43,7 +41,7 @@ async function getUser(id) {
     }
 
     const json = await response.json();
-    console.log(json);
+
     return json;
   } catch (error) {
     console.log(error);
@@ -61,7 +59,6 @@ async function postNewBanner(image) {
   const myForm = new FormData();
   myForm.append("picture", image);
 
-  console.log(url);
   try {
     const response = await fetch(url, {
       method: "POST",
@@ -74,7 +71,7 @@ async function postNewBanner(image) {
     }
 
     const json = await response.json();
-    console.log(json);
+
     return json;
   } catch (error) {
     console.log(error);
@@ -105,7 +102,7 @@ async function postNewUserPic(image) {
     }
 
     const json = await response.json();
-    console.log(json);
+
     return json;
   } catch (error) {
     console.log(error);
@@ -127,8 +124,6 @@ async function postUser(username, password, confirmPassword, email) {
     email: email,
   };
 
-  console.log(body);
-  console.log(url);
   try {
     const response = await fetch(url, {
       method: "POST",
@@ -137,7 +132,7 @@ async function postUser(username, password, confirmPassword, email) {
     });
 
     const json = await response.json();
-    console.log(json);
+
     return json;
   } catch (error) {
     console.log(error);

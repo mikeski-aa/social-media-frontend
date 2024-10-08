@@ -45,12 +45,10 @@ function Register() {
 
     // password mismatch message or general validation error
     if (response.message === "Password mismatch") {
-      console.log("Mismatch");
       setErrorStatus("show");
       setLoading(false);
       return setErrorText("Passwords need to match!");
     } else if (response.message === "Input validation failed") {
-      console.log("Validation failed");
       setErrorStatus("show");
       setLoading(false);
       return setErrorText(

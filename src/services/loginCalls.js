@@ -77,8 +77,6 @@ async function postGuestLogin() {
     // save token in localstorage
     localStorage.setItem("token", json.token);
 
-    console.log(json);
-
     return json;
   } catch (error) {
     console.log(error);

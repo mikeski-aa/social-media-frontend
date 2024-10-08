@@ -57,6 +57,7 @@ function NewPostDivBoxHome(props) {
     // also, after an image is uploaded, we should fetch all statuses again and force the posts to reload
     // that way our new post will show up
     // TODO: ADD LOADING WHEN CLICKED
+    props.setLoading(true);
     if (picInput != "") {
       const imageUpload = await postImage(picInput);
       const response = await postStatus(textInput, imageUpload.result.url);
@@ -69,6 +70,7 @@ function NewPostDivBoxHome(props) {
       // fetch updated db
       const status = await getStatus(10);
       props.setStatus(status);
+      props.setLoading(false);
       return console.log(response);
     } else {
       console.log("no upload pic");
@@ -82,6 +84,7 @@ function NewPostDivBoxHome(props) {
       // fetch updated db
       const status = await getStatus(10);
       props.setStatus(status);
+      props.setLoading(false);
       return console.log(response);
     }
   };

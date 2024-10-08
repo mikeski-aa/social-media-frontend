@@ -50,6 +50,7 @@ function Home() {
         <NewPostDivBoxHome
           setPostModal={setPostModal}
           setStatus={setStatus}
+          setLoading={setLoading}
         ></NewPostDivBoxHome>
         <div className="mainFeed">
           <h3 className="homeYourFeedHeading">Your feed</h3>

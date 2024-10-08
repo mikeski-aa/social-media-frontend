@@ -172,18 +172,22 @@ function UserProfileForId() {
                 commentCount={item._count.comments}
               ></Post>
             ))}
-            <button className="loadMoreProfile" onClick={handleShowMore}>
-              Show more
-            </button>
+            {userPosts.length > 1 ? (
+              <button className="loadMoreProfile" onClick={handleShowMore}>
+                Show more
+              </button>
+            ) : null}
           </div>
           <div className={"profileCommentContainer " + showComments}>
             {userComments.length === 0 ? <div>User has no comments</div> : null}
             {userComments.map((comment) => (
               <CommentComponent comment={comment} key={comment.id} />
             ))}
-            <button className="loadMoreProfile" onClick={handleShowMore}>
-              Show more
-            </button>
+            {userComments.length > 1 ? (
+              <button className="loadMoreProfile" onClick={handleShowMore}>
+                Show more
+              </button>
+            ) : null}
           </div>
         </div>
       </div>

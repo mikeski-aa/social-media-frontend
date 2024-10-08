@@ -15,7 +15,6 @@ function Home() {
   const [status, setStatus] = useState([]);
   const [fetchCount, setFetchCount] = useState(10);
   const [loading, setLoading] = useState(false);
-  const [inputAreaValue, setInputAreaValue] = useState("");
 
   const authContext = useContext(AuthContext);
 
@@ -57,6 +56,9 @@ function Home() {
 
           <div className="allPostContainer">
             {loading ? <LoadingHamster text={"your feed"} /> : null}
+            {!loading && status.length < 1 ? (
+              <div>Your feed is empty! Write a new post, or add friends</div>
+            ) : null}
             {status.map((item) => (
               <Post
                 text={item.text}
@@ -77,12 +79,16 @@ function Home() {
                 setLoading={setLoading}
               ></Post>
             ))}
-            <button
-              className="loadMoreContentBtn"
-              onClick={handleLoadMoreClick}
-            >
-              Load more
-            </button>
+
+            {status.length > 1 ? (
+              <button
+                className="loadMoreContentBtn"
+                onClick={handleLoadMoreClick}
+              >
+                Load more
+              </button>
+            ) : null}
+
             <div className="emptyDivForSpace">space</div>
           </div>
         </div>

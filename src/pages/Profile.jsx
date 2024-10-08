@@ -127,6 +127,9 @@ function Profile() {
             </button>
           </div>
           {loading ? <LoadingHamster text="content" /> : null}
+          {!loading && userPosts.length < 1 && !showComments ? (
+            <div>You have no posts</div>
+          ) : null}
           <div className={"profilePostsContainer " + showPosts}>
             {userPosts.map((item) => (
               <Post
@@ -147,13 +150,20 @@ function Profile() {
                 setStatus={setUserPosts}
               ></Post>
             ))}
-            <button className="loadMoreProfile" onClick={handleShowMore}>
-              Show more
-            </button>
+
+            {userPosts.length > 1 ? (
+              <button className="loadMoreProfile" onClick={handleShowMore}>
+                Show more
+              </button>
+            ) : null}
+
             <div className="emptyDivForSpace">space</div>
           </div>
           <div className={"profileCommentContainer " + showComments}>
             {commentLoading ? <LoadingHamster text="comments" /> : null}
+            {!commentLoading && userComments.length < 1 ? (
+              <div>You have no comments</div>
+            ) : null}
             {userComments.map((comment) => (
               <CommentComponent
                 comment={comment}
@@ -163,9 +173,13 @@ function Profile() {
                 setUserComments={setUserComments}
               />
             ))}
-            <button className="loadMoreProfile" onClick={handleShowMore}>
-              Show more
-            </button>
+
+            {userComments.length > 1 ? (
+              <button className="loadMoreProfile" onClick={handleShowMore}>
+                Show more
+              </button>
+            ) : null}
+
             <div className="emptyDivForSpace">space</div>
           </div>
         </div>

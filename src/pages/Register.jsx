@@ -4,6 +4,7 @@ import { useState } from "react";
 import { postUser } from "../services/userCalls";
 import { Link, useNavigate } from "react-router-dom";
 import headerImage from "../assets/headerimage.png";
+import CreatingUserModal from "../components/CreatingUserModal";
 
 function Register() {
   const [usernameInput, setUsernameInput] = useState("");
@@ -12,6 +13,7 @@ function Register() {
   const [confirmPasswordInput, setConfirmPasswordInput] = useState("");
   const [errorStatus, setErrorStatus] = useState("hide");
   const [errorText, setErrorText] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   // input handlers
@@ -33,6 +35,7 @@ function Register() {
 
   const handleRegister = async (e) => {
     e.preventDefault();
+    setLoading(true);
     const response = await postUser(
       usernameInput,
       passwordInput,
@@ -44,10 +47,12 @@ function Register() {
     if (response.message === "Password mismatch") {
       console.log("Mismatch");
       setErrorStatus("show");
+      setLoading(false);
       return setErrorText("Passwords need to match!");
     } else if (response.message === "Input validation failed") {
       console.log("Validation failed");
       setErrorStatus("show");
+      setLoading(false);
       return setErrorText(
         "Error creating user, make sure credentials are unique and valid"
       );
@@ -57,12 +62,13 @@ function Register() {
     if (typeof response.error != "undefined") {
       if (response.error.code === "P2002") {
         setErrorStatus("show");
+        setLoading(false);
         return setErrorText(
           "Error creating user, make sure credentials are unique and valid"
         );
       }
     }
-
+    setLoading(false);
     return navigate("/login");
   };
 
@@ -73,6 +79,7 @@ function Register() {
   return (
     <>
       <div className="formBoxContainer">
+        {loading ? <CreatingUserModal /> : null}
         <div className="leftLoginBanner">
           <img src={headerImage} className="headerImageLogin"></img>
           <div className="headerTextLogin">

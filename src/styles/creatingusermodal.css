@@ -1,0 +1,28 @@
+.modalContainer {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  background-color: rgba(189, 189, 189, 0.445);
+  backdrop-filter: blur(5px);
+}
+
+.modalContent {
+  position: relative;
+  left: 50%;
+  top: 25%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  font-size: 2rem;
+  font-weight: 700;
+  align-items: center;
+}
+
+.loadingServerGif {
+  width: 250px;
+  height: 250px;
+}

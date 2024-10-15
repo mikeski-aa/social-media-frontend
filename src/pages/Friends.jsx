@@ -16,7 +16,6 @@ import LoadingHamster from "../components/LoadingHamster";
 
 export const FriendsContext = createContext();
 
-//TODO: INVESTIGATE DOUBLE LOADING of current friends on page load
 function Friends() {
   const authContext = useContext(AuthContext);
   useRedirectValidFail(authContext.err);

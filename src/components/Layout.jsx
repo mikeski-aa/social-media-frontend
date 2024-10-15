@@ -14,9 +14,10 @@ function Layout() {
   // not sure if this is the best way to do it
   if (authContext.isLoading) {
     return (
-      <>
+      <div className="loadingMainPage">
         <h1>LOADING...</h1>
-      </>
+        <h3>Please be patient, our servers are waking up!</h3>
+      </div>
     );
   }
 
